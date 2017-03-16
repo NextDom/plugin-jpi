@@ -2,7 +2,7 @@
 <info>
     <id>JPI</id>
     <name>Jeedom Paw Interface</name>
-    <description>Plugin pour le pilotage de l\applicaton JPI</description>
+    <description>Plugin pour le pilotage de l'application JPI</description>
     <icon>fa fa-mobile</icon>
     <licence>AGPL</licence>
     <author>Jérôme MARTINEZ</author>
