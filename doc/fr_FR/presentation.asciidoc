@@ -31,7 +31,7 @@ Catégorie téléphonie
 - Appel
 ----
 
-Petits plus du plugin 
+Petits plus du plugin :
 ----
 1 - Il sera compatible avec la fonction ASK. Il sera donc possible de recevoir des questions par SMS de votre Jeedom et d'y répondre !
 2 - Une fonction "Broadcast TTS" qui sert à diffuser un message ou une annonce sur l'ensemble des périphériques JPI
