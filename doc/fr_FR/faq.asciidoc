@@ -10,4 +10,10 @@ Il faut vérifier les informations de connexion (adresse/port).
 Non pas pour le moment.
 
 
+===== Pourquoi le TTS ne fonctionne pas ?
+Il faut bien renseigner le champ Broadcast [Activé/active] ou [Désactivé/désactivé]
 
+
+
+===== Comment contrôler les requêtes envoyées au(x) périphérique(s) JPI ?
+Il faut configuré la journalisation du plugin sur INFO et les logs seront contenus dans le journal JPI.
