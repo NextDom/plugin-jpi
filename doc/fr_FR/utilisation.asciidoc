@@ -1,0 +1,50 @@
+== Comment emettre un TTS ?
+Créer une commande comme ci-dessous.
+
+*Nb :* Les langues du device JPI sont détectées par une requêtes.
+
+image::../images/TTS.png[]
+
+
+Et ensuite associer cette commande dans un scénario.
+
+*Nb :* C'est à ce moment là qu'on activer ou non le Brodacast TTS ou non.
+
+image::../images/Scénario_TTS.png[]
+
+
+
+== Comment envoyer un SMS ?
+Créer une commande comme ci-dessous et ensuite l'associer dans un scénario.
+
+image::../images/SMS.png[]
+
+
+
+== Comment appeler quelqu'un ?
+Créer une commande comme ci-dessous et ensuite l'associer dans un scénario.
+
+image::../images/CALL.png[]
+
+
+
+== Comment jouer un fichier audio ?
+Créer une commande comme ci-dessous et ensuite l'associer dans un scénario.
+
+image::../images/MEDIA.png[]
+
+
+
+== Comment jouer prendre une photo ?
+Créer une commande comme ci-dessous et ensuite l'associer dans un scénario.
+
+*Nb :* Il faut recopier la résolution depuis l'application JPI
+
+image::../images/PICTURE.png[]
+
+
+
+== Comment régler le volume de du device JPI ?
+Créer une commande comme ci-dessous et ensuite l'associer dans un scénario.
+
+image::../images/VOLUME.png[]
