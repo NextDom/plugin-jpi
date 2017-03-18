@@ -11,7 +11,7 @@ Aucune commande n'est créé automatiquement, il faut donc, en fonction des beso
 
 ** *Partie n°1 :* Nom de la commande
 ** *Partie n°2 :* Menu déroulant pour choir une fonction JPI
-** *Partie n°3 :* champ dynamique qui changera en fonction de la commande choisie (paramètre 1 : langue, caméra, volume ou numéro de téléphone, etc.)
-** *Partie n°4 :* champ dynamique qui changera en fonction de la commande choisie (paramètre 2 : résolution caméra, média, etc.)
+** *Partie n°3 :* champ dynamique qui change en fonction de la commande choisie (paramètre 1 : langue, caméra, volume ou numéro de téléphone, etc.)
+** *Partie n°4 :* champ dynamique qui change en fonction de la commande choisie (paramètre 2 : résolution caméra, média, etc.)
 
 image::../images/Commandes.png[]
