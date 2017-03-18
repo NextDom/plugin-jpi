@@ -1,0 +1,13 @@
+===== Pourquoi est-ce que j'ai eu une cranté lors de l'édition d'un device JPI  ?
+Le plugin fait une requete sur le device JPI pour récupérer les langues installées. Cela génér une roue crantée pendant quelques secondes, mais n'affecte en rien les performances de votre jeedom
+
+
+===== Pourquoi le plugin ne detecte aucune langue  ?
+Il faut vérifier les informations de connexion (adresse/port).
+
+
+===== Est-ce que le plugin est compatible HTTPS ?
+Non pas pour le moment
+
+
+
