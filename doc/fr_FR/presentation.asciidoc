@@ -1,6 +1,4 @@
-Ce plugin permet d'utiliser  l'application android JPI.
-
-Il permet d'utiliser facilement les fonctions suivantes : 
+Ce plugin permet d'utiliser facilement l'application android *JPI*. Il permet d'utiliser les fonctions suivantes : 
 ----
 Catégorie fonction
 - Notification 
@@ -32,7 +30,6 @@ Catégorie téléphonie
 ----
 
 Petits plus du plugin :
-----
-1 - Il sera compatible avec la fonction ASK. Il sera donc possible de recevoir des questions par SMS de votre Jeedom et d'y répondre !
-2 - Une fonction "Broadcast TTS" qui sert à diffuser un message ou une annonce sur l'ensemble des périphériques JPI
-----
+
+* Il sera compatible avec la fonction ASK. Il sera donc possible de recevoir des questions de votre Jeedom par SMS et d'y répondre !
+* Une fonction "Broadcast TTS" qui sert à diffuser un message ou une annonce sur l'ensemble des périphériques JPI
