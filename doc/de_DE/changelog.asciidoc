@@ -1,7 +1,7 @@
-* Version 1.01 (version en cours)
-** Correction des coquilles
-** Amélioration de l'utilisatin du broadcast TTS
-** Création documentation
+* Version 1.01 (Aktuelle Version)
+** Fehler korrigiert
+** Verbesserte Verwendung von TTS Broadcast
+** Dokumentation erstellt
 
-* Version 1.0 (version market 2017-03-16 22:01:25)
-** Plugin initial
+* Version 1.0 (Markt Version 2017-03-16 22:01:25)
+** Erste Plugin Version
