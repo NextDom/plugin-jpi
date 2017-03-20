@@ -127,7 +127,7 @@ class JPICmd extends cmd
     public function preSave()
     {
         if ($this->getConfiguration('jpiAction') == 'TOAST') {
-            $this->setDisplay('message_placeholder', __('Tost', __FILE__));
+            $this->setDisplay('message_placeholder', __('Toast', __FILE__));
             $this->setDisplay('title_disable', 1);
         }
         if ($this->getConfiguration('jpiAction') == 'NOTIF') {
@@ -136,7 +136,7 @@ class JPICmd extends cmd
         }
         
         if ($this->getConfiguration('jpiAction') == 'TTS') {
-            $this->setDisplay('title_placeholder', __('Broadcast', __FILE__));
+            $this->setDisplay('title_placeholder', __('Broadcast [Activé,Désactivé]', __FILE__));
         }
         if ($this->getConfiguration('jpiAction') == 'SMS') {
             $this->setDisplay('title_disable', 1);
@@ -152,13 +152,13 @@ class JPICmd extends cmd
             
             case 'TTS':
                 
-                if (($_options['title']) == 'non') {
+                if (($_options['title']) == 'Désactivé' || ($_options['title']) == 'désactivé') {
                     $url = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . '&volume=' . $this->getConfiguration('jpiVolume') . '&voice=' . $this->getConfiguration('jpiVoice') . '&queue=1&wait=1';
                     log::add('JPI', 'info', 'Commande TTS envoyée au périphérique JPI : ' . $url);
                     $request_http = new com_http($url);
                     $request_http->exec(10, 1);
                     break;
-                } elseif (($_options['title']) == 'oui') {
+                } elseif (($_options['title']) == 'Activé' || ($_options['title']) == 'activé') {
                     $eqLogics = eqLogic::byType('JPI');
                     foreach ($eqLogics as $jpidevice) {
                         $ip   = $jpidevice->getConfiguration('jpiIp');
@@ -172,8 +172,8 @@ class JPICmd extends cmd
                     break;
                 }
             
-            
-            
+                    break;      
+                
             case 'SMS':
                 if (isset($_options['answer'])) {
                     $_options['message'] .= ' (' . implode(';', $_options['answer']) . ')';

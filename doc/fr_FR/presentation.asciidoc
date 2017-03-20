@@ -1,0 +1,35 @@
+Ce plugin permet d'utiliser facilement l'application android *JPI*. Il permet d'utiliser les fonctions suivantes : 
+----
+Catégorie fonction
+- Notification 
+- Toast
+
+Catégorie média
+- Flash
+- Mute
+- Next
+- Pause
+- Play
+- Photo
+- Stop
+- TTS
+- Unmute
+- Volume
+- Vibration
+
+Catégorie moteur
+- Arrêt
+- Redémarrage
+
+Catégorie système
+- Redémarrage
+
+Catégorie téléphonie
+- SMS
+- Appel
+----
+
+Petits plus du plugin :
+
+* Il sera compatible avec la fonction ASK. Il sera donc possible de recevoir des questions de votre Jeedom par SMS et d'y répondre !
+* Une fonction "Broadcast TTS" qui sert à diffuser un message ou une annonce sur l'ensemble des périphériques JPI

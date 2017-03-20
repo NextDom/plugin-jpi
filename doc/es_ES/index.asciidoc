@@ -1,26 +1,25 @@
 :icons:
-== Template
+= Plugin Jeedom Paw Interface
 
 === Description
-Plugin servant de base pour les plugins.
-Attention lors de l'utilisation à bien remplacer tous les templates par l'id de votre plugin.
 
-"
-=== Création plugin partie 1 : l'arborescence
-include::partie_1.asciidoc[]
+Plugin pour le pilotage de l'application android Jeedom Paw Interface.
 
-"
-=== Création plugin partie 2 : plugin info
-include::partie_2.asciidoc[]
+=== Présentation
+include::presentation.asciidoc[]
 
-"
-=== Création plugin partie 3 : dossier desktop
-include::partie_3.asciidoc[]
+'''
+=== Configuration
+include::configuration.asciidoc[]
 
-"
-=== Création plugin partie 4 : dossier core
-include::partie_4.asciidoc[]
+'''
+=== Cas d’utilisation
+include::utilisation.asciidoc[]
 
-"
+'''
 === FAQ
 include::faq.asciidoc[]
+
+'''
+=== Changelog
+include::changelog.asciidoc[]
