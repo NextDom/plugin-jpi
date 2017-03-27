@@ -152,7 +152,7 @@ class JPICmd extends cmd
             
             case 'TTS':
                 
-                if (($_options['title']) == 'Désactivé' || ($_options['title']) == 'désactivé') {
+                if (($_options['title']) == 'Désactivé' || ($_options['title']) == 'désactivé' || ($_options['title']) == '') {
                     $url = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . '&volume=' . $this->getConfiguration('jpiVolume') . '&voice=' . $this->getConfiguration('jpiVoice') . '&queue=1&wait=1';
                     log::add('JPI', 'info', 'Commande TTS envoyée au périphérique JPI : ' . $url);
                     $request_http = new com_http($url);
