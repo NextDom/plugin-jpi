@@ -166,7 +166,9 @@ class JPICmd extends cmd
                         $url  = 'http://' . $ip . ':' . $port . '/?action=tts&message=' . urlencode($_options['message']) . '&volume=' . $this->getConfiguration('jpiVolume') . '&voice=' . $this->getConfiguration('jpiVoice') . '&queue=1&wait=1';
                         log::add('JPI', 'info', 'Commande TTS BROADCAST envoyée au périphérique JPI : ' . $url);
                         $request_http = new com_http($url);
-                        $request_http->exec(10, 1);
+ 						$request_http->setNoReportError(true);                                           
+                        $request_http->exec(0.1,1);
+                      
                         
                     }
                     break;
@@ -351,6 +353,20 @@ class JPICmd extends cmd
                 $request_http = new com_http($url);
                 $request_http->exec(10);
                 break;
+            
+            case 'SCREENON':
+                $url = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '?action=screenOn';
+                log::add('JPI', 'info', 'Commande SCREENON envoyée au périphérique JPI : ' . $url);
+                $request_http = new com_http($url);
+                $request_http->exec(10);
+                break;
+            
+            case 'SCREENOFF':
+                $url = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '?action=screenOff';
+                log::add('JPI', 'info', 'Commande SCREENOFF envoyée au périphérique JPI : ' . $url);
+                $request_http = new com_http($url);
+                $request_http->exec(10);
+                break;                
         }
     }
     
