@@ -1,0 +1,3012 @@
+{
+	"ACTIONS": {
+	  "CAT": {
+	    "CORE": [ "gear", "Moteur"],
+	    "JEEDOM": [ "jpi jeedom", "Jeedom", "Jeedom"],
+	    "EEDOMUS": [ "jpi eedomus", "Eedomus", "Eedomus"],
+	    "APK": [ "mobile", "Application (APK)"],
+	    "SYSTEM": [ "android", "Système"],
+	    "PHONE": [ "phone", "Téléphonie", "Telephony"],
+	    "MEDIA": [ "play", "Médias"],
+	    "COM": [ "globe", "Communication"],
+	    "FUNCTIONS": [ "wrench", "Fonctions"],
+	    "SENSORS": [ "eye", "Capteurs", "Sensors"],
+	    "CAMERA": [ "camera", "Caméra", "Camera"],
+	    "INFO": [ "info", "Informations"]
+	  },
+	  "ACTIONS": {
+	    "getVersion": {
+	      "category": "INFO",
+	      "header": "Version du moteur",
+	      "description": "Retourne la version du soft"
+	    },
+	    "getDeviceName": {
+	      "category": "INFO",
+	      "header": "Nom de l’appareil",
+	      "description": "Retourne la marque et le modèle de l’appareil"
+	    },
+	    "getState": {
+	      "category": "INFO",
+	      "header": "Valeur mot clef d’état",
+	      "description": "Retourne la valeur d’un mot clef d’état",
+	      "params": {
+	        "keyword": {
+	          "required": true,
+	          "description": "Mot clef d’état",
+	          "type": "select",
+	          "magic": true,
+	          "magic_data": [
+	            { "title": "<i class=\"fa fa-signal gray\"></i><span>{</span>GSM<span>}</span>", "cmd": "GSM", "addClass": "HIDE_Telephony HIDE_Gsm_Check" },
+	            { "title": "<i class=\"fa fa-wifi gray\"></i><span>{</span>WIFI<span>}</span>", "cmd": "WIFI" },
+	            { "title": "<i class=\"fa fa-arrows-alt gray\"></i><span>{</span>GATEWAY<span>}</span>", "cmd": "GATEWAY", "addClass": "Gateway_Check" },
+	            { "title": "<i class=\"fa fa-globe gray\"></i><span>{</span>INTERNET<span>}</span>", "cmd": "INTERNET", "addClass": "Internet_Check" },
+	            { "title": "<i class=\"fa fa-jpi jeedom gray\"></i><span>{</span>JEEDOM<span>}</span>", "cmd": "JEEDOM", "addClass": "HIDE_Jeedom HIDE_Jeedom_Check" },
+	            { "title": "<i class=\"fa fa-jpi jeedom gray\"></i><span>{</span>JEEDOM_SLAVE<span>}</span>", "cmd": "JEEDOM_SLAVE", "addClass": "HIDE_Jeedom HIDE_Jeedom_CheckSlave" },
+	            { "title": "<i class=\"fa fa-jpi eedomus gray\"></i><span>{</span>EEDOMUS<span>}</span>", "cmd": "EEDOMUS", "addClass": "HIDE_Eedomus HIDE_Eedomus_Check" },
+	            { "title": "<i class=\"fa fa-id-badge gray\"></i><span>{</span>CUSTOM_1<span>}</span>", "cmd": "CUSTOM_1", "addClass": "HIDE_Custom1_Check" },
+	            { "title": "<i class=\"fa fa-id-badge gray\"></i><span>{</span>CUSTOM_2<span>}</span>", "cmd": "CUSTOM_2", "addClass": "HIDE_Custom1_Check HIDE_Custom2_Check" },
+	            { "title": "<i class=\"fa fa-id-badge gray\"></i><span>{</span>CUSTOM_3<span>}</span>", "cmd": "CUSTOM_3", "addClass": "HIDE_Custom1_Check HIDE_Custom3_Check" },
+	            { "title": "<i class=\"fa fa-eye-slash gray\"></i><span>{</span>PROXIMITY<span>}</span>", "cmd": "PROXIMITY", "addClass": "HIDE_Sensors HIDE_Proximity_Check" },
+	            { "title": "<i class=\"fa fa-lightbulb-o gray\"></i><span>{</span>LIGHT<span>}</span>", "cmd": "LIGHT", "addClass": "HIDE_Sensors HIDE_Light_Check" },
+	            { "title": "<i class=\"fa fa-tachometer gray\"></i><span>{</span>PRESSURE<span>}</span>", "cmd": "PRESSURE", "addClass": "HIDE_Sensors HIDE_Pressure_Check" },
+	            { "title": "<i class=\"fa fa-tint gray\"></i><span>{</span>HUMIDITY<span>}</span>", "cmd": "HUMIDITY", "addClass": "HIDE_Sensors HIDE_Humidity_Check" },
+	            { "title": "<i class=\"fa fa-thermometer-half gray\"></i><span>{</span>TEMPERATURE<span>}</span>", "cmd": "TEMPERATURE", "addClass": "HIDE_Sensors HIDE_Temperature_Check" },
+	            { "title": "<i class=\"fa fa-plug gray\"></i><span>{</span>POWER<span>}</span>", "cmd": "POWER" },
+	            { "title": "<i class=\"fa fa-battery-half gray\"></i><span>{</span>BATTERY<span>}</span>", "cmd": "BATTERY" },
+	            { "title": "<i class=\"fa fa-play-circle gray\"></i><span>{</span>IS_PLAYING<span>}</span>", "cmd": "IS_PLAYING" },
+	            { "title": "<i class=\"fa fa-play gray\"></i><span>{</span>IS_SPEAKING<span>}</span>", "cmd": "IS_SPEAKING" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-hashtag\"></i>Mot clef d’état"
+	        }
+	      }
+	    },
+	    "interaction": {
+	      "category": "JEEDOM",
+	      "noplug": [ "jeedom" ],
+	      "header": "Lance une intéraction",
+	      "description": "Lance une intéraction Jeedom",
+	      "params": {
+	        "message": {
+	          "required": true,
+	          "description": "Message à envoyer",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 500
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 500
+	          }
+	        }
+	      }
+	    },
+	    "scenario": {
+	      "category": "JEEDOM",
+	      "noplug": [ "jeedom" ],
+	      "header": "Contrôle un scénario",
+	      "description": "Contrôle un scénario Jeedom",
+	      "params": {
+	        "id": {
+	          "required": true,
+	          "description": "ID du scénario",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        },
+	        "op": {
+	          "required": true,
+	          "description": "Opération à effectuer sur le scénario",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-play gray\"></i>Démarrer", "cmd": "start" },
+	            { "title": "<i class=\"fa fa-stop gray\"></i>Arrêter", "cmd": "stop" },
+	            { "title": "<i class=\"fa fa-toggle-off gray\"></i>Désactiver", "cmd": "deactivate" },
+	            { "title": "<i class=\"fa fa-toggle-on gray\"></i>Activer", "cmd": "activate" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-fire\"></i>Opération"
+	        },
+	        "tags": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Tags à envoyer au scénario (start uniquement)",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Ex: montag1=1 montag2=2",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 500
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 500
+	          }
+	        }
+	      }
+	    },
+	    "getCmd": {
+	      "category": "JEEDOM",
+	      "noplug": [ "jeedom" ],
+	      "header": "Commande ’info’",
+	      "description": "Retourne la valeur d’une commande Jeedom de type ’Info’",
+	      "params": {
+	        "id": {
+	          "required": true,
+	          "description": "ID de la commande",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        }
+	      }
+	    },
+	    "setCmd": {
+	      "category": "JEEDOM",
+	      "noplug": [ "jeedom" ],
+	      "header": "Commande ’action’",
+	      "description": "Exécute une commande Jeedom de type ’Action’",
+	      "params": {
+	        "id": {
+	          "required": true,
+	          "description": "ID de la commande",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        },
+	        "slider": {
+	          "required": false,
+	          "defaultValue": null,
+	          "description": "Valeur pour une commande de sous-type ’curseur’",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        },
+	        "title": {
+	          "required": false,
+	          "defaultValue": null,
+	          "description": "Titre pour une commande de sous-type ’message’",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 80
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 80
+	          }
+	        },
+	        "message": {
+	          "required": false,
+	          "defaultValue": null,
+	          "description": "Message pour une commande de sous-type ’message’",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 3000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 3000
+	          }
+	        },
+	        "color": {
+	          "required": false,
+	          "defaultValue": null,
+	          "description": "Couleur pour une commande de sous-type ’couleur’",
+	          "type": "color",
+	          "attr": {
+	            "maxLength": 7
+	          },
+	          "check": {
+	            "type": "color"
+	          },
+	          "magic_header": "Couleur"
+	        }
+	      }
+	    },
+	    "askJeedomPlug": {
+	      "category": "JEEDOM",
+	      "noplug": [ "jeedom" ],
+	      "events": "all",
+	      "header": "Répond au ASK (plug JPI)",
+	      "description": "Répond à l’action ’ASK’ des scénarios Jeedom (plugin JPI)",
+	      "addClass": "Jeedom",
+	      "params": {
+	        "response": {
+	          "required": true,
+	          "description": "Contenu de la réponse",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Cette action requiert le plugin ’JPI Plugin’ installé sur votre Jeedom",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 5000
+	          }
+	        }
+	      }
+	    },
+	    "askJeedomSC": {
+	      "category": "JEEDOM",
+	      "noplug": [ "jeedom" ],
+	      "events": "all",
+	      "header": "Répond au ASK (SC)",
+	      "description": "Répond à l’action ’ASK’ des scénarios Jeedom (Framework SC)",
+	      "addClass": "Jeedom",
+	      "params": {
+	        "response": {
+	          "required": true,
+	          "description": "Contenu de la réponse",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Cette action requiert le plugin ’JPI Plugin’ installé sur votre Jeedom",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 5000
+	          }
+	        },
+	        "data": {
+	          "required": true,
+	          "description": "Identification du ASK (askData)",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 26
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 26
+	          }
+	        }
+	      }
+	    },
+	    "getCaract": {
+	      "category": "EEDOMUS",
+	      "noplug": [ "eedomus" ],
+	      "header": "Infos d’un périphérique",
+	      "description": "Renvoie les caractéristiques de base d’un périphérique",
+	      "params": {
+	        "id": {
+	          "required": true,
+	          "description": "Le code API du périphérique",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        },
+	        "returnValue": {
+	          "required": false,
+	          "defaultValue": "last_value",
+	          "description": "La valeur à retourner",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-terminal gray\"></i>Nom du périphérique", "cmd": "name" },
+	            { "title": "<i class=\"fa fa-terminal gray\"></i>Dernière valeur du périphérique", "cmd": "last_value" },
+	            { "title": "<i class=\"fa fa-terminal gray\"></i>Description de la valeur du périphérique", "cmd": "last_value_text" },
+	            { "title": "<i class=\"fa fa-terminal gray\"></i>Date/heure dernière valeur<i>(AAAA-MM-JJ HH:MM:SS)</i>", "cmd": "last_value_change" },
+	            { "title": "----" },
+	            { "title": "<i class=\"fa fa-code gray\"></i>Réponse Json complète", "cmd": "_JSON_" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-list\"></i>Valeur à retourner"
+	        },
+	        "localApi": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Utiliser l’API locale<i>(box eedomus)</i>",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Si ce paramètre est est à ’0’, l’API serveur <i>(cloud)</i> sera utilisée.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-home\"></i>Utiliser l’API locale"
+	        }
+	      }
+	    },
+	    "setValue": {
+	      "category": "EEDOMUS",
+	      "noplug": [ "eedomus" ],
+	      "header": "Définie une valeur",
+	      "description": "Définie une valeur sur un périphérique",
+	      "params": {
+	        "id": {
+	          "required": true,
+	          "description": "Le code API du périphérique",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        },
+	        "value": {
+	          "required": true,
+	          "description": "La valeur a définir",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 200
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 200
+	          }
+	        },
+	        "updateOnly": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Mettre à jour la valeur sans demander d’action physique",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-bed\"></i>Pas d’action physique"
+	        },
+	        "localApi": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Utiliser l’API locale<i>(box eedomus)</i>",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Si ce paramètre est à ’0’, l’API serveur <i>(cloud)</i> sera utilisée.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-home\"></i>Utiliser l’API locale"
+	        }
+	      }
+	    },
+	    "setMacro": {
+	      "category": "EEDOMUS",
+	      "noplug": [ "eedomus" ],
+	      "header": "Active une macro",
+	      "description": "Active une macro sur un périphérique",
+	      "params": {
+	        "id": {
+	          "required": true,
+	          "description": "Identifiant de la macro",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        },
+	        "dynamicValue": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Valeur du paramètre dynamique de macro",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        },
+	        "localApi": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Utiliser l’API locale<i>(box eedomus)</i>",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Si ce paramètre est à ’0’, l’API serveur <i>(cloud)</i> sera utilisée.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-home\"></i>Utiliser l’API locale"
+	        }
+	      }
+	    },
+	    "configureLayout": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Configure l’affichage",
+	      "description": "Configure l’affichage de l’APK",
+	      "params": {
+	        "buttons": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Affiche ou non les boutons du bas de l’APK",
+	          "tooltip": "<i class=\"fa fa-exclamation-triangle orange\"></i>Si les boutons sont cachés vous ne pourrez plus quitter l’application sur l’écran de l’appareil.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-tablet\"></i>Boutons"
+	        },
+	        "webTitleBar": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Affiche ou non la barre de titre du navigateur de l’APK",
+	          "tooltip": "<i class=\"fa fa-exclamation-triangle orange\"></i>Si la barre de titre est cachée vous ne pourrez plus revenir sur l’écran d’accueil de l’application via l’écran de l’appareil.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-tablet\"></i>Barre de titre"
+	        },
+	        "webZoomEnabled": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Active ou non le zoom multipoint dans le navigateur de l’APK",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-tablet\"></i>Zoom multipoint"
+	        },
+	        "androidFullScreen": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Affiche ou non la barre de statut et les boutons du système",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-tablet\"></i>Barre/boutons du système"
+	        }
+	      }
+	    },
+	    "goToDesign": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Affiche un design",
+	      "description": "Affiche un design Jeedom dans l’APK",
+	      "addClass": "Jeedom",
+	      "params": {
+	        "id": {
+	          "required": true,
+	          "description": "ID du design",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        },
+	        "fullscreen": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Cache les menus de l’interface Jeedom",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-tablet\"></i>Plein écran"
+	        }
+	      }
+	    },
+	    "goToView": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Affiche une vue",
+	      "description": "Affiche une vue Jeedom dans l’APK",
+	      "addClass": "Jeedom",
+	      "params": {
+	        "id": {
+	          "required": true,
+	          "description": "ID de la vue",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 999999
+	          }
+	        }
+	      }
+	    },
+	    "voiceCmd": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Commande vocale",
+	      "description": "Contrôle la reconnaissance vocale",
+	      "addClass": "GoogleVoice",
+	      "params": {
+	        "mode": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Sélection du mode<i>(scénario)</i>",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 32
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 32
+	          },
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-microphone\"></i>Choix du mode"
+	        },
+	        "setModeOnly": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Va dans un mode sans le lancer<i>(pas d’intéraction)</i>",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-microphone-slash\"></i>Ne pas lancer le mode"
+	        },
+	        "message": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Message manuel à envoyer au mode<i>(lance le mode sans intéraction)</i>",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 1000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 1000
+	          }
+	        },
+	        "wait": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Attendre la fin de l’éxécution du mode<i>(si paramètre message non vide)</i>",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Attendre..."
+	        },
+	        "exit": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Termine le scénario vocale en cours<i>(équivalent à l’action exit)</i>",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-sign-out\"></i>Terminer le scénario"
+	        }
+	      }
+	    },
+	    "VRstatus": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Statut reco. vocale",
+	      "description": "Change le statut de la reconnaissance vocale",
+	      "addClass": "GoogleVoice",
+	      "params": {
+	        "status": {
+	          "required": true,
+	          "description": "0 = Pause <i>(manuel)</i> ou 1 = Play <i>(permanante)</i>",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Statut"
+	        }
+	      }
+	    },
+	    "restart": {
+	      "category": "CORE",
+	      "events": "no_start",
+	      "header": "Redémarre le serveur",
+	      "description": "Redémarre le serveur PAW, le moteur et l’APK",
+	      "params": {
+	        "sleepFirst": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Pause en secondes avant de stopper le service PAW",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 90
+	          }
+	        },
+	        "sleepBetween": {
+	          "required": false,
+	          "defaultValue": "2",
+	          "description": "Pause en secondes avant de relancer le service PAW",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 90
+	          }
+	        }
+	      }
+	    },
+	    "reboot": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Redémarre le système",
+	      "description": "Redémarre le système (nécessite le ROOT)"
+	    },
+	    "showApp": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Place l’APK au 1er plan",
+	      "description": "Lance / affiche l’APK au premier plan"
+	    },
+	    "goToHome": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Écran d’accueil de l’APK",
+	      "description": "Retourne sur l’écran d’accueil de l’APK"
+	    },
+	    "goToUrl": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Affiche une page web",
+	      "description": "Affiche une page web dans l’APK",
+	      "params": {
+	        "url": {
+	          "required": true,
+	          "description": "Adresse de la page à afficher",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 256
+	          },
+	          "check": {
+	            "type": "url"
+	          }
+	        }
+	      }
+	    },
+	    "checkMaj": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Vérifie MAJ",
+	      "description": "Vérifie les mises à jour (via l’APK)"
+	    },
+	    "forceMaj": {
+	      "category": "APK",
+	      "events": "no_start",
+	      "header": "Réinstalle dernière version",
+	      "description": "Installe la dernière version du moteur (via l’APK)"
+	    },
+	    "reloadConfig": {
+	      "category": "CORE",
+	      "events": "no_start",
+	      "header": "Recharge la config.",
+	      "description": "Recharge la configuration (moteur et APK)"
+	    },
+	    "userLog": {
+	      "category": "CORE",
+	      "header": "Écrit dans log utilisateur",
+	      "description": "Ajoute un message dans le journal utilisateur",
+	      "params": {
+	        "message": {
+	          "required": true,
+	          "description": "Message à journaliser",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 80
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 80
+	          }
+	        }
+	      }
+	    },
+	    "getLog": {
+	      "category": "INFO",
+	      "header": "lit un journal",
+	      "description": "Retourne le contenu des journaux",
+	      "params": {
+	        "log": {
+	          "required": true,
+	          "description": "Spécifie le journal à retourner",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-flash gray\"></i>Événements", "cmd": "event_log" },
+	            { "title": "<i class=\"fa fa-android gray\"></i>Application (APK)", "cmd": "app_log" },
+	            { "title": "<i class=\"fa fa-exclamation-circle gray\"></i>Erreurs", "cmd": "error_log" },
+	            { "title": "<i class=\"fa fa-user gray\"></i>Utilisateur", "cmd": "user_log" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-file-text\"></i>Journaux"
+	        }
+	      }
+	    },
+	    "getSmsCounter": {
+	      "category": "INFO",
+	      "header": "Nbr SMS envoyés",
+	      "description": "Retourne le nombre de SMS envoyés",
+	      "addClass": "Telephony",
+	      "params": {
+	        "detail": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Retour plus détaillé",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-line-chart\"></i>Retour plus détaillé"
+	        }
+	      }
+	    },
+	    "getLastDetection": {
+	      "category": "INFO",
+	      "header": "Dernière Det. Mvt",
+	      "description": "Retourne la date de la dernière détection de mouvements",
+	      "addClass": "Camera HIDE_ENABLE_MotionDetector",
+	      "params": {
+	        "format": {
+	          "required": false,
+	          "defaultValue": "normal",
+	          "description": "Format de la date",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-calendar-minus-o\"></i>Normal", "cmd": "normal" },
+	            { "title": "<i class=\"fa fa-calendar-plus-o\"></i>Complet", "cmd": "full" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-calendar-o\"></i>Format de la date"
+	        }
+	      }
+	    },
+	    "clearLog": {
+	      "category": "CORE",
+	      "header": "Vide un journal",
+	      "description": "Vide les journaux",
+	      "params": {
+	        "log": {
+	          "required": true,
+	          "description": "Spécifie le journal à vider",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-flash gray\"></i>Événements", "cmd": "event_log" },
+	            { "title": "<i class=\"fa fa-android gray\"></i>Application (APK)", "cmd": "app_log" },
+	            { "title": "<i class=\"fa fa-exclamation-circle gray\"></i>Erreurs", "cmd": "error_log" },
+	            { "title": "<i class=\"fa fa-user gray\"></i>Utilisateur", "cmd": "user_log" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-file-text\"></i>Journaux"
+	        }
+	      }
+	    },
+	    "clearData": {
+	      "category": "CORE",
+	      "header": "Nettoie les données",
+	      "description": "Nettoyage des données",
+	      "params": {
+	        "data": {
+	          "required": true,
+	          "description": "Données à supprimer",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-file-audio-o gray\"></i>Fichiers du dossier <em>media</em>", "cmd": "media" },
+	            { "title": "<i class=\"fa fa-file-image-o gray\"></i>Photos prises par l’APK", "cmd": "picts" },
+	            { "title": "<i class=\"fa fa-usd gray\"></i>Variables <i>(sur la carte SD)</i>", "cmd": "vars" },
+	            { "title": "<i class=\"fa fa-file gray\"></i>Données des événements", "cmd": "events" },
+	            { "title": "<i class=\"fa fa-file-text-o gray\"></i>Tout les journaux", "cmd": "log" },
+	            { "title": "<i class=\"fa fa-file-o gray\"></i>Fichiers temporaires", "cmd": "tmp" },
+	            { "title": "----" },
+	            { "title": "<i class=\"fa fa-sliders gray\"></i>Tout <i>(tout les paramètres ci-dessus)</i>", "cmd": "all" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-eraser\"></i>Données"
+	        }
+	      }
+	    },
+	    "quit": {
+	      "category": "CORE",
+	      "events": "no_start",
+	      "header": "Quitte PAW et l’APK",
+	      "description": "Quitte le serveur PAW et l’APK"
+	    },
+	    "resetWifi": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Reset le wifi",
+	      "description": "Désactive et réactive le wifi",
+	      "params": {
+	        "sleepFirst": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Pause en secondes avant de désactiver le wifi",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 600
+	          }
+	        },
+	        "sleepBetween": {
+	          "required": false,
+	          "defaultValue": "2",
+	          "description": "Pause en secondes avant de réactiver le wifi",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 30
+	          }
+	        }
+	      }
+	    },
+	    "getWifiStrength": {
+	      "category": "INFO",
+	      "header": "% réception",
+	      "description": "Retourne la puissance de réception en %"
+	    },
+	    "wifiInfo": {
+	      "category": "INFO",
+	      "header": "Infos du wifi",
+	      "description": "Retourne les informations du wifi"
+	    },
+	    "getFreeMem": {
+	      "category": "INFO",
+	      "header": "RAM libre",
+	      "description": "Retourne la taille de RAM libre en Mo"
+	    },
+	    "cpuInfo": {
+	      "category": "INFO",
+	      "header": "Infos CPU",
+	      "description": "Retourne l’utilisation du CPU"
+	    },
+	    "launchApp": {
+	      "category": "SYSTEM",
+	      "header": "Lance une application",
+	      "description": "Démarre une application",
+	      "params": {
+	        "packageName": {
+	          "required": true,
+	          "description": "Le nom du package",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-android\"></i>Applications installées"
+	        }
+	      }
+	    },
+	    "killApp": {
+	      "category": "SYSTEM",
+	      "header": "Termine une application",
+	      "description": "Termine une application (nécessite le ROOT)",
+	      "params": {
+	        "packageName": {
+	          "required": true,
+	          "description": "Le nom du package",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-android\"></i>Applications installées"
+	        }
+	      }
+	    },
+	    "getPackagesNames": {
+	      "category": "INFO",
+	      "header": "Liste les applis",
+	      "description": "Retourne les applications installées",
+	      "params": {
+	        "json": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Retour au format JSON",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-code\"></i>Format JSON"
+	        }
+	      }
+	    },
+	    "makeCall": {
+	      "category": "PHONE",
+	      "header": "Lance un appel",
+	      "description": "Lance un appel",
+	      "params": {
+	        "number": {
+	          "required": true,
+	          "description": "Numéro à apeller",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 20
+	          },
+	          "check": {
+	            "type": "phoneNumber"
+	          },
+	          "magic": true,
+	          "magic_icon": "book"
+	        },
+	        "mode": {
+	          "required": false,
+	          "defaultValue": "gsm",
+	          "description": "Type d’appel",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Pour utiliser la composition automatique avec <i>CSipSimple</i> vous devez créer un filtre dans CSipSimple :<br /><i>Ex:</i> Appeler directement: Tous <i>(avec le compte SIP désiré)</i>",
+	          "type": "select",
+	           "magic": [
+	            { "title": "<i class=\"fa fa-phone-square gray\"></i>Appel GSM", "cmd": "gsm" },
+	            { "title": "<i class=\"fa fa-globe gray\"></i>Appel SIP", "cmd": "sip" },
+	            { "title": "<i class=\"fa fa-globe gray\"></i>Appel avec <em class='disabled'>CSipSimple</em>", "cmd": "csip" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-phone\"></i>Type d’appel"
+	        }
+	      }
+	    },
+	    "hangUp": {
+	      "category": "PHONE",
+	      "header": "Raccroche",
+	      "description": "Termine un appel (raccroche)"
+	    },
+	    "sendSms": {
+	      "category": "PHONE",
+	      "header": "Envoie un SMS",
+	      "description": "Permet d’envoyer un message texte (SMS)",
+	      "params": {
+	        "number": {
+	          "required": true,
+	          "description": "Numéro du destinataire",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 20
+	          },
+	          "check": {
+	            "type": "phoneNumber"
+	          },
+	          "magic": true,
+	          "magic_icon": "book"
+	        },
+	        "message": {
+	          "required": true,
+	          "description": "Error while translating actions.sendSms.message (JPI_actions) !",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 400
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 400
+	          }
+	        },
+	        "askData": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Données de l’action ASK",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Si ce paramètre n’est pas vide, la clef de scénario ’Réponses aux ASK’ sera exécutée<br />en cas de réponse du destinataire avant le timeout spécifié dans le paramètre <i>askTimeout</i>. ",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 100
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 100
+	          }
+	        },
+	        "askTimeout": {
+	          "required": false,
+	          "defaultValue": 600,
+	          "description": "Timeout du ASK (en secondes)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 5
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 28800
+	          }
+	        }
+	      }
+	    },
+	    "resetSmsCounter": {
+	      "category": "PHONE",
+	      "header": "Reset compteur SMS",
+	      "description": "Permet de remettre à zéro le compteur de SMS"
+	    },
+	    "play": {
+	      "category": "MEDIA",
+	      "header": "Lit des médias",
+	      "description": "Lit des médias / Ajoute à la liste de lecture",
+	      "params": {
+	        "media": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Url(s) ou fichier(s) à lire",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Pour les fichiers, si le chemin racine n’est pas spécifié il s’agit par défaut du dossier ’paw/JPI/media’.<br />Vous devez séparer les médias par des retours à la ligne.<br />Vous pouvez utiliser le caractère ’ * ’ pour lire tous les médias d’un dossier.<br /><br />Ce paramètre est facultatif si vous souhaitez reprendre la lecture après une pause ou un stop.",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 2000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 2000
+	          }
+	        },
+	        "order": {
+	          "required": false,
+	          "defaultValue": "default",
+	          "description": "Ordre de lecture des medias spécifiés",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-list gray\"></i>Par défaut", "cmd": "default" },
+	            { "title": "<i class=\"fa fa-sort-alpha-asc gray\"></i>Alphabétique croissant", "cmd": "asc" },
+	            { "title": "<i class=\"fa fa-sort-alpha-desc gray\"></i>Alphabétique décroissant", "cmd": "desc" },
+	            { "title": "<i class=\"fa fa-random gray\"></i>Aléatoire", "cmd": "random" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-sort-amount-asc\"></i>Ordre de lecture"
+	        },
+	        "volume": {
+	          "required": false,
+	          "defaultValue": -1,
+	          "description": "Volume en % (-1 utilise le volume du système)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": -1,
+	            "max": 100
+	          }
+	        },
+	        "queue": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Ajoute à la liste de lecture",
+	          "tooltip": "<i class=\"fa fa fa-exclamation-triangle orange\"></i>Si ce paramètre est désactivé et que le paramètre ’média’ n’est pas vide, la liste de lecture en cours sera éffacée.<br/>Elle sera remplacée par le(s) média(s) spécifiés dans le paramètre ’média’.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-list-ol\"></i>Liste de lecture"
+	        },
+	        "wait": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Attend que la lecture soit finie avant de continuer",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Attendre..."
+	        }
+	      }
+	    },
+	    "stop": {
+	      "category": "MEDIA",
+	      "header": "Stop la lecture",
+	      "description": "Stop la lecture (la liste de lecture est conservée)"
+	    },
+	    "pause": {
+	      "category": "MEDIA",
+	      "header": "Met en pause la lecture",
+	      "description": "Met en pause la lecture (Utilisez play pour relancer)"
+	    },
+	    "next": {
+	      "category": "MEDIA",
+	      "header": "Média suivant",
+	      "description": "Passe au média suivant"
+	    },
+	    "tts": {
+	      "category": "MEDIA",
+	      "header": "Prononce un texte",
+	      "description": "Prononce un texte (synthèse vocale)",
+	      "params": {
+	        "message": {
+	          "required": true,
+	          "description": "Message à prononcer",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 1000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 1000
+	          }
+	        },
+	        "volume": {
+	          "required": false,
+	          "defaultValue": -1,
+	          "description": "Volume en % (-1 utilise le volume du système)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": -1,
+	            "max": 100
+	          }
+	        },
+	        "voice": {
+	          "required": false,
+	          "defaultValue": "voxygen.tts.becool",
+	          "description": "Moteur de voix (si vide utilise celui du système)",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-male\"></i>Moteurs de voix"
+	        },
+	        "lang": {
+	          "required": false,
+	          "defaultValue": "fr_FR",
+	          "description": "Langue (si vide utilise celle du système)<i>Ex: fr, en_GB...</i>",
+	          "tooltip": "<i class=\"fa fa-exclamation-triangle orange\"></i>Soyez certain que la langue est compatible avec la voix choisie.",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 5
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 2,
+	            "max": 5
+	          },
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-flag\"></i>Aucune voix sélectionée",
+	          "magic_tooltip": "<i class=\"fa fa-flag green\"></i>Langues disponibles"
+	        },
+	        "queue": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Place le message dans la file d’attente",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Si ce paramètre est désactivé et que le moteur de voix est en cours de prononciation, la voix en cours de lecture sera stoppée.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-list-ol\"></i>File d’attente"
+	        },
+	        "wait": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Attend que le message soit pronnoncé avant de continuer",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Attendre..."
+	        },
+	         "reloadEngine": {
+	          "required": false,
+	          "defaultValue": "auto",
+	          "description": "Force la réinitialisation du moteur TTS",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Utilisez le mode ’forcé’ uniquement si vous avez des problèmes (ex: pas ou plus de son).<br /><i class=\"fa fa-exclamation-triangle orange\"></i>L’option ’queue’ ne fonctionne pas quand le moteur TTS est réinitialisé.",
+	          "type": "select",
+	           "magic": [
+	            { "title": "<i class=\"fa fa-toggle-off gray\"></i>Jamais", "cmd": "never" },
+	            { "title": "<i class=\"fa fa-toggle-on gray\"></i>Forcé", "cmd": "forced" },
+	            { "title": "<i class=\"fa fa-magic gray\"></i>Automatique", "cmd": "auto" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-refresh\"></i>Réinitialisation TTS"
+	        }
+	      }
+	    },
+	    "getVoices": {
+	      "category": "INFO",
+	      "header": "Liste les voix dispos",
+	      "description": "Retourne les voix (tts) installées",
+	      "params": {
+	        "json": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Retour au format JSON",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-code\"></i>Format JSON"
+	        }
+	      }
+	    },
+	    "getVoiceLangs": {
+	      "category": "INFO",
+	      "header": "Liste les langues dispos",
+	      "description": "Retourne les languages disponibles",
+	      "params": {
+	        "voice": {
+	          "required": true,
+	          "description": "Moteur de voix",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-male\"></i>Moteurs de voix"
+	        }
+	      }
+	    },
+	    "setVolume": {
+	      "category": "MEDIA",
+	      "header": "Définit les volumes",
+	      "description": "Définir les volumes du système",
+	      "params": {
+	        "volume": {
+	          "required": true,
+	          "description": "Niveau du volume en % <i>(0 - 100)</i>",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 100
+	          }
+	        },
+	        "stream": {
+	          "required": false,
+	          "defaultValue": "media",
+	          "description": "Flux à contrôler",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Sonnerie", "cmd": "ring" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Notification", "cmd": "notif" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Alarme", "cmd": "alarm" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Voix (appel)", "cmd": "call" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Système", "cmd": "system" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Médias", "cmd": "media" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>DTMF", "cmd": "dtmf" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-volume-up\"></i>Volumes"
+	        }
+	      }
+	    },
+	    "muteAll": {
+	      "category": "MEDIA",
+	      "header": "Tous les volumes muets",
+	      "description": "Définit tous les volumes à 0%"
+	    },
+	    "unmuteAll": {
+	      "category": "MEDIA",
+	      "header": "Restaure les volumes",
+	      "description": "Restaure les volumes muets à leur valeur d’origine"
+	    },
+	    "getVolume": {
+	      "category": "INFO",
+	      "header": "Retourne les volumes",
+	      "description": "Retourne les volumes du système en %",
+	      "params": {
+	        "stream": {
+	          "required": false,
+	          "defaultValue": "media",
+	          "description": "Flux à retourner",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Sonnerie", "cmd": "ring" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Notification", "cmd": "notif" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Alarme", "cmd": "alarm" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Voix (appel)", "cmd": "call" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Système", "cmd": "system" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Médias", "cmd": "media" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>DTMF", "cmd": "dtmf" },
+	            { "title": "----" },
+	            { "title": "<i class=\"fa fa-volume-down gray\"></i>Tous les flux", "cmd": "all" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-volume-up\"></i>Volumes"
+	        }
+	      }
+	    },
+	    "getBattLevel": {
+	      "category": "INFO",
+	      "events": "no_start",
+	      "header": "Niveau batterie",
+	      "description": "Retourne le niveau de la batterie en %"
+	    },
+	    "battInfo": {
+	      "category": "INFO",
+	      "events": "no_start",
+	      "header": "Infos batterie",
+	      "description": "Retourne les informations de la batterie"
+	    },
+	    "toast": {
+	      "category": "FUNCTIONS",
+	      "header": "Affiche un toast",
+	      "description": "Affiche un toast sur l’écran",
+	      "params": {
+	        "message": {
+	          "required": true,
+	          "description": "Message à afficher",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 128
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 128
+	          }
+	        },
+	        "fast": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Afficher le message moins longtemps",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Affichage Rapide"
+	        }
+	      }
+	    },
+	    "notification": {
+	      "category": "FUNCTIONS",
+	      "header": "Affiche une notification",
+	      "description": "Affiche une notification dans la barre d’état",
+	      "params": {
+	        "header": {
+	          "required": true,
+	          "description": "Titre de la notification",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 50
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 50
+	          }
+	        },
+	        "message": {
+	          "required": true,
+	          "description": "Message de la notification",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 250
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 250
+	          }
+	        },
+	        "icon": {
+	          "required": false,
+	          "defaultValue": "default",
+	          "description": "Icône de la notification",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-commenting gray fix\"></i><i class=\"force_sel\">Icône par défaut</i>", "cmd": "default" },
+	            { "title": "<i class=\"fa fa-android green fix\"></i><i class=\"force_sel\">Android</i>", "cmd": "android" },
+	            { "title": "<i class=\"fa fa-comment fix\"></i><i class=\"force_sel\">Message SMS</i>", "cmd": "sms" },
+	            { "title": "<i class=\"fa fa-phone green fix\"></i><i class=\"force_sel\">Appel</i>", "cmd": "call" },
+	            { "title": "<div class=\"i\"></div><i class=\"fa fa-phone-square blue fix\"></i><i class=\"force_sel\">Appel entrant</i>", "cmd": "call_incoming" },
+	            { "title": "<div class=\"i\"></div><i class=\"fa fa-phone-square green fix\"></i><i class=\"force_sel\">appel sortant</i>", "cmd": "call_outgoing" },
+	            { "title": "<div class=\"i\"></div><i class=\"fa fa-phone-square red fix\"></i><i class=\"force_sel\">Appel manqué</i>", "cmd": "call_missed" },
+	            { "title": "<i class=\"fa fa-envelope fix\"></i><i class=\"force_sel\">E-mail</i>", "cmd": "email" },
+	            { "title": "<div class=\"i green\"></div><i class=\"fa fa-check-square fix\"></i><i class=\"force_sel\">Coché</i>", "cmd": "check" },
+	            { "title": "<i class=\"fa fa-square gray fix\"></i><i class=\"force_sel\">Décoché</i>", "cmd": "uncheck" },
+	            { "title": "<i class=\"fa fa-star orange fix\"></i><i class=\"force_sel\">Étoile</i>", "cmd": "star" },
+	            { "title": "<i class=\"fa fa-star gray fix\"></i><i class=\"force_sel\">Étoile grisée</i>", "cmd": "star_gray" },
+	            { "title": "<i class=\"fa fa-circle green fix\"></i><i class=\"force_sel\">En ligne</i>", "cmd": "online" },
+	            { "title": "<i class=\"fa fa-circle gray fix\"></i><i class=\"force_sel\">Invisible</i>", "cmd": "invisible" },
+	            { "title": "<div class=\"i i-circle orange\"></div><i class=\"fa fa-clock-o white fix\"></i><i class=\"force_sel\">Absent</i>", "cmd": "away" },
+	            { "title": "<div class=\"i i-circle\"></div><i class=\"fa fa-minus-circle red fix\"></i><i class=\"force_sel\">Occupé</i>", "cmd": "busy" },
+	            { "title": "<div class=\"i i-circle\"></div><i class=\"fa fa-times-circle gray fix\"></i><i class=\"force_sel\">Hors ligne</i>", "cmd": "offline" },
+	            { "title": "<div class=\"i i-circle\"></div><i class=\"fa fa-exclamation-circle red fix\"></i><i class=\"force_sel\">Erreur</i>", "cmd": "error" },
+	            { "title": "<i class=\"fa fa-exclamation-triangle fix\"></i><i class=\"force_sel\">Avertissement</i>", "cmd": "warning" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-picture-o\"></i>Icône de la notification"
+	        },
+	        "sound": {
+	          "required": false,
+	          "defaultValue": 1,
+	          "description": "Émettre un son",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-volume-up\"></i>Émettre un son"
+	        },
+	        "vibrate": {
+	          "required": false,
+	          "defaultValue": 1,
+	          "description": "Émettre une vibration",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-mobile\"></i>Émettre une vibration"
+	        },
+	        "light": {
+	          "required": false,
+	          "defaultValue": 1,
+	          "description": "Utiliser la led de notification",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-lightbulb-o\"></i>Led de notification"
+	        },
+	        "color": {
+	          "required": false,
+	          "defaultValue": "#72f100",
+	          "description": "Couleur de la led de notification",
+	          "type": "color",
+	          "attr": {
+	            "maxLength": 7
+	          },
+	          "check": {
+	            "type": "color"
+	          },
+	          "magic_header": "Couleur de la led"
+	        },
+	        "time": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Durée de vie <i>(0 pour désactiver)</i>",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 900
+	          }
+	        }
+	      }
+	    },
+	    "animFlash": {
+	      "category": "CAMERA",
+	      "header": "Anime le flash",
+	      "description": "Anime le flash de l’appareil photo",
+	      "addClass": "Camera",
+	      "params": {
+	        "timeOn": {
+	          "required": false,
+	          "defaultValue": "0.1",
+	          "description": "Temps en seconde d’allumage",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0.05,
+	            "max": 180,
+	            "step": 0.05
+	          }
+	        },
+	        "timeOff": {
+	          "required": false,
+	          "defaultValue": "0.15",
+	          "description": "Temps en seconde d’extinction",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 6
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0.05,
+	            "max": 180,
+	            "step": 0.05
+	          }
+	        },
+	        "loop": {
+	          "required": false,
+	          "defaultValue": "10",
+	          "description": "Nombre de répétitions",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 99
+	          }
+	        },
+	        "wait": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Attends la fin de l’animation",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Attendre..."
+	        }
+	      }
+	    },
+	    "vibration": {
+	      "category": "FUNCTIONS",
+	      "header": "Anime le vibreur",
+	      "description": "Anime le vibreur",
+	      "params": {
+	        "timeOn": {
+	          "required": false,
+	          "defaultValue": "0.5",
+	          "description": "Temps en seconde de vibration",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 5
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0.1,
+	            "max": 120,
+	            "step": 0.1
+	          }
+	        },
+	        "timeOff": {
+	          "required": false,
+	          "defaultValue": "0.6",
+	          "description": "Temps de pause en seconde",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 5
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0.1,
+	            "max": 120,
+	            "step": 0.1
+	          }
+	        },
+	        "loop": {
+	          "required": false,
+	          "defaultValue": "3",
+	          "description": "Nombre de répétitions",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 99
+	          }
+	        },
+	        "wait": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Attends la fin de l’animation",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Attendre..."
+	        }
+	      }
+	    },
+	    "sendMail": {
+	      "category": "COM",
+	      "events": "no_start",
+	      "header": "Envoie un email",
+	      "description": "Envoie un email",
+	      "params": {
+	        "to": {
+	          "required": true,
+	          "description": "Email du destinataire",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 64
+	          },
+	          "check": {
+	            "type": "email"
+	          }
+	        },
+	        "subject": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Sujet du message",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 128
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 128
+	          }
+	        },
+	        "message": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Corps du message",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 3000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 3000
+	          }
+	        },
+	        "attach": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Pièce jointe",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 256
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 256
+	          }
+	        }
+	      }
+	    },
+	    "takePicture": {
+	      "category": "CAMERA",
+	      "events": "no_start",
+	      "header": "Prend une photo",
+	      "description": "Prend une photo et retourne le nom du fichier <i>(avec l’arborescence)</i>",
+	      "addClass": "Camera",
+	      "params": {
+	        "camera": {
+	          "required": false,
+	          "defaultValue": "rear",
+	          "description": "Caméra à utiliser<i>(Frontale ou arrière)</i>",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-camera\"></i>Caméras",
+	          "magic_data": [
+	            { "title": "<i class=\"fa fa-eye gray\"></i>Caméra frontale", "cmd": "front" },
+	            { "title": "<i class=\"fa fa-camera-retro gray\"></i>Caméra arrière", "cmd": "rear" }
+	          ]
+	        },
+	        "resolution": {
+	          "required": false,
+	          "defaultValue": "640*480",
+	          "description": "Résolution de la photo <i>(format x*y)</i>",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 9
+	          },
+	          "check": {
+	            "type": "regexp",
+	            "pattern": "^[0-9]{3,4}\\*[0-9]{3,4}$"
+	          },
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-picture-o\"></i>Résolutions"
+	        },
+	        "flash": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Mode du flash <i>(off, auto, on...)</i>",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-bolt\"></i>Modes du flash",
+	          "magic_data": [
+	            { "title": "<i class=\"fa fa-android gray\"></i>Mode par défaut", "cmd": "" },
+	            { "title": "----" },
+	            { "title": "<i class=\"fa fa-toggle-off gray\"></i>Désactivé", "cmd": "off" },
+	            { "title": "<i class=\"fa fa-magic gray\"></i>Automatique", "cmd": "auto" },
+	            { "title": "<i class=\"fa fa-toggle-on gray\"></i>Activé", "cmd": "on" },
+	            { "title": "<i class=\"fa fa-low-vision gray\"></i>Réduction yeux rouges", "cmd": "red-eye" },
+	            { "title": "<i class=\"fa fa-lightbulb-o gray\"></i>Torche", "cmd": "torch" }
+	          ]
+	        },
+	        "rotation": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Effectue une rotation horaire (en degré)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 359
+	          }
+	        },
+	        "scene": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Spécifie une scène <i>(auto, portrait, sports...)</i>",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-child\"></i>Scènes",
+	          "magic_data": [
+	            { "title": "<i class=\"fa fa-close gray\"></i>Aucune", "cmd": "" },
+	            { "title": "----" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Action", "cmd": "action" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Automatique", "cmd": "auto" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Code barre", "cmd": "barcode" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Plage", "cmd": "beach" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Bougies", "cmd": "candlelight" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Feux d’artifice", "cmd": "fireworks" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>HDR", "cmd": "hdr" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Paysage", "cmd": "landscape" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Nuit", "cmd": "night" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Portrait - Nuit", "cmd": "night-portrait" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Fête", "cmd": "party" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Portrait", "cmd": "portrait" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Neige", "cmd": "snow" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Sports", "cmd": "sports" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Steady Photo", "cmd": "steadyphoto" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Couché de soleil", "cmd": "sunset" },
+	            { "title": "<i class=\"fa fa-dot-circle-o gray\"></i>Théâtre", "cmd": "theatre" }
+	          ]
+	        },
+	        "focus": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Mode de mise au point <i>(auto, macro, normal...)</i>",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-crosshairs\"></i>Mise au point",
+	           "magic_data": [
+	            { "title": "<i class=\"fa fa-android gray\"></i>Mode par défaut", "cmd": "" },
+	            { "title": "----" },
+	            { "title": "<i class=\"fa fa-bullseye gray\"></i>Automatique", "cmd": "auto" },
+	            { "title": "<i class=\"fa fa-bullseye gray\"></i>Enchainement de photos", "cmd": "continuous-picture" },
+	            { "title": "<i class=\"fa fa-bullseye gray\"></i>Profondeur de champ étendue", "cmd": "edof" },
+	            { "title": "<i class=\"fa fa-bullseye gray\"></i>Fixé", "cmd": "fixed" },
+	            { "title": "<i class=\"fa fa-bullseye gray\"></i>Infini", "cmd": "infinity" },
+	            { "title": "<i class=\"fa fa-bullseye gray\"></i>Macro", "cmd": "macro" }
+	          ]
+	        },
+	        "zoom": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Spécifie un niveau de zoom",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 99
+	          },
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-search-plus\"></i>Niveau de zoom"
+	        },
+	        "white": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Mode de balance des blancs <i>(auto, fluorescent ...)</i>",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-sun-o\"></i>Balance des blancs",
+	          "magic_data": [
+	            { "title": "<i class=\"fa fa-android gray\"></i>Mode par défaut", "cmd": "" },
+	            { "title": "----" },
+	            { "title": "<i class=\"fa fa-circle-o gray\"></i>Automatique", "cmd": "auto" },
+	            { "title": "<i class=\"fa fa-circle-o gray\"></i>Nuageux", "cmd": "cloudy-daylight" },
+	            { "title": "<i class=\"fa fa-circle-o gray\"></i>Lumière naturelle", "cmd": "daylight" },
+	            { "title": "<i class=\"fa fa-circle-o gray\"></i>Fluorescent", "cmd": "fluorescent" },
+	            { "title": "<i class=\"fa fa-circle-o gray\"></i>Incandescent", "cmd": "incandescent" },
+	            { "title": "<i class=\"fa fa-circle-o gray\"></i>Teinte", "cmd": "shade" },
+	            { "title": "<i class=\"fa fa-circle-o gray\"></i>Crépuscule", "cmd": "twilight" },
+	            { "title": "<i class=\"fa fa-circle-o gray\"></i>Fluorescent chaleureux", "cmd": "warm-fluorescent" }
+	          ]
+	        },
+	        "quality": {
+	          "required": false,
+	          "defaultValue": 75,
+	          "description": "Qualité du Jpeg <i>(1 - 100)</i>",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 100
+	          }
+	        },
+	        "dateSize": {
+	          "required": false,
+	          "defaultValue": 12,
+	          "description": "Taille de la date (0 pour désactiver l’incrustation)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 99
+	          }
+	        },
+	        "dateColor": {
+	          "required": false,
+	          "defaultValue": "#0080dd",
+	          "description": "Couleur de la date (format hexadécimal)",
+	          "type": "color",
+	          "attr": {
+	            "maxLength": 7
+	          },
+	          "check": {
+	            "type": "color"
+	          },
+	          "magic_header": "Couleur de la date"
+	        },
+	        "wait": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Attend la fin de l’action avant de continuer",
+	          "tooltip": "<i class=\"fa fa-exclamation-triangle orange\"></i>Le retour d’erreur, si jamais la photo échoue, n’est pas effectif si ce paramètre est désactivé.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Attendre..."
+	        }
+	      }
+	    },
+	    "startMotionDetector": {
+	      "category": "CAMERA",
+	      "events": "no_start",
+	      "header": "Démarre Det. Mvt",
+	      "description": "Démarre la détection de mouvements",
+	      "addClass": "Camera HIDE_ENABLE_MotionDetector",
+	      "params": {
+	        "camera": {
+	          "required": false,
+	          "defaultValue": "{%MOTION_DETECTOR|CAMERA_MotionDetector%}",
+	          "description": "Caméra à utiliser<i>(Frontale ou arrière)</i>",
+	          "type": "select",
+	          "magic": true,
+	          "magic_header": "<i class=\"fa fa-camera\"></i>Caméras",
+	          "magic_data": [
+	            { "title": "<i class=\"fa fa-eye gray\"></i>Caméra frontale", "cmd": "front" },
+	            { "title": "<i class=\"fa fa-camera-retro gray\"></i>Caméra arrière", "cmd": "rear" }
+	          ]
+	        },
+	        "interval": {
+	          "required": false,
+	          "defaultValue": "{%MOTION_DETECTOR|INTERVAL_MotionDetector%}",
+	          "description": "Intervalle de temps (en seconde) de calcul",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 4
+	          },
+	          "check": {
+	            "type": "int",
+	            "step": 0.05,
+	            "min": 0.05,
+	            "max": 2
+	          }
+	        },
+	        "tolerence": {
+	          "required": false,
+	          "defaultValue": "{%MOTION_DETECTOR|TOLERENCE_MotionDetector%}",
+	          "description": "Tolérance de détection",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 99
+	          }
+	        },
+	        "minLuma": {
+	          "required": false,
+	          "defaultValue": "{%MOTION_DETECTOR|MINLUMA_MotionDetector%}",
+	          "description": "Luminosité minimum requise",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 4
+	          },
+	          "check": {
+	            "type": "int",
+	            "step": 10,
+	            "min": 10,
+	            "max": 3000
+	          }
+	        },
+	        "sleepFirst": {
+	          "required": false,
+	          "defaultValue": "{%MOTION_DETECTOR|TIMETOINIT_MotionDetector%}",
+	          "description": "Temps d’initialisation (en seconde)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 2,
+	            "max": 99
+	          }
+	        }
+	      }
+	    },
+	    "pauseMotionDetector": {
+	      "category": "CAMERA",
+	      "events": "no_start",
+	      "header": "Pause Det. Mvt",
+	      "description": "Met en pause la détection de mouvement",
+	      "addClass": "Camera HIDE_ENABLE_MotionDetector"
+	    },
+	    "resumeMotionDetector": {
+	      "category": "CAMERA",
+	      "events": "no_start",
+	      "header": "Reprend Det. Mvt",
+	      "description": "Démarre la détection de mouvements avec les derniers paramètres",
+	      "addClass": "Camera HIDE_ENABLE_MotionDetector"
+	    },
+	    "stopMotionDetector": {
+	      "category": "CAMERA",
+	      "events": "no_start",
+	      "header": "Stop Det. Mvt",
+	      "description": "Stop la détection de mouvements",
+	      "addClass": "Camera HIDE_ENABLE_MotionDetector"
+	    },
+	    "saveLastDetection": {
+	      "category": "CAMERA",
+	      "events": "no_start",
+	      "header": "Sauve photo Det. Mvt",
+	      "description": "Sauvegarde la photo du dernier mouvement détecté",
+	      "addClass": "Camera HIDE_ENABLE_MotionDetector",
+	      "params": {
+	        "rotation": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Effectue une rotation horaire (en degré)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 359
+	          }
+	        },
+	        "quality": {
+	          "required": false,
+	          "defaultValue": 75,
+	          "description": "Qualité du Jpeg <i>(1 - 100)</i>",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 100
+	          }
+	        },
+	        "dateSize": {
+	          "required": false,
+	          "defaultValue": 12,
+	          "description": "Taille de la date (0 pour désactiver l’incrustation)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 99
+	          }
+	        },
+	        "dateColor": {
+	          "required": false,
+	          "defaultValue": "#0080dd",
+	          "description": "Couleur de la date (format hexadécimal)",
+	          "type": "color",
+	          "attr": {
+	            "maxLength": 7
+	          },
+	          "check": {
+	            "type": "color"
+	          },
+	          "magic_header": "Couleur de la date"
+	        },
+	        "wait": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Attend la fin de l’action avant de continuer",
+	          "tooltip": "<i class=\"fa fa-exclamation-triangle orange\"></i>Le retour d’erreur, si jamais la photo échoue, n’est pas effectif si ce paramètre est désactivé.",
+	          "type": "boolean",
+	          "magic_header": "<i class=\"fa fa-clock-o\"></i>Attendre..."
+	        }
+	      }
+	    },
+	    "cameraInfo": {
+	      "category": "INFO",
+	      "header": "infos caméras",
+	      "description": "Retourne les informations des caméras",
+	      "params": {
+	        "camera": {
+	          "required": false,
+	          "defaultValue": "rear",
+	          "description": "Spécifie la caméra",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-eye gray\"></i>Caméra frontale", "cmd": "front" },
+	            { "title": "<i class=\"fa fa-camera-retro gray\"></i>Caméra arrière", "cmd": "rear" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-camera\"></i>Caméras"
+	        }
+	      }
+	    },
+	    "brightness": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Luminosité de l’écran",
+	      "description": "Définit la luminosité de l’écran",
+	      "params": {
+	        "level" : {
+	          "required": true,
+	          "description": "Niveau de la luminosité en % <i>(0 - 100)</i>",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 100
+	          }
+	        },
+	        "mode": {
+	          "required": false,
+	          "defaultValue": "manual",
+	          "description": "Adaptation de la luminosité",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-toggle-off gray\"></i>Non <i>(Mode manuel)</i>", "cmd": "manual" },
+	            { "title": "<i class=\"fa fa-toggle-on gray\"></i>Oui <i>(Mode automatique)</i>", "cmd": "auto" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-sun-o\"></i>Adaptation automatique"
+	        }
+	      }
+	    },
+	    "screenOn": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Allume l’écran",
+	      "description": "Allume l’écran de l’appareil"
+	    },
+	    "screenOff": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Éteint l’écran",
+	      "description": "Éteint l’écran de l’appareil (peut prendre plusieurs secondes)"
+	    },
+	    "enableBT": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Active le bluetooth",
+	      "description": "Active le bluetooth de l’appareil"
+	    },
+	    "disableBT": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Désactive le bluetooth",
+	      "description": "Désactive le bluetooth de l’appareil"
+	    },
+	    "enableWifi": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Active le wifi",
+	      "description": "Active le wifi de l’appareil"
+	    },
+	    "disableWifi": {
+	      "category": "SYSTEM",
+	      "events": "no_start",
+	      "header": "Désactive le wifi",
+	      "description": "Désactive le wifi de l’appareil"
+	    },
+	    "getBTpaired": {
+	      "category": "INFO",
+	      "events": "no_start",
+	      "header": "Nbr appareils bluetooth",
+	      "description": "Retourne le nombre d’appareils appairés <i>(-1 si BT désactivé)</i>"
+	    },
+	    "sleep": {
+	      "category": "FUNCTIONS",
+	      "events": "all",
+	      "header": "Fait une pause",
+	      "description": "Fait une pause et retourne OK ou INTERROMPU",
+	      "params": {
+	        "name": {
+	          "required": false,
+	          "defaultValue": null,
+	          "description": "Permet d’intérrompre le timer ultérieurement",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Si vous donnez un nom au timer, il est possible de l’intérrompre ultérieurement dans n’importe quel scénario.<br />Il suffit pour cela de lancer l’action sleep avec le même nom (mettre 0 en durée pour uniquement intérrompre).<br />En cas d’intérruption l’action retourne ’INTERROMPU’ (statut = <b>2</b>) sinon ’OK’ (statut = <b>1</b>).",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 12
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 12
+	          }
+	        },
+	        "time": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Temps de pause en seconde",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 4
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 9999
+	          }
+	        }
+	      }
+	    },
+	    "exit": {
+	      "category": "FUNCTIONS",
+	      "events": "all",
+	      "header": "Stoppe le scénario",
+	      "description": "Termine le scénario en cours d’éxecution"
+	    },
+	    "setVar": {
+	      "category": "FUNCTIONS",
+	      "header": "Définit une variable",
+	      "description": "Définit une variable",
+	      "params": {
+	        "name": {
+	          "required": true,
+	          "description": "Nom de la variable",
+	          "tooltip": "- Les variables dont le nom commence par ’<b>%</b>’ existent uniquement au sein du scénario courant.<br />- Les variables dont le nom commence par ’<b>$</b>’ sont stockées sur la carte SD<br />- Les autres variables sont stockées en RAM et restent accessibles tant que PAW n’est pas relancé",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 32
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 32
+	          },
+	          "magic": true,
+	          "magic_tooltip": "<i class=\"fa fa-dollar green\"></i>Variables",
+	          "magic_lang": [
+	            "Variables",
+	            "RAM",
+	            "Carte SD",
+	            "Aucune variable à afficher",
+	            "SCÉNARIO Courant"
+	          ]
+	        },
+	        "value": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Valeur de la variable",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5000
+	          }
+	        }
+	      }
+	    },
+	    "getVar": {
+	      "category": "FUNCTIONS",
+	      "header": "Lit une variable",
+	      "description": "Retourne la valeur d’une variable ou\" NULL\"",
+	      "params": {
+	        "name": {
+	          "required": true,
+	          "description": "Nom de la variable",
+	          "tooltip": "- Les variables dont le nom commence par ’<b>%</b>’ existent uniquement au sein du scénario courant.<br />- Les variables dont le nom commence par ’<b>$</b>’ sont stockées sur la carte SD<br />- Les autres variables sont stockées en RAM et restent accessibles tant que PAW n’est pas relancé",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 32
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 32
+	          },
+	          "magic": true,
+	          "magic_tooltip": "<i class=\"fa fa-dollar green\"></i>Variables",
+	          "magic_lang": [
+	            "Variables",
+	            "RAM",
+	            "Carte SD",
+	            "Aucune variable à afficher",
+	            "SCÉNARIO Courant"
+	          ]
+	        },
+	        "defaultValue": {
+	          "required": false,
+	          "defaultValue": "_NULL_",
+	          "description": "Valeur par défaut si la variable n’éxiste pas",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 300
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 300
+	          }
+	        }
+	      }
+	    },
+	    "unsetVar": {
+	      "category": "FUNCTIONS",
+	      "header": "Efface une variable",
+	      "description": "Supprime une variable",
+	      "params": {
+	        "name": {
+	          "required": true,
+	          "description": "Nom de la variable",
+	          "tooltip": "- Les variables dont le nom commence par ’<b>%</b>’ existent uniquement au sein du scénario courant.<br />- Les variables dont le nom commence par ’<b>$</b>’ sont stockées sur la carte SD<br />- Les autres variables sont stockées en RAM et restent accessibles tant que PAW n’est pas relancé",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 32
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 32
+	          },
+	          "magic": true,
+	          "magic_tooltip": "<i class=\"fa fa-dollar green\"></i>Variables",
+	          "magic_lang": [
+	            "Variables",
+	            "RAM",
+	            "Carte SD",
+	            "Aucune variable à afficher",
+	            "SCÉNARIO Courant"
+	          ]
+	        }
+	      }
+	    },
+	    "calc": {
+	      "category": "FUNCTIONS",
+	      "noplug": "all",
+	      "header": "Effectue un calcul",
+	      "description": "Effectue un calcul mathématique basique",
+	      "params": {
+	        "operand1": {
+	          "required": true,
+	          "description": "Opérande gauche",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 25
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": -99999999999999,
+	            "max": 99999999999999
+	          }
+	        },
+	        "operator": {
+	          "required": true,
+	          "description": "Opérateur",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<b>+</b> <i>Addition</i>", "cmd": "+" },
+	            { "title": "<b>-</b> <i>Soustraction</i>", "cmd": "-" },
+	            { "title": "<b>*</b> <i>Multiplication</i>", "cmd": "*" },
+	            { "title": "<b>/</b> <i>Division</i>", "cmd": "/" },
+	            { "title": "<b>%</b> <i>Modulo</i>", "cmd": "%" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-calculator\"></i>Opérateur"
+	        },
+	        "operand2": {
+	          "required": true,
+	          "description": "Opérande droit",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 25
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": -99999999999999,
+	            "max": 99999999999999
+	          }
+	        },
+	        "decimal": {
+	          "required": false,
+	          "defaultValue": -1,
+	          "description": "Arrondi et spécifie le nombre de décimale(s) <i>(-1 pour désactivé)</i>",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": -1,
+	            "max": 8,
+	            "step": 1
+	          }
+	        }
+	      }
+	    },
+	    "random": {
+	      "category": "FUNCTIONS",
+	      "noplug": "all",
+	      "header": "Nombre aléatoire",
+	      "description": "Retourne un nombre aléatoire",
+	      "params": {
+	        "min": {
+	          "required": false,
+	          "defaultValue": "1",
+	          "description": "Valeur minimum",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 25
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": -999999999,
+	            "max": 999999999
+	          }
+	        },
+	        "max": {
+	          "required": false,
+	          "defaultValue": "10",
+	          "description": "Valeur maximum",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 25
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": -999999999,
+	            "max": 999999999
+	          }
+	        },
+	        "decimal": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Spécifie le nombre de décimale(s)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 2
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 0,
+	            "max": 8,
+	            "step": 1
+	          }
+	        }
+	      }
+	    },
+	    "length": {
+	      "category": "FUNCTIONS",
+	      "noplug": "all",
+	      "header": "Nombre de caractères",
+	      "description": "Retourne le nombre de caractères d’une chaine",
+	      "params": {
+	        "string": {
+	          "required": true,
+	          "description": "Chaine de texte",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5000
+	          }
+	        }
+	      }
+	    },
+	    "find": {
+	      "category": "FUNCTIONS",
+	      "noplug": "all",
+	      "header": "Trouve un texte",
+	      "description": "Trouve et extrait un texte dans une chaine de caractères",
+	      "params": {
+	        "text": {
+	          "required": true,
+	          "description": "Texte dans lequel la recherche doit être effectuée",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5000
+	          }
+	        },
+	        "pattern": {
+	          "required": true,
+	          "description": "Pattern de recherche (expression régulière)",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Il n’est pas nécessaire d’entourer le pattern avec des ' <b>/</b> '.<br />Le pattern est automatiquement placé au milieu de <b>/</b> <i>xxx</i> <b>/gi</b>.",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 500
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 500
+	          }
+	        },
+	        "occurence": {
+	          "required": false,
+	          "defaultValue": "0",
+	          "description": "Retourne l’occurence spécifiée (parenthèse capturante)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 999
+	          }
+	        },
+	        "default": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Valeur de retour si le pattern de recherche n’est pas vérifié",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5000
+	          }
+	        }
+	      }
+	    },
+	    "jsonValue": {
+	      "category": "FUNCTIONS",
+	      "noplug": "all",
+	      "header": "Retourne une valeur Json",
+	      "description": "Retourne la valeur d’une clef dans une chaine Json",
+	      "params": {
+	        "json": {
+	          "required": true,
+	          "description": "Chaine Json",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5000
+	          }
+	        },
+	        "key": {
+	          "required": true,
+	          "description": "Clef de la valeur à retourner",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Pour atteindre une sous-clef, vous pouvez entrez le chemin complet en séparant les clefs par des retours à la ligne.",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 1000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 1000
+	          }
+	        }
+	      }
+	    },
+	    "cronNext": {
+	      "category": "FUNCTIONS",
+	      "header": "Prochaines exécutions",
+	      "description": "Retourne les prochaines dates d’exécution d’une expression cron",
+	      "params": {
+	        "cron": {
+	          "required": true,
+	          "description": "Expression cron (au format Quartz)",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 128
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 11,
+	            "max": 128
+	          },
+	          "magic": true,
+	          "magic_icon": "calendar-check-o"
+	        }
+	      }
+	    },
+	    "sendIntent": {
+	      "category": "FUNCTIONS",
+	      "header": "Envoyer Intent",
+	      "description": "Envoie un Intent",
+	      "params": {
+	        "intentAction": {
+	          "required": true,
+	          "description": "Ce que l’expéditeur souhaite que le récepteur fasse avec les données",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 256
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 5,
+	            "max": 256
+	          }
+	        },
+	        "category": {
+	          "required": false,
+	          "defaultValue": "none",
+	          "description": "Fournit des informations supplémentaires sur l’action",
+	          "type": "select",
+	          "magic": [
+	            { "title": "Aucune <i>(par défaut)</i>", "cmd": "none" },
+	            { "title": "- &nbsp;Default", "cmd": "Default" },
+	            { "title": "- &nbsp;Browsable", "cmd": "Browsable" },
+	            { "title": "- &nbsp;Tab", "cmd": "Tab" },
+	            { "title": "- &nbsp;Alternative", "cmd": "Alternative" },
+	            { "title": "- &nbsp;Selected Alternative", "cmd": "Selected Alternative" },
+	            { "title": "- &nbsp;Launcher", "cmd": "Launcher" },
+	            { "title": "- &nbsp;Info", "cmd": "Info" },
+	            { "title": "- &nbsp;Home", "cmd": "Home" },
+	            { "title": "- &nbsp;Preference", "cmd": "Preference" },
+	            { "title": "- &nbsp;Test", "cmd": "Test" },
+	            { "title": "- &nbsp;Car Dock", "cmd": "Car Dock" },
+	            { "title": "- &nbsp;Desk Dock", "cmd": "Desk Dock" },
+	            { "title": "- &nbsp;Le Desk Dock", "cmd": "Le Desk Dock" },
+	            { "title": "- &nbsp;He Desk Dock", "cmd": "He Desk Dock" },
+	            { "title": "- &nbsp;Car Mode", "cmd": "Car Mode" },
+	            { "title": "- &nbsp;App Market", "cmd": "App Market" },
+	            { "title": "- &nbsp;Vr Home", "cmd": "Vr Home" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-list-alt\"></i>Catégorie"
+	        },
+	        "mimeType": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Type MIME <i>(Ne peut pas être utilisé avec la paramètre ’data’)</i>",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 128
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 128
+	          }
+	        },
+	        "data": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Principales spécifications de données au format URI.",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 512
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 512
+	          }
+	        },
+	        "extra1Name": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Nom des données additionnelles à envoyer",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 512
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 512
+	          }
+	        },
+	        "extra1Data": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Valeur des données additionnelles à envoyer",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 5096
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5096
+	          }
+	        },
+	        "extra1DataType": {
+	          "required": false,
+	          "defaultValue": "String",
+	          "description": "Type de valeur des données additionnelles à envoyer",
+	          "type": "select",
+	          "magic": [
+	            { "title": "- &nbsp;String", "cmd": "String" },
+	            { "title": "- &nbsp;int", "cmd": "int" },
+	            { "title": "- &nbsp;double", "cmd": "double" },
+	            { "title": "- &nbsp;float", "cmd": "float" },
+	            { "title": "- &nbsp;long", "cmd": "long" },
+	            { "title": "- &nbsp;boolean", "cmd": "boolean" },
+	            { "title": "- &nbsp;char", "cmd": "char" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-list-alt\"></i>Type de valeur"
+	        },
+	        "extra2Name": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Nom des données additionnelles à envoyer",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 512
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 512
+	          }
+	        },
+	        "extra2Data": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Valeur des données additionnelles à envoyer",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 5096
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5096
+	          }
+	        },
+	        "extra2DataType": {
+	          "required": false,
+	          "defaultValue": "String",
+	          "description": "Type de valeur des données additionnelles à envoyer",
+	          "type": "select",
+	          "magic": [
+	            { "title": "- &nbsp;String", "cmd": "String" },
+	            { "title": "- &nbsp;int", "cmd": "int" },
+	            { "title": "- &nbsp;double", "cmd": "double" },
+	            { "title": "- &nbsp;float", "cmd": "float" },
+	            { "title": "- &nbsp;long", "cmd": "long" },
+	            { "title": "- &nbsp;boolean", "cmd": "boolean" },
+	            { "title": "- &nbsp;char", "cmd": "char" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-list-alt\"></i>Type de valeur"
+	        },
+	        "extra3Name": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Nom des données additionnelles à envoyer",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 512
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 512
+	          }
+	        },
+	        "extra3Data": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Valeur des données additionnelles à envoyer",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 5096
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5096
+	          }
+	        },
+	        "extra3DataType": {
+	          "required": false,
+	          "defaultValue": "String",
+	          "description": "Type de valeur des données additionnelles à envoyer",
+	          "type": "select",
+	          "magic": [
+	            { "title": "- &nbsp;String", "cmd": "String" },
+	            { "title": "- &nbsp;int", "cmd": "int" },
+	            { "title": "- &nbsp;double", "cmd": "double" },
+	            { "title": "- &nbsp;float", "cmd": "float" },
+	            { "title": "- &nbsp;long", "cmd": "long" },
+	            { "title": "- &nbsp;boolean", "cmd": "boolean" },
+	            { "title": "- &nbsp;char", "cmd": "char" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-list-alt\"></i>Type de valeur"
+	        },
+	        "className": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Spécifie la diffusion à une classe",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 256
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 256
+	          }
+	        },
+	        "package": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Spécifie la diffusion à un package",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 512
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 512
+	          }
+	        },
+	        "target": {
+	          "required": false,
+	          "defaultValue": "broadcast",
+	          "description": "Type de composant Android qui doit recevoir l’intent",
+	          "type": "select",
+	          "magic": [
+	            { "title": "- &nbsp;Broadcast Receiver", "cmd": "broadcast" },
+	            { "title": "- &nbsp;activity", "cmd": "activity" },
+	            { "title": "- &nbsp;service", "cmd": "Service" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-list-alt\"></i>Destination"
+	        }
+	      }
+	    },
+	    "tasker": {
+	      "category": "FUNCTIONS",
+	      "header": "Tâche Tasker",
+	      "description": "Exécute une tâche utilisateur Tasker",
+	      "params": {
+	        "task": {
+	          "required": true,
+	          "description": "Nom de la tâche utilisateur",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 256
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 3,
+	            "max": 256
+	          }
+	        }
+	      }
+	    },
+	    "sendFreeSms": {
+	      "category": "COM",
+	      "header": "SMS API Free Mobile",
+	      "description": "Envoie un sms via l’API SMS Free Mobile",
+	      "params": {
+	        "ident": {
+	          "required": true,
+	          "description": "Information d’identification",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Le format doit être ’<b>Votre identifiant Free Mobile</b>;<b>Votre clé d’identification</b>’<br />Ex: <i>28XXXX47;PWj20HXxXxXxsG</i>",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 23
+	          },
+	          "check": {
+	            "type": "regexp",
+	            "pattern": "^[0-9]{8};[0-9A-Z]{14}$",
+	            "flags": "i"
+	          }
+	        },
+	        "message": {
+	          "required": true,
+	          "description": "Message à envoyer",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 400
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 400
+	          }
+	        },
+	        "askNumber": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Numéro Free Mobile du destinataire",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Obligatoire pour associer le SMS de retour à la requête ASK",
+	          "type": "basic",
+	          "attr": {
+	            "maxLength": 20
+	          },
+	          "check": {
+	            "type": "phoneNumber"
+	          },
+	          "magic": true,
+	          "magic_icon": "book"
+	        },
+	        "askData": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Données de l’action ASK",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Si ce paramètre n’est pas vide, la clef de scénario ’Réponses aux ASK’ sera exécutée<br />en cas de réponse du destinataire avant le timeout spécifié dans le paramètre <i>askTimeout</i>. ",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 100
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 1,
+	            "max": 100
+	          }
+	        },
+	        "askTimeout": {
+	          "required": false,
+	          "defaultValue": 600,
+	          "description": "Timeout du ASK (en secondes)",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 5
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 28800
+	          }
+	        }
+	      }
+	    },
+	    "httpGet": {
+	      "category": "COM",
+	      "header": "Requête http GET",
+	      "description": "Retourne la réponse d’une requête http de type GET",
+	      "params": {
+	        "url": {
+	          "required": true,
+	          "description": "Adresse web de la requête <i>(http://xxx ou https://xxx)</i>",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 256
+	          },
+	          "check": {
+	            "type": "url"
+	          }
+	        },
+	        "timeout": {
+	          "required": false,
+	          "defaultValue": 2,
+	          "description": "Temps d’attente maximum en secondes",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 900
+	          }
+	        }
+	      }
+	    },
+	    "httpPost": {
+	      "category": "COM",
+	      "header": "Requête http POST",
+	      "description": "Retourne la réponse d’une requête http de type POST",
+	      "params": {
+	        "url": {
+	          "required": true,
+	          "description": "Adresse web de la requête <i>(http://xxx ou https://xxx)</i>",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 256
+	          },
+	          "check": {
+	            "type": "url"
+	          }
+	        },
+	        "parameters": {
+	          "required": true,
+	          "description": "Les paramètres encodés <i>(param1=value&amp;param2=value)</i>",
+	          "type": "text",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 2,
+	            "max": 5000
+	          }
+	        },
+	        "timeout": {
+	          "required": false,
+	          "defaultValue": 2,
+	          "description": "Temps d’attente maximum en secondes",
+	          "type": "spinner",
+	          "attr": {
+	            "maxLength": 3
+	          },
+	          "check": {
+	            "type": "int",
+	            "min": 1,
+	            "max": 900
+	          }
+	        }
+	      }
+	    },
+	    "skype": {
+	      "category": "COM",
+	      "header": "Appel Skype",
+	      "description": "Effectue un appel audio ou vidéo avec skype",
+	      "params": {
+	        "participants": {
+	          "required": true,
+	          "description": "Pseudo(s) skype ou numéro(s) de téléphone",
+	          "type": "textarea",
+	          "tooltip": "<i class=\"fa fa-info-circle blue\"></i>Vous devez séparer les pseudos skype ou les numéros de téléphone par des retours à la ligne.",
+	          "attr": {
+	            "maxLength": 256
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 3,
+	            "max": 256
+	          }
+	        },
+	        "type": {
+	          "required": false,
+	          "defaultValue": "audio",
+	          "description": "Type d’appel (audio ou vidéo)",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-microphone gray\"></i>Audio", "cmd": "audio" },
+	            { "title": "<i class=\"fa fa-video-camera gray\"></i>Video", "cmd": "video" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-skype\"></i>Type d’appel"
+	        }
+	      }
+	    },
+	    "httpReturn": {
+	      "category": "FUNCTIONS",
+	      "noplug": "all",
+	      "events": [ "HTTP_EVENT" ],
+	      "header": "Valeur à retourner",
+	      "description": "Incrémente la valeur qui sera retournée en fin de scénario",
+	      "params": {
+	        "result": {
+	          "required": false,
+	          "defaultValue": "",
+	          "description": "Valeur à ajouter à la valeur de retour du scénario",
+	          "type": "textarea",
+	          "attr": {
+	            "maxLength": 5000
+	          },
+	          "check": {
+	            "type": "string",
+	            "min": 0,
+	            "max": 5000
+	          }
+	        }
+	      }
+	    },
+	    "getProximity": {
+	      "category": "SENSORS",
+	      "header": "Proximité",
+	      "description": "Valeur du capteur de proximité (cm)",
+	      "addClass": "Proximity"
+	    },
+	    "getLight": {
+	      "category": "SENSORS",
+	      "header": "Luminosité",
+	      "description": "Valeur du capteur de luminosité (lux)",
+	      "addClass": "Light"
+	    },
+	    "getPressure": {
+	      "category": "SENSORS",
+	      "header": "Pression",
+	      "description": "Valeur du capteur de pression (hPa)",
+	      "addClass": "Pressure"
+	    },
+	    "getHumidity": {
+	      "category": "SENSORS",
+	      "header": "Humidité",
+	      "description": "Valeur du capteur d’humidité (%)",
+	      "addClass": "Humidity"
+	    },
+	    "getTemperature": {
+	      "category": "SENSORS",
+	      "header": "Température",
+	      "description": "Valeur du capteur de témpérature (°C)",
+	      "addClass": "Temperature"
+	    },
+	    "getOrientBearing": {
+	      "category": "SENSORS",
+	      "header": "Orientation",
+	      "description": "Valeur du capteur d’orientation (°)",
+	      "addClass": "Orientation"
+	    },
+	    "getGyroscope": {
+	      "category": "SENSORS",
+	      "header": "Gyroscope",
+	      "description": "Valeurs du Gyroscope (radians/seconde)",
+	      "addClass": "Gyroscope",
+	      "params": {
+	        "axis": {
+	          "required": false,
+	          "defaultValue": "X",
+	          "description": "valeur de l’axe à retourner",
+	          "type": "select",
+	          "magic": [
+	            { "title": "<i class=\"fa fa-arrows-h gray\"></i>Axe X", "cmd": "x" },
+	            { "title": "<i class=\"fa fa-arrows-v gray\"></i>Axe Y", "cmd": "y" },
+	            { "title": "<i class=\"fa fa-expand gray\"></i>Axe Z", "cmd": "z" },
+	            { "title": "----" },
+	            { "title": "<i class=\"fa fa-arrows-alt gray\"></i>Tous les axes", "cmd": "all" }
+	          ],
+	          "magic_header": "<i class=\"fa fa-compass\"></i>Axe"
+	        }
+	      }
+	    }
+	  }
+	}
+}

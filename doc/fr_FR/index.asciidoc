@@ -1,0 +1,25 @@
+:icons:
+= JPI plugin
+
+=== Description
+
+Plugin pour le pilotage de l'application android Jeedom Paw Interface.
+
+=== Présentation
+include::presentation.asciidoc[]
+
+'''
+=== Configuration
+include::configuration.asciidoc[]
+
+'''
+=== Cas d’utilisation
+include::utilisation.asciidoc[]
+
+'''
+=== FAQ
+include::faq.asciidoc[]
+
+'''
+=== Changelog
+include::changelog.asciidoc[]

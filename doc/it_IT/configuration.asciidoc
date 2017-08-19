@@ -1,0 +1,17 @@
+= Onglet équipement
+
+** *Adresse IP :* adresse IP de l'équipement JPI
+** *Port :* port de connexon de l'équipement JPI
+
+image::../images/Equipement.png[]
+
+= Onglet équipement
+
+Aucune commande n'est créé automatiquement, il faut donc, en fonction des besoins, créer les commandes à l'aide du boutons *Ajouter une commande JPI* qui se situe en haut à droite de l'écran.
+
+** *Partie n°1 :* Nom de la commande
+** *Partie n°2 :* Menu déroulant pour choir une fonction JPI
+** *Partie n°3 :* champ dynamique qui change en fonction de la commande choisie (paramètre 1 : langue, caméra, volume ou numéro de téléphone, etc.)
+** *Partie n°4 :* champ dynamique qui change en fonction de la commande choisie (paramètre 2 : résolution caméra, média, etc.)
+
+image::../images/Commandes.png[]
