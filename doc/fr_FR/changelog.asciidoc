@@ -1,7 +1,7 @@
-*Version 2.0 (Version en cours sur le market)
-* Ajout d'un assistant de création/modification de commande
-* Création d'un widget mobile
-* Récupération dynamique des commandes APK JPI
+* Version 2.0 (Version en cours sur le market)
+** Ajout d'un assistant de création/modification de commande
+** Création d'un widget mobile
+** Récupération dynamique des commandes APK JPI
 
 * Version 1.03 (Version en cours sur le market)
 ** Ajout d'un widget
