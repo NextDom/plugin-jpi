@@ -155,11 +155,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
                     </div>
 
-                    <div class="alert alert-info">{{Paramètres à reporter sur votre équipement JPI :<br><br><?php
-                        echo 'url : ' . network::getNetworkAccess('internal') . '/plugins/JPI/core/php/jeeJPI.php?' . '<br>parameters : apikey=' . config::byKey('api') . '&reponse={MESSAGE}';
-                        ?>}}
-                    </div>    
-
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="commandtabCmdWidget">
