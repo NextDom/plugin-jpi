@@ -1,4 +1,5 @@
 = Description du plugin 
+
 image::../images/Equipement.png[]
 
 = Partie 1
@@ -12,12 +13,12 @@ Informations à renseigner pour le bon fonctionnement du plugin :
 ** * Commandes liées au widget
 
 = Partie 3
-** * Commandes pour vos besoins
+** *Commandes pour vos besoins
 
 = Partie 4  
-** * Bouton pour rafraichir le fichier de configuration JPI (par exemple, suite à une mise à jour de l'APK)
+** *Bouton pour rafraichir le fichier de configuration JPI (par exemple, suite à une mise à jour de l'APK)
 
 = Partie 4
-** * Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (Ne fonctionne uniquement depuis une connexion interne)
+** *Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (Ne fonctionne uniquement depuis une connexion interne)
 
 
