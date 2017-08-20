@@ -51,10 +51,9 @@ try {
     if (init('action') == 'AddCommand') {
         $id = (init('id'));
         $name = (init('name'));
-
         $command = (init('command'));
-        $parameters = (init('parameters'));        
-        $options = (init('options'));   
+        $parameters = (init('parameters'));
+        $options = (init('options'));
         ajax::success(JPI::AddCommand($id, $name, $command, $parameters, $options));
     }
 
@@ -63,13 +62,13 @@ try {
         $id = (init('id'));
         $name = (init('name'));
         $command = (init('command'));
-        $parameters = (init('parameters'));        
-        $options = (init('options'));   
+        $parameters = (init('parameters'));
+        $options = (init('options'));
         ajax::success(JPI::updateCommand($id, $cmdid, $name, $command, $parameters, $options));
-    }    
-    
-    
-    
+    }
+
+
+
     throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
     /*     * *********Catch exeption*************** */
 } catch (Exception $e) {

@@ -137,7 +137,7 @@ sendVarToJS('cmdInfo', $cmdInfo);
             var options = [];
             var options = ["AucuneOption"];
         } else {
-        var paramerts = JSON.parse('{"' + decodeURI(cmdInfo.configuration.jpiParametres.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}');
+            var paramerts = JSON.parse('{"' + decodeURI(cmdInfo.configuration.jpiParametres.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}');
         }
         ;
 
@@ -154,7 +154,7 @@ sendVarToJS('cmdInfo', $cmdInfo);
         $.each(jsonresult2[cmdvalue].params, function (key, val) {
 
             var title = '';
-            if (val.required === true) {        
+            if (val.required === true) {
                 if (val.type === "spinner") {
                     title += '<b>' + key + '</b>';
                     $.each(paramerts, function (key2, value2) {
@@ -178,21 +178,23 @@ sendVarToJS('cmdInfo', $cmdInfo);
                 ;
 
                 if (val.type === "basic" || val.type === "text" || val.type === "textarea") {
-                        if (key === "message"){
-                         title += '<FONT color="red"><b>Le champ message est à remplir dans les scénarios !<br> Ne pas oublier de séléctionner le type de commande action/message.</b></FONT>'; 
-                         $("#idparameters").append(title);
-                        } else{                    
-                    title += '<b>' + key + '</b>';
-                    $.each(paramerts, function (key2, value2) {
+                    if (key === "message") {
+                        title += '<FONT color="red"><b>Le champ message est à remplir dans les scénarios !<br> Ne pas oublier de séléctionner le type de commande action/message.</b></FONT>';
+                        $("#idparameters").append(title);
+                    } else {
+                        title += '<b>' + key + '</b>';
+                        $.each(paramerts, function (key2, value2) {
 
-                        if (key === key2) {
-                            title += '<input id="parameters" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '" value="' + value2 + '">';
-                            $("#idparameters").append(title);
-                        }
-                        ;
-                    });
-                    };
-                };
+                            if (key === key2) {
+                                title += '<input id="parameters" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '" value="' + value2 + '">';
+                                $("#idparameters").append(title);
+                            }
+                            ;
+                        });
+                    }
+                    ;
+                }
+                ;
 
                 if (val.type === "select") {
                     if (isset(val.magic) && is_array(val.magic)) {
@@ -214,15 +216,17 @@ sendVarToJS('cmdInfo', $cmdInfo);
 
                 if (val.type === "textarea" || val.type === "basic" || val.type === "text") {
                     title += '<b>' + key + '</b>';
-                    $.each(options, function (key2, value2) {                      
+                    $.each(options, function (key2, value2) {
                         if (key === key2) {
                             title += '<input id="options" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '" value="' + value2 + '">';
                             $("#idoptions").append(title);
-                        };
+                        }
+                        ;
                         if (value2 === "AucuneOption") {
-                            title += '<input id="options" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '" value="' + val.defaultValue  + '">';
+                            title += '<input id="options" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '" value="' + val.defaultValue + '">';
                             $("#idoptions").append(title);
-                        };                        
+                        }
+                        ;
                     });
                 }
                 ;
@@ -242,8 +246,10 @@ sendVarToJS('cmdInfo', $cmdInfo);
                                 title += '</form>';
                                 $("#idoptions").append(title);
 
-                            };
-                        };
+                            }
+                            ;
+                        }
+                        ;
                         if (value2 === "AucuneOption") {
                             if (value2 === "1") {
                                 title += '<input id="options" type="radio" name="' + key + '" value="1" checked>  Oui';
@@ -255,8 +261,10 @@ sendVarToJS('cmdInfo', $cmdInfo);
                                 title += '</form>';
                                 $("#idoptions").append(title);
 
-                            };
-                        };                        
+                            }
+                            ;
+                        }
+                        ;
                     });
                 }
                 ;
@@ -267,40 +275,43 @@ sendVarToJS('cmdInfo', $cmdInfo);
                         $.each(options, function (key2, value2) {
                             if (key === key2) {
                                 title += '<option value="' + value2 + '">' + value2 + '</option>';
-                            
-                       
-                        $.each(val.magic, function (key, value) {
-                            title += '<option title="' + val.description + '"value="' + key + '">' + value.title + '</option>';
-                        });
-                        $("#idoptions").append(title);
-                        };
+
+
+                                $.each(val.magic, function (key, value) {
+                                    title += '<option title="' + val.description + '"value="' + key + '">' + value.title + '</option>';
+                                });
+                                $("#idoptions").append(title);
+                            }
+                            ;
                             if (value2 === "AucuneOption") {
                                 title += '<option title="' + val.description + '" value="' + val.defaultValue + '">' + val.defaultValue + '</option>';
-                            
-                       
-                        $.each(val.magic, function (key, value) {
-                            title += '<option value="' + key + '">' + value.title + '</option>';
-                        });
-                        $("#idoptions").append(title);
-                                            }
-                                            ;
-                                        });
 
-                                    }
-                                    ;
-                                }
-                                ;
+
+                                $.each(val.magic, function (key, value) {
+                                    title += '<option value="' + key + '">' + value.title + '</option>';
+                                });
+                                $("#idoptions").append(title);
+                            }
+                            ;
+                        });
+
+                    }
+                    ;
+                }
+                ;
                 if (val.type === "spinner") {
                     title += '<b>' + key + '</b>';
                     $.each(options, function (key2, value2) {
                         if (key === key2) {
                             title += '<input id="idoptions" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '" step="' + val.check.step + '" value="' + value2 + '">';
                             $("#idoptions").append(title);
-                        };
+                        }
+                        ;
                         if (value2 === "AucuneOption") {
                             title += '<input id="idoptions" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '" step="' + val.check.step + '" value="' + val.defaultValue + '">';
                             $("#idoptions").append(title);
-                        };
+                        }
+                        ;
                     });
                 }
                 ;
@@ -439,15 +450,17 @@ sendVarToJS('cmdInfo', $cmdInfo);
                 ;
 
                 if (val.type == "basic" || val.type === "text" || val.type === "textarea") {
-                        if (key === "message"){
-                         title += '<FONT color="red"><b>Le champ message est à remplir dans les scénarios !<br> Ne pas oublier de séléctionner le type de commande action/message.</b></FONT>'; 
-                         $("#idparameters").append(title);
-                        } else{                         
-                    title += '<b>' + key + '</b>';
-                    title += '<input id="parameters2" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '">';
-                    $("#idparameters").append(title);
-                };
-                };
+                    if (key === "message") {
+                        title += '<FONT color="red"><b>Le champ message est à remplir dans les scénarios !<br> Ne pas oublier de séléctionner le type de commande action/message.</b></FONT>';
+                        $("#idparameters").append(title);
+                    } else {
+                        title += '<b>' + key + '</b>';
+                        title += '<input id="parameters2" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '">';
+                        $("#idparameters").append(title);
+                    }
+                    ;
+                }
+                ;
 
                 if (val.type === "select") {
                     if (isset(val.magic) && is_array(val.magic)) {

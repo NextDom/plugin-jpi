@@ -53,9 +53,9 @@ sendVarToJS('id', init('id'));
             return $.trim(this.value).length > 0
         }).serialize();
 
-      if(cmdname == "") {
-      alert("Merci de renseigner un nom de commande !");
-    }
+        if (cmdname == "") {
+            alert("Merci de renseigner un nom de commande !");
+        }
         $.ajax({// fonction permettant de faire de l'ajax
             type: "POST", // méthode de transmission des données au fichier php
             url: "plugins/JPI/core/ajax/JPI.ajax.php", // url du fichier php
@@ -123,205 +123,198 @@ sendVarToJS('id', init('id'));
             }
         });
     });
-    
-          $('#idactions').on('change', function () {
-            $("#idparameters").empty()
-            $("#idoptions").empty()  
 
-           
+    $('#idactions').on('change', function () {
+        $("#idparameters").empty()
+        $("#idoptions").empty()
+
+
         var select = '';
 
         var cmdvalue = $('#idactions option:selected').value();
 
-            $.each(jsonresult2[cmdvalue].params, function (key, val) {
-                var title = '';
-                if (val.required == true) {
-                    if (val.type == "spinner") {
-                        title += '<b>' + key + '</b>';
-                        title += '<input id="parameters" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '">';
-                        $("#idparameters").append(title);
-                    }
-                    ;
-
-                    if (val.type == "boolean") {
-                        title += '<b>' + key + '</b>';
-                        title += '<form>';
-                        title += '<input id="parameters" type="radio" name="' + key + '" value="1">  Oui';
-                        title += ' <input id="parameters" type="radio" name="' + key + '" value="0">  Non';
-                        title += '</form>';
-                        $("#idparameters").append(title);
-                    }
-                    ;
-
-                    if (val.type == "text" || val.type == "textarea" || val.type == "basic") {
-                        if (key === "message"){
-                         title += '<FONT color="red"><b>Le champ message est à remplir dans les scénarios !<br> Ne pas oublier de séléctionner le type de commande action/message.</b></FONT>'; 
-                         $("#idparameters").append(title);
-                        } else{
-                        title += '<b>' + key + '</b>';
-                        title += '<input id="parameters" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '">';
-                        $("#idparameters").append(title);
-                    };
-                    };
-
-                    if (val.type == "select") {
-                        if (isset(val.magic) && is_array(val.magic)) {
-                            title += '<b>' + key + '</b>';
-                            title += '<select id="parameters" class="form-control" name="' + key + '">';
-                            title += '<option value="">- Selectionner une option -</option>';
-                            $.each(val.magic, function (key, value) {
-                                title += '<option value="' + key + '">' + value.title + '</option>';
-                            });
-                            $("#idparameters").append(title);
-                        }
-                    }
-                    ;
-
+        $.each(jsonresult2[cmdvalue].params, function (key, val) {
+            var title = '';
+            if (val.required == true) {
+                if (val.type == "spinner") {
+                    title += '<b>' + key + '</b>';
+                    title += '<input id="parameters" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '">';
+                    $("#idparameters").append(title);
                 }
                 ;
 
+                if (val.type == "boolean") {
+                    title += '<b>' + key + '</b>';
+                    title += '<form>';
+                    title += '<input id="parameters" type="radio" name="' + key + '" value="1">  Oui';
+                    title += ' <input id="parameters" type="radio" name="' + key + '" value="0">  Non';
+                    title += '</form>';
+                    $("#idparameters").append(title);
+                }
+                ;
 
-
-                if (val.required == false) {
-
-                    if (val.type == "text" || val.type == "textarea" || val.type == "basic") {
+                if (val.type == "text" || val.type == "textarea" || val.type == "basic") {
+                    if (key === "message") {
+                        title += '<FONT color="red"><b>Le champ message est à remplir dans les scénarios !<br> Ne pas oublier de séléctionner le type de commande action/message.</b></FONT>';
+                        $("#idparameters").append(title);
+                    } else {
                         title += '<b>' + key + '</b>';
-                        title += '<input id="options" type="input" class="form-control" name="' + key + '" value="' + val.defaultValue + '" placeholder="' + val.description + '">'
-                        $("#idoptions").append(title);
+                        title += '<input id="parameters" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '">';
+                        $("#idparameters").append(title);
                     }
                     ;
+                }
+                ;
 
-                    if (val.type == "boolean") {
+                if (val.type == "select") {
+                    if (isset(val.magic) && is_array(val.magic)) {
                         title += '<b>' + key + '</b>';
-                        title += '<form>';
-                     if (val.defaultValue === 1) { 
+                        title += '<select id="parameters" class="form-control" name="' + key + '">';
+                        title += '<option value="">- Selectionner une option -</option>';
+                        $.each(val.magic, function (key, value) {
+                            title += '<option value="' + key + '">' + value.title + '</option>';
+                        });
+                        $("#idparameters").append(title);
+                    }
+                }
+                ;
+
+            }
+            ;
+
+
+
+            if (val.required == false) {
+
+                if (val.type == "text" || val.type == "textarea" || val.type == "basic") {
+                    title += '<b>' + key + '</b>';
+                    title += '<input id="options" type="input" class="form-control" name="' + key + '" value="' + val.defaultValue + '" placeholder="' + val.description + '">'
+                    $("#idoptions").append(title);
+                }
+                ;
+
+                if (val.type == "boolean") {
+                    title += '<b>' + key + '</b>';
+                    title += '<form>';
+                    if (val.defaultValue === 1) {
                         title += '<input id="options" type="radio" name="' + key + '" value="1" checked>  Oui';
                         title += ' <input id="options" type="radio" name="' + key + '" value="0">  Non';
                     } else {
                         title += '<input id="options" type="radio" name="' + key + '" value="1"  >  Oui';
-                        title += ' <input id="options" type="radio" name="' + key + '" value="0" checked>  Non';    
-                    };
-                        title += '</form>';
-                        $("#idoptions").append(title);
+                        title += ' <input id="options" type="radio" name="' + key + '" value="0" checked>  Non';
                     }
                     ;
-                    if (val.type == "select") {
-                        if (isset(val.magic) && is_array(val.magic)) {
-                            title += '<b>' + key + '</b>';
-                            title += '<select id="options" class="form-control" name="' + key + '">';
-                            title += '<option value="'+ val.defaultValue +'">'+ val.defaultValue +'</option>';
-                            title += '<option value="">- Selectionner une option -</option>';
-                            $.each(val.magic, function (key, value) {
-                                title += '<option value="' + key + '">' + value.title + '</option>';
-                            });
-                            $("#idoptions").append(title);
-                        }
-                    }
-                    ;
-                    if (val.type == "spinner") {
-                        title += '<b>' + key + '</b>';
-                        title += '<input id="idoptions" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '" step="' + val.check.step +  '" value="' + val.defaultValue + '">';
-                        $("#idoptions").append(title);
-                    };
+                    title += '</form>';
+                    $("#idoptions").append(title);
                 }
                 ;
-
-            });
-            if (cmdvalue === "tts") {
-
-                var title2 = '';
-                $.ajax({
-                    type: "POST",
-                    url: "plugins/JPI/core/ajax/JPI.ajax.php",
-                    data: {
-                        action: "getjpiVoice",
-                        ip: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiIp]').value(),
-                        port: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiPort]').value()
-                    },
-                    dataType: 'json',
-                    error: function (request, status, error) {
-                        console.log("Erreur lors de la demande");
-                    },
-                    error: function (request, status, error) {
-                        handleAjaxError(request, status, error);
-                    },
-                    async: false,
-                    success: function (data2) {
-                        if (data2.state !== 'ok') {
-                            $('#div_alert').showAlert({
-                                message: data.result,
-                                level: 'danger'
-                            });
-                            return;
-                        }
-                        title2 += '<b>voice</b>';
-                        title2 += '<select id="options" class="form-control" name="voice">';
-                        title2 += '<option value="">- Séléctionner une voix -</option>';
-                        $.each(data2.result, function (key, value) {
-                            title2 += '<option value="' + key + '">' + value + '</option>';
+                if (val.type == "select") {
+                    if (isset(val.magic) && is_array(val.magic)) {
+                        title += '<b>' + key + '</b>';
+                        title += '<select id="options" class="form-control" name="' + key + '">';
+                        title += '<option value="' + val.defaultValue + '">' + val.defaultValue + '</option>';
+                        title += '<option value="">- Selectionner une option -</option>';
+                        $.each(val.magic, function (key, value) {
+                            title += '<option value="' + key + '">' + value.title + '</option>';
                         });
-                        title2 += '</select>';
-                        $("#idoptions").append(title2);
-
+                        $("#idoptions").append(title);
                     }
-                });
+                }
+                ;
+                if (val.type == "spinner") {
+                    title += '<b>' + key + '</b>';
+                    title += '<input id="idoptions" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '" step="' + val.check.step + '" value="' + val.defaultValue + '">';
+                    $("#idoptions").append(title);
+                }
+                ;
             }
             ;
-
-
-            if (cmdvalue === "launchApp" || cmdvalue === "killApp") {
-
-                var title2 = '';
-                $.ajax({
-                    type: "POST",
-                    url: "plugins/JPI/core/ajax/JPI.ajax.php",
-                    data: {
-                        action: "getjpiApp",
-                        ip: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiIp]').value(),
-                        port: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiPort]').value()
-                    },
-                    dataType: 'json',
-                    error: function (request, status, error) {
-                        console.log("Erreur lors de la demande");
-                    },
-                    error: function (request, status, error) {
-                        handleAjaxError(request, status, error);
-                    },
-                    async: false,
-                    success: function (data2) {
-                        if (data2.state !== 'ok') {
-                            $('#div_alert').showAlert({
-                                message: data.result,
-                                level: 'danger'
-                            });
-                            return;
-                        }
-
-                        title2 += '<b>packageName</b>';
-                        title2 += '<select id="parameters" class="form-control" name="packageName">';
-                        title2 += '<option value="">- Séléctionner une application -</option>';
-                        $.each(data2.result, function (key, value) {
-                            title2 += '<option value="' + key + '">' + value + '</option>';
-                        });
-                        title2 += '</select>';
-                        $("#idparameters").append(title2);
-
-                    }
-                });
-            }
-            ;
-
-
-
-
-
-
-
 
         });
+        if (cmdvalue === "tts") {
 
-    
+            var title2 = '';
+            $.ajax({
+                type: "POST",
+                url: "plugins/JPI/core/ajax/JPI.ajax.php",
+                data: {
+                    action: "getjpiVoice",
+                    ip: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiIp]').value(),
+                    port: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiPort]').value()
+                },
+                dataType: 'json',
+                error: function (request, status, error) {
+                    console.log("Erreur lors de la demande");
+                },
+                error: function (request, status, error) {
+                    handleAjaxError(request, status, error);
+                },
+                async: false,
+                success: function (data2) {
+                    if (data2.state !== 'ok') {
+                        $('#div_alert').showAlert({
+                            message: data.result,
+                            level: 'danger'
+                        });
+                        return;
+                    }
+                    title2 += '<b>voice</b>';
+                    title2 += '<select id="options" class="form-control" name="voice">';
+                    title2 += '<option value="">- Séléctionner une voix -</option>';
+                    $.each(data2.result, function (key, value) {
+                        title2 += '<option value="' + key + '">' + value + '</option>';
+                    });
+                    title2 += '</select>';
+                    $("#idoptions").append(title2);
 
+                }
+            });
+        }
+        ;
+
+
+        if (cmdvalue === "launchApp" || cmdvalue === "killApp") {
+
+            var title2 = '';
+            $.ajax({
+                type: "POST",
+                url: "plugins/JPI/core/ajax/JPI.ajax.php",
+                data: {
+                    action: "getjpiApp",
+                    ip: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiIp]').value(),
+                    port: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiPort]').value()
+                },
+                dataType: 'json',
+                error: function (request, status, error) {
+                    console.log("Erreur lors de la demande");
+                },
+                error: function (request, status, error) {
+                    handleAjaxError(request, status, error);
+                },
+                async: false,
+                success: function (data2) {
+                    if (data2.state !== 'ok') {
+                        $('#div_alert').showAlert({
+                            message: data.result,
+                            level: 'danger'
+                        });
+                        return;
+                    }
+
+                    title2 += '<b>packageName</b>';
+                    title2 += '<select id="parameters" class="form-control" name="packageName">';
+                    title2 += '<option value="">- Séléctionner une application -</option>';
+                    $.each(data2.result, function (key, value) {
+                        title2 += '<option value="' + key + '">' + value + '</option>';
+                    });
+                    title2 += '</select>';
+                    $("#idparameters").append(title2);
+
+                }
+            });
+        }
+        ;
+    });
 
 </script>
 

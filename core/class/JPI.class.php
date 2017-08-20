@@ -38,22 +38,22 @@ class JPI extends eqLogic {
         $JPICmd->save();
     }
 
-     public static function updateCommand($id, $cmdid, $name, $command, $parameters, $options) {
+    public static function updateCommand($id, $cmdid, $name, $command, $parameters, $options) {
         log::add('JPI', 'DEBUG', 'Mise à jour de la commande : ' . $name . ' ' . $command . ' ' . $parameters . ' ' . $options);
         $JPI = eqLogic::byId($id);
 
         $JPICmd = $JPI->getCmd(null, $name);
-            $JPICmd = new JPICmd();
-            $JPICmd->setName($name);
-            $JPICmd->setid($cmdid);            
-            $JPICmd->setEqLogic_id($id);
-            $JPICmd->setType('action');
-            $JPICmd->setSubType('other');
+        $JPICmd = new JPICmd();
+        $JPICmd->setName($name);
+        $JPICmd->setid($cmdid);
+        $JPICmd->setEqLogic_id($id);
+        $JPICmd->setType('action');
+        $JPICmd->setSubType('other');
         $JPICmd->setConfiguration('jpiAction', $command);
         $JPICmd->setConfiguration('jpiParametres', $parameters);
         $JPICmd->setConfiguration('jpiOptions', $options);
         $JPICmd->save();
-    }   
+    }
 
     public static function getjpiVoice($ip, $port) {
         $JPICmd_json = dirname(__FILE__) . '/../config/' . $ip . '_voice.json';
@@ -63,7 +63,8 @@ class JPI extends eqLogic {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
-            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
++           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
++           //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($JPICmd_json, $response);
@@ -81,7 +82,8 @@ class JPI extends eqLogic {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
-            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
++           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
++           //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($app_json, $response);
@@ -99,7 +101,8 @@ class JPI extends eqLogic {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
-            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
++           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
++           //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($cmd_json, $response);
@@ -148,7 +151,7 @@ class JPI extends eqLogic {
         }
     }
 
-    public function cron60($_eqlogic_id = null) {
+    public function cronHourly($_eqlogic_id = null) {
         $frequence = config::byKey('frequence', 'JPI');
         if ($frequence == '60min') {
             self::executeinfo();
@@ -171,6 +174,8 @@ class JPI extends eqLogic {
                         $url = 'http://' . $JPI->getConfiguration('jpiIp') . ':' . $JPI->getConfiguration('jpiPort') . '/?action=' . $cmd->getConfiguration('jpiAction') . '&__JPIPLUG=1';
                         log::add('JPI', 'DEBUG', 'Récupération des informations : ' . $url);
                         $value = file_get_contents($url);
+//                        $request_http = new com_http($url);
+//			$value = $request_http->exec();
                         log::add('JPI', 'DEBUG', 'Résultat : ' . $value);
                         $cmd->event($value);
                     }
@@ -185,7 +190,8 @@ class JPI extends eqLogic {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_URL, $action);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
++       curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
++       //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         $response = curl_exec($ch);
         curl_close($ch);
 
@@ -206,7 +212,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Info volume media', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('infovolume');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('info');
             $JPICmd->setSubType('numeric');
         }
@@ -220,7 +225,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Configuration du volume media', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('setvolumemedia');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('slider');
         }
@@ -235,7 +239,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Mute', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('mute');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -251,7 +254,6 @@ class JPI extends eqLogic {
             $JPICmd->setLogicalId('infobatterie');
             $JPICmd->setType('info');
             $JPICmd->setSubType('numeric');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setUnite('%');
             $JPICmd->setDisplay('generic_type', 'infobatterie');
         }
@@ -268,7 +270,6 @@ class JPI extends eqLogic {
             $JPICmd->setType('info');
             $JPICmd->setSubType('numeric');
             $JPICmd->setDisplay('generic_type', 'infosms');
-            //$JPICmd->setIsVisible(1);
         }
         $JPICmd->setConfiguration('type', 'cmdwiget');
         $JPICmd->setConfiguration('jpiAction', 'getSmsCounter');
@@ -282,7 +283,6 @@ class JPI extends eqLogic {
             $JPICmd->setLogicalId('infosentsms');
             $JPICmd->setType('info');
             $JPICmd->setSubType('numeric');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setDisplay('generic_type', 'infosentsms');
         }
         $JPICmd->setConfiguration('type', 'cmdwiget');
@@ -305,7 +305,6 @@ class JPI extends eqLogic {
         $JPICmd = $this->getCmd(null, 'play');
         if (!is_object($JPICmd)) {
             $JPICmd = new JPICmd();
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setName(__('Play', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('play');
@@ -324,7 +323,6 @@ class JPI extends eqLogic {
             $JPICmd->setLogicalId('infosignal');
             $JPICmd->setType('info');
             $JPICmd->setSubType('numeric');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setUnite('%');
             $JPICmd->setDisplay('generic_type', 'infosignal');
         }
@@ -338,7 +336,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Preset1 media', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('preset1');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -351,7 +348,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Preset2 media', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('preset2');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -364,7 +360,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Preset3 media', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('preset3');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -377,7 +372,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Preset4 media', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('preset4');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -390,7 +384,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Next', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('next');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -416,7 +409,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Stop', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('stop');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -430,7 +422,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Unmute', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('unmute');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -444,7 +435,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Version du moteur', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('infoversion');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('info');
             $JPICmd->setSubType('string');
             $JPICmd->setDisplay('generic_type', 'infoversion');
@@ -459,7 +449,6 @@ class JPI extends eqLogic {
             $JPICmd->setName(__('Reconnaissance vocale', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('voice');
-            //$JPICmd->setIsVisible(1);
             $JPICmd->setType('action');
             $JPICmd->setSubType('other');
         }
@@ -574,7 +563,7 @@ class JPICmd extends cmd {
                 $message = trim($_options['title'] . ' ' . $_options['message']);
             }
 
-            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=sendSms'. '&' . $this->getConfiguration('jpiParametres') . '&message=' . urlencode($message). '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
+            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=sendSms' . '&' . $this->getConfiguration('jpiParametres') . '&message=' . urlencode($message) . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
             $response = $eqLogic->executerequest($action);
             if (!preg_match("/\bok\b/i", $response)) {
                 $cmd = $eqLogic->getCmd(null, 'infosentsms');
@@ -583,8 +572,7 @@ class JPICmd extends cmd {
                 $cmd = $eqLogic->getCmd(null, 'infosentsms');
                 $cmd->event("1");
             }
-                $eqLogic->executeinfo($eqLogic->getId());
-                            
+            $eqLogic->executeinfo($eqLogic->getId());
         } elseif ($this->getConfiguration('jpiAction') == 'tts') {
             $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . $this->getConfiguration('jpiParametres') . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
             $eqLogic->executerequest($action);

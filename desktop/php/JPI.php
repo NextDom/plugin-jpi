@@ -175,7 +175,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                         </tbody>
                     </table>
                 </div>
-            
+
                 <div role="tabpanel" class="tab-pane" id="commandtab">
                     <a class="btn btn-success pull-right" id="bt_Assistant" ><i class="fa fa-plus-circle"></i> {{Assistant de commande JPI}}</a>
                     <a class="btn btn-success cmdAction pull-right" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter une commande JPI}}</a><br/><br/>

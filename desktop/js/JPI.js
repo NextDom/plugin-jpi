@@ -23,7 +23,7 @@ $('#bt_Device').on('click', function () {
     $('#md_modal').load('index.php?v=d&plugin=JPI&modal=modal.JPI&id=' + $('.eqLogicAttr[data-l1key=id]').value()).dialog('open');
 });
 
- $("body").undelegate('.bt_addInAction', 'click').delegate('.bt_addInAction', 'click', function () {
+$("body").undelegate('.bt_addInAction', 'click').delegate('.bt_addInAction', 'click', function () {
     $('#md_modal').dialog({
         title: "Assistant de modification de commande JPI",
         MaxWidth: 800,
@@ -88,12 +88,12 @@ function addCmdToTable(_cmd) {
     }
 
     var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
-    
-        if (_cmd.configuration.type == 'cmdwiget') {
+
+    if (_cmd.configuration.type == 'cmdwiget') {
         tr += '<td>';
         if (is_numeric(_cmd.id)) {
             tr += '<a class="btn btn-default btn-xs cmdAction expertModeVisible" data-action="configure"><i class="fa fa-cogs"></i></a> ';
-            tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';           
+            tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
             tr += '<i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i></td>';
         }
 
@@ -105,14 +105,14 @@ function addCmdToTable(_cmd) {
         tr += '</td>';
 
 
-    $('#table_cmdWidget tbody').append(tr);
-    $('#table_cmdWidget tbody tr:last').setValues(_cmd, '.cmdAttr');
+        $('#table_cmdWidget tbody').append(tr);
+        $('#table_cmdWidget tbody tr:last').setValues(_cmd, '.cmdAttr');
 
     }
 
 
-    
-    
+
+
     if (_cmd.configuration.type !== 'cmdwiget') {
         tr += '<td>';
         if (is_numeric(_cmd.id)) {
@@ -145,12 +145,12 @@ function addCmdToTable(_cmd) {
         tr += '<td>';
         tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="jpiOptions" placeholder="{{Options}}">';
         tr += '</td>';
-    $('#table_cmd tbody').append(tr);
-    $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
-    if (isset(_cmd.type)) {
-        $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
-    }
-    jeedom.cmd.changeType($('#table_cmd tbody tr:last'), init(_cmd.subType));        
+        $('#table_cmd tbody').append(tr);
+        $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+        if (isset(_cmd.type)) {
+            $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
+        }
+        jeedom.cmd.changeType($('#table_cmd tbody tr:last'), init(_cmd.subType));
     }
 
     tr += '</tr>';

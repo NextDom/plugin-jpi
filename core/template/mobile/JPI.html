@@ -1,5 +1,8 @@
 <div class="eqLogic-widget eqLogic JPI" style="min-width: 350px;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#;" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" >
     <span class="statusCmd pull-right" style="position : absolute;left : 2px;z-index: 1030;"></span>
+    <span class="spanvoice tooltips" style="position : absolute;bottom: 3px;left: 3px;cursor:pointer"><i class="fa fa-microphone" title="Reconnaissance vocale"></i></span>
+    <i class='fa fa-refresh pull-right cursor refresh' style="margin-top: 3px;margin-right: 3px;"></i>
+    <span class="cmd cmd-widget" data-cmd_id="#refresh_id#" style="display:none;"></span>
     <center class="widget-name" style="#hideEqLogicName#">#name_display#  <span style="font-size: 0.85em;position: relative;top:-2px;">#object_name#</span></center>
 
     <div class="row">
@@ -28,58 +31,57 @@
                 <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset4" title="preset4" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a> 
         </div>
         <div align="center">
-            <div class="volumemedia full-width-slider" style="min-width:340px;height:30px;margin-left:10px">
+            <div class="volumemedia full-width-slider" style="min-width:350px;height:30px;margin-left:10px">
                 <input type="range" min="0" max="100" data-theme="a" value="#infovolume#"/>
             </div>
         </div>
-
-        <script>
-
-            $("body").delegate(".JPI[data-eqLogic_uid=#uid#] .volumemedia", 'slidestop', function (event, ui) {
-                jeedom.cmd.execute({id: '#cmd_setvolumemedia_id#', value: {slider: $(".JPI[data-eqLogic_uid=#uid#] .volumemedia input").value()}});
-                $(".eqLogic[data-eqLogic_uid=#uid#] .spanvolume").empty().append(' <i class="fa fa-volume-off" style="margin-top:-5px"; title="Volume"></i>' + ' ' + $(".JPI[data-eqLogic_uid=#uid#] .volumemedia input").value());
-            });
-
-
-
-            $('.eqLogic[data-eqLogic_uid=#uid#] .mute').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_mute_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .unmute').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_unmute_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .play').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_play_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .pause').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_pause_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .stop').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_stop_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .next').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_next_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .preset1').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_preset1_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .preset2').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_preset2_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .preset3').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_preset3_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .preset4').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_preset4_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .spanvoice').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_voice_id#'});
-            });
-            $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
-                jeedom.cmd.execute({id: '#cmd_refresh_id#'});
-            });
-        </script>
-
     </div>
+    <script>
 
-</div>                    
+        $("body").delegate(".JPI[data-eqLogic_uid=#uid#] .volumemedia", 'slidestop', function (event, ui) {
+            jeedom.cmd.execute({id: '#cmd_setvolumemedia_id#', value: {slider: $(".JPI[data-eqLogic_uid=#uid#] .volumemedia input").value()}});
+            $(".eqLogic[data-eqLogic_uid=#uid#] .spanvolume").empty().append(' <i class="fa fa-volume-off" style="margin-top:-5px"; title="Volume"></i>' + ' ' + $(".JPI[data-eqLogic_uid=#uid#] .volumemedia input").value());
+        });
+
+
+
+        $('.eqLogic[data-eqLogic_uid=#uid#] .mute').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_mute_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .unmute').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_unmute_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .play').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_play_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .pause').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_pause_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .stop').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_stop_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .next').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_next_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .preset1').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_preset1_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .preset2').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_preset2_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .preset3').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_preset3_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .preset4').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_preset4_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .spanvoice').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_voice_id#'});
+        });
+        $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
+            jeedom.cmd.execute({id: '#cmd_refresh_id#'});
+        });
+    </script>
+
+</div>
+

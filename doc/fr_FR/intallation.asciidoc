@@ -1,0 +1,7 @@
+= Pré-requis
+
+** *Installer PAW server et l'APK JPI sur votre périphérique android
+
+= Comment ?
+
+**  Vous pouvez vous aider du tuto de Guillaume :  https://guillaumebraillon.fr/jeedom-installation-et-configuration-de-jeedom-paw-interface/
