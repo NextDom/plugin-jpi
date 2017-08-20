@@ -9,6 +9,10 @@ Plugin pour le pilotage de l'application android Jeedom Paw Interface.
 include::presentation.asciidoc[]
 
 '''
+=== Installation
+include::installation.asciidoc[]
+
+'''
 === Configuration
 include::configuration.asciidoc[]
 

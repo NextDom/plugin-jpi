@@ -64,7 +64,6 @@ class JPI extends eqLogic {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
 +           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
-+           //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($JPICmd_json, $response);
@@ -83,7 +82,6 @@ class JPI extends eqLogic {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
 +           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
-+           //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($app_json, $response);
@@ -102,7 +100,6 @@ class JPI extends eqLogic {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
 +           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
-+           //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($cmd_json, $response);
@@ -174,8 +171,6 @@ class JPI extends eqLogic {
                         $url = 'http://' . $JPI->getConfiguration('jpiIp') . ':' . $JPI->getConfiguration('jpiPort') . '/?action=' . $cmd->getConfiguration('jpiAction') . '&__JPIPLUG=1';
                         log::add('JPI', 'DEBUG', 'Récupération des informations : ' . $url);
                         $value = file_get_contents($url);
-//                        $request_http = new com_http($url);
-//			$value = $request_http->exec();
                         log::add('JPI', 'DEBUG', 'Résultat : ' . $value);
                         $cmd->event($value);
                     }

@@ -1,6 +1,6 @@
 = Pré-requis
 
-** *Installer PAW server et l'APK JPI sur votre périphérique android
+** Installer PAW server et l'APK JPI sur votre périphérique android
 
 = Comment ?
 
