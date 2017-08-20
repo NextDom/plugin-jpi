@@ -1,5 +1,5 @@
 == Comment faire un scénario ASK ?
-Votre appacation android JPI doit être au minimun en  version 0.92
+Votre appacation android JPI doit être au minimun en  version 0.92.
 Sur l'APK JPI, créer un scénario comme ceci :
 image::../images/AskScenarioJPI.png[]
 
