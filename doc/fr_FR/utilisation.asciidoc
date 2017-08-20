@@ -1,4 +1,4 @@
-== Comment faire un scénario ASK ?
+===== Comment faire un scénario ASK ?
 Votre appacation android JPI doit être au minimun en  version 0.92.
 Sur l'APK JPI, créer un scénario comme ceci :
 
@@ -15,7 +15,7 @@ Puis créer un scénario comme  ceci :
 image::../images/AskScenario.png[]
 
 
-== Comment s'assurer que la commande d'envoi SMS a bien réussie ?
+===== Comment s'assurer que la commande d'envoi SMS a bien réussie ?
 Dans un scénario, il faut utiliser la commande info "statut SMS"  comme déclencheur.
 Voici un exemple :
 

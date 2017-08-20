@@ -1,5 +1,5 @@
 Ce plugin permet d'utiliser facilement l'application android *JPI*. Il est actuellement compatible avec la version 0.92 de l'APK et la version 3 de Jeedom.
-Il permet d'utiliser 100% des fonctions ! 
+Il permet d'utiliser 100% des fonctions de l'APK JPI! 
 
 Ce plugin intégre un assistant de création/modification de commande.
 
@@ -11,6 +11,4 @@ Il dispose aussi d'un widget (dashboard/mobile) d'état et de contrôle de la pa
 image::../images/widget.png[]
 
 
-Petit plus du plugin
-
-- Il est compatible avec la fonction ASK !
+*Petit plus du plugin : il est compatible avec la fonction ASK ! *
