@@ -154,6 +154,4 @@ function addCmdToTable(_cmd) {
     }
 
     tr += '</tr>';
-
-
 }
