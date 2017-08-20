@@ -1,4 +1,4 @@
-[red]= `Configuration`
+[red]#= `Configuration`#
 
 image::../images/Equipement.png[]
 
