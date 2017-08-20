@@ -13,7 +13,7 @@ include::presentation.asciidoc[]
 include::installation.asciidoc[]
 
 '''
-=== Configuration
+=== Configuration et utilisation
 include::configuration.asciidoc[]
 
 '''
