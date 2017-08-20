@@ -63,7 +63,7 @@ class JPI extends eqLogic {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
-+           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+            + curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($JPICmd_json, $response);
@@ -81,7 +81,7 @@ class JPI extends eqLogic {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
-+           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+            + curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($app_json, $response);
@@ -99,7 +99,7 @@ class JPI extends eqLogic {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
-+           curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+            + curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($cmd_json, $response);
@@ -157,7 +157,7 @@ class JPI extends eqLogic {
 
     public static function executeinfo() {
 
-            $eqLogics = eqLogic::byType('JPI');
+        $eqLogics = eqLogic::byType('JPI');
 
         foreach ($eqLogics as $JPI) {
             if ($JPI->getIsEnable() == 1) {
@@ -167,7 +167,14 @@ class JPI extends eqLogic {
                         log::add('JPI', 'DEBUG', 'Récupération des informations : ' . $url);
                         $value = file_get_contents($url);
                         log::add('JPI', 'DEBUG', 'Résultat : ' . $value);
-                        $cmd->event($value);
+                        //$cmd->event($value);
+                        $JPI->checkAndUpdateCmd($cmd, $value);
+                        $JPI->save();
+
+                        if ($cmd->getConfiguration('jpiAction') == 'getBattLevel') {
+                            $JPI->batteryStatus($value);
+                            $JPI->save();
+                        }
                     }
                 }
                 $JPI->refreshWidget();
@@ -180,8 +187,7 @@ class JPI extends eqLogic {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_URL, $action);
-+       curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
-+       //curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        + curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
         $response = curl_exec($ch);
         curl_close($ch);
 
