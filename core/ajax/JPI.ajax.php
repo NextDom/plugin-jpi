@@ -67,8 +67,6 @@ try {
         ajax::success(JPI::updateCommand($id, $cmdid, $name, $command, $parameters, $options));
     }
 
-
-
     throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
     /*     * *********Catch exeption*************** */
 } catch (Exception $e) {
