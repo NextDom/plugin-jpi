@@ -1,4 +1,4 @@
-= Configuration
+= `Configuration`
 
 image::../images/Equipement.png[]
 
@@ -22,7 +22,9 @@ Informations à renseigner pour le bon fonctionnement du plugin :
 ** Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (Ne fonctionne uniquement depuis une connexion interne)
 
 
-= Utilisation
+
+
+= `Utilisation`
 
 Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous avez le choix entre utiliser l'assistant de création de commande (bouton 9) ou de rentrer manuellement la commande désirée par copier/coller depuis l'APK JPI (bouton 1)
 
