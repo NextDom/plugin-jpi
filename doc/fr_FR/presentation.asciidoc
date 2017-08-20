@@ -5,10 +5,12 @@ Ce plugin intégre un assistant de création/modification de commande.
 
 image::../images/assistant.png[]
 
+
 Il dispose aussi d'un widget (dashboard/mobile) d'état et de contrôle de la partie multimédia avec 4 bouttons pré-définis
 
 image::../images/widget.png[]
 
-Petit plus du plugin :
+
+Petit plus du plugin
 
 - Il est compatible avec la fonction ASK !
