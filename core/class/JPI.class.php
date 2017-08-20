@@ -581,5 +581,4 @@ class JPICmd extends cmd {
     }
 
 }
-
 ?> 
