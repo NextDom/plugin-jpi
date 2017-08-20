@@ -9,4 +9,4 @@ Il faut cliquer sur le bouton "Rafraichir équipement JPI". Cela va supprimer le
 image::../images/rafraichircommande.png[]
 
 ===== Le bouton lien vers équipement JPI ne fonctionne pas depuis l'extérieur?
-Cela est normal, ce dernier ne fonctionne que depuis une connexion locale.
+Ce fonctionnement est normal, ce dernier ne fonctionne que depuis une connexion locale.
