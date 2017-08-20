@@ -18,7 +18,7 @@ Informations à renseigner pour le bon fonctionnement du plugin :
 ===== Partie 4  
 ** Bouton pour rafraichir le fichier de configuration JPI (par exemple, suite à une mise à jour de l'APK)
 
-== Partie 5
+===== Partie 5
 ** Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (Ne fonctionne uniquement depuis une connexion interne)
 
 
