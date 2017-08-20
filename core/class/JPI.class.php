@@ -570,7 +570,7 @@ class JPICmd extends cmd {
             }
             $eqLogic->executeinfo($eqLogic->getId());
         } elseif ($this->getConfiguration('jpiAction') == 'tts') {
-            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . $this->getConfiguration('jpiParametres') . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
+            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . $this->getConfiguration('jpiParametres') . '&volume=' . urlencode($_options['title']) . '&' .  $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
             $eqLogic->executerequest($action);
         } else {
             if ($this->getConfiguration('jpiAction') !== '') {
