@@ -124,7 +124,7 @@ function addCmdToTable(_cmd) {
 
         tr += '</td>';
 
-        tr += '<td class="expertModeVisible">';
+        tr += '<td>';
         tr += '<span class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType() + '</span>';
         tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
         tr += '</td>';
