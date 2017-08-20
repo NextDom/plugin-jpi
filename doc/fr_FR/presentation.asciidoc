@@ -11,4 +11,4 @@ Il dispose aussi d'un widget (dashboard/mobile) d'état et de contrôle de la pa
 image::../images/widget.png[]
 
 
-*Petit plus du plugin : il est compatible avec la fonction ASK ! *
+*Petit plus du plugin : il est compatible avec la fonction ASK !*
