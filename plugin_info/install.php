@@ -23,7 +23,7 @@ function JPI_install() {
 }
 
 function JPI_update() {
-	$eqLogics = eqLogic::byType('lightsManagement');
+	$eqLogics = eqLogic::byType('JPI');
 	foreach ($eqLogics as $eqLogic) {
 		$eqLogic->save();
 	}
