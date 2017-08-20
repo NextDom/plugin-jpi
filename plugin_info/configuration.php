@@ -49,5 +49,3 @@ if (!isConnect()) {
         ?>
     </fieldset>
 </form>
-
-
