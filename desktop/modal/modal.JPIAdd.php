@@ -323,4 +323,4 @@ include_file('desktop', 'JPI', 'js', 'JPI');
 ?>
 <?php
 include_file('core', 'plugin.template', 'js');
-?>    
+?>
