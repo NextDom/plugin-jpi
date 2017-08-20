@@ -1,19 +1,12 @@
-===== Pourquoi est-ce que j'ai eu une roue crantée lors de l'édition d'un device JPI  ?
-Le plugin fait une requete sur le device JPI pour récupérer les langues installées. Cela génère une roue crantée pendant quelques secondes, mais n'affecte en rien les performances de votre jeedom.
-
-
-===== Pourquoi le plugin ne detecte aucune langue  ?
-Il faut vérifier les informations de connexion (adresse/port).
-
-
 ===== Est-ce que le plugin est compatible HTTPS ?
 Non pas pour le moment.
 
-
-===== Pourquoi le TTS ne fonctionne pas ?
-Il faut bien renseigner le champ Broadcast [Activé/active] ou [Désactivé/désactivé]
-
-
-
 ===== Comment contrôler les requêtes envoyées au(x) périphérique(s) JPI ?
-Il faut configurer la journalisation du plugin sur INFO et les logs seront contenus dans le journal JPI.
+Il faut configurer la journalisation du plugin sur INFO ou DEBUG et les logs seront contenus dans le journal JPI.
+
+===== Suite à une mise à jour de l'APK JPI, les nouvelles commandes ne sont pas disponible dans le plugin. Comment faire ?
+Il faut cliquer sur le bouton "Rafraichir équipement JPI". Cela va supprimer le fichier de commande existante sur votre Jeedom et forcer le téléchargement du nouveau fichier.
+image::../images/rafraichircommande.png[]
+
+===== Le bouton lien vers équipement JPI ne fonctionne pas depuis l'extérieur?
+Cela est normal, ce dernier ne fonctionne que depuis une connexion locale.
