@@ -157,13 +157,13 @@ class JPI extends eqLogic {
 
     public static function executeinfo() {
 
-        if ($_eqlogic_id !== null) {
-            $eqLogics = array(
-                eqLogic::byId($_eqlogic_id)
-            );
-        } else {
+//        if ($_eqlogic_id !== null) {
+//            $eqLogics = array(
+//                eqLogic::byId($_eqlogic_id)
+//            );
+//        } else {
             $eqLogics = eqLogic::byType('JPI');
-        }
+        //}
         foreach ($eqLogics as $JPI) {
             if ($JPI->getIsEnable() == 1) {
                 foreach ($JPI->getCmd('info') as $cmd) {

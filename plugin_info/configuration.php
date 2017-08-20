@@ -40,7 +40,7 @@ if (!isConnect()) {
                     <option value="5min">{{Toutes les 5 minutes}}</option>
                     <option value="15min">{{Toutes les 15 minutes}}</option>
                     <option value="30min">{{Toutes les 30 minutes}}</option>
-                    <option value="1hr">{{Toutes les heures}}</option>
+                    <option value="60min">{{Toutes les heures}}</option>
                 </select>
             </div>
         </div>
