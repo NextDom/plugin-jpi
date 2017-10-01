@@ -17,35 +17,26 @@
  */
 require_once dirname(__FILE__) . "/../../../../core/php/core.inc.php";
 
-if (init('reponse') != '') {
-    try {
-        $type = init('reponse');
-        if (!jeedom::apiAccess(init('apikey', init('api')))) {
-            throw new Exception(__('Vous n\'etes pas autorisé à effectuer cette action', __FILE__));
-        } else {
-            $reponse = init('reponse');
-            log::add('JPI', 'info', 'Réponse Ask : ' . $reponse);
 
-            $eqLogics = eqLogic::byType('jpi');
-            foreach ($eqLogics as $eqLogic) {
-                foreach ($eqLogic->getCmd() as $cmd) {
-                    if ($cmd->getCache('storeVariable', 'none') != 'none') {
-                        $dataStore = new dataStore();
-                        $dataStore->setType('scenario');
-                        $dataStore->setKey($cmd->getCache('storeVariable', 'none'));
-                        $dataStore->setValue($reponse);
-                        $dataStore->setLink_id(-1);
-                        $dataStore->save();
-                        $cmd->setCache('storeVariable', 'none');
-                        $cmd->save();
-                        die();
-                    }
-                }
-            }
-        }
-    } catch (Exception $e) {
-        echo $e->getMessage();
-        log::add('JPI', 'error', $e->getMessage());
-    }
+if (!jeedom::apiAccess(init('apikey', init('api')))) {
+    echo __('Vous n\'etes pas autorisé à effectuer cette action (JPI)', __FILE__);
     die();
-} 
+}
+if (init('test') != '') {
+    echo 'OK';
+    die();
+}
+
+$reponse = init('reponse');
+log::add('JPI', 'info', 'Réponse Ask : ' . $reponse);
+
+$eqLogics = eqLogic::byType('JPI');
+
+foreach ($eqLogics as $eqLogic) {
+    foreach ($eqLogic->getCmd() as $cmd) {
+
+        if ($cmd->askResponse($reponse)) {
+            continue (3);
+        }
+    }
+}
