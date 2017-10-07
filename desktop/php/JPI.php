@@ -14,12 +14,12 @@ $eqLogics = eqLogic::byType($plugin->getId());
                 <a class="btn btn-default eqLogicAction" style="width : 100%;margin-top : 5px;margin-bottom: 5px;" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter un équipement}}</a>
                 <li class="filter" style="margin-bottom: 5px;"><input class="filter form-control input-sm" placeholder="{{Rechercher}}" style="width: 100%"/></li>
                 <?php
-                foreach ($eqLogics as $eqLogic) {
-                    $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                    echo '<li class="cursor li_eqLogic" data-eqLogic_id="' . $eqLogic->getId() . '"  style="' . $opacity . '"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
-                }
-                ?>
-            </ul>
+foreach ($eqLogics as $eqLogic) {
+    $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+    echo '<li class="cursor li_eqLogic" data-eqLogic_id="' . $eqLogic->getId() . '"  style="' . $opacity . '"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
+}
+?>
+           </ul>
         </div>
     </div>
 
@@ -40,16 +40,16 @@ $eqLogics = eqLogic::byType($plugin->getId());
         <legend><i class="fa fa-table"></i> {{Mes périphériques}}</legend>
         <div class="eqLogicThumbnailContainer">
             <?php
-            foreach ($eqLogics as $eqLogic) {
-                $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
-                echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-                echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
-                echo "<br>";
-                echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
-                echo '</div>';
-            }
-            ?>
-        </div>
+foreach ($eqLogics as $eqLogic) {
+    $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
+    echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
+    echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
+    echo "<br>";
+    echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
+    echo '</div>';
+}
+?>
+       </div>
     </div>
 
     <div class="col-lg-10 col-md-9 col-sm-8 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">
@@ -90,11 +90,11 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                         <select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
                                             <option value="">{{Aucun}}</option>
                                             <?php
-                                            foreach (object::all() as $object) {
-                                                echo '<option value="' . $object->getId() . '">' . $object->getName() . '</option>';
-                                            }
-                                            ?>
-                                        </select>
+foreach (object::all() as $object) {
+    echo '<option value="' . $object->getId() . '">' . $object->getName() . '</option>';
+}
+?>
+                                       </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -139,21 +139,22 @@ $eqLogics = eqLogic::byType($plugin->getId());
                             </fieldset>
                         </form>
 
-
-
-                        <div class="col-sm-5">
-                            <form class="form-horizontal">
-                                <fieldset>
-                                    <div class="cursor" id="bt_Device">
-                                        <center>
-                                            <i class="fa fa-mobile" style="font-size : 5em;color:#767676;"></i>
-                                        </center>
-                                        <span style="font-size : 1.1em;position:relative;word-break: break-all;white-space: pre-wrap;word-wrap: break-word"><center>{{Lien vers équipement JPI}}</center></span>      
-                                    </div>
-                            </form>
-                        </div> 
-
-                    </div>
+            <?php
+if (network::getUserLocation() == 'internal') {
+    echo '<div class="col-sm-5">';
+    echo '  <form class="form-horizontal">';
+    echo '     <fieldset>';
+    echo '       <div class="cursor" id="bt_Device">';
+    echo '          <center>';
+    echo '            <i class="fa fa-mobile" style="font-size : 5em;color:#767676;"></i>';
+    echo '       </center>';
+    echo '      <span style="font-size : 1.1em;position:relative;word-break: break-all;white-space: pre-wrap;word-wrap: break-word"><center>{{Lien vers équipement JPI}}</center></span>';
+    echo '  </div>';
+    echo ' </form>';
+    echo ' </div> ';
+}
+?>
+                   </div>
 
                 </div>
 
