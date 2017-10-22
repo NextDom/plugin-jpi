@@ -577,6 +577,11 @@ class JPICmd extends cmd {
                 $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=' . $this->getConfiguration('jpiAction') . $this->getConfiguration('jpiParametres') . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
                 $eqLogic->executerequest($action);
             }
+        } else {
+            if ($this->getConfiguration('jpiAction') !== '' && $this->getSubtype() == 'message') {
+            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . $this->getConfiguration('jpiParametres') . '&' .  $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
+                $eqLogic->executerequest($action);
+            }            
         }
     }
 
