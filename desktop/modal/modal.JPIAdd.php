@@ -141,7 +141,7 @@ sendVarToJS('id', init('id'));
                     title += '<input id="parameters" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '">';
                     $("#idparameters").append(title);
                 }
-                ;
+                ;             
 
                 if (val.type == "boolean") {
                     title += '<b>' + key + '</b>';
@@ -222,11 +222,14 @@ sendVarToJS('id', init('id'));
                 }
                 ;
                 if (val.type == "spinner") {
+              if(key != "volume"){                  
                     title += '<b>' + key + '</b>';
                     title += '<input id="idoptions" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '" step="' + val.check.step + '" value="' + val.defaultValue + '">';
                     $("#idoptions").append(title);
                 }
                 ;
+                }
+                ;                  
             }
             ;
 
