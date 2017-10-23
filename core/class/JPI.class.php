@@ -22,7 +22,7 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class JPI extends eqLogic {
 
     public static function AddCommand($id, $name, $command, $parameters, $options) {
-        log::add('JPI', 'DEBUG', 'Création de la commande : ' . $name . ' - Commande :' . $command . ' - Paramètres : ' . $parameters . ' - Options' . $options);
+        log::add('JPI', 'DEBUG', 'Création de la commande ' . $name . ' (Commande JPI:' . $command . ' - Paramètres: ' . $parameters . ' - Options: ' . $options);
         $JPI = eqLogic::byId($id);
         $JPICmd = $JPI->getCmd(null, $name);
         if (!is_object($JPICmd)) {
@@ -39,7 +39,7 @@ class JPI extends eqLogic {
     }
 
     public static function updateCommand($id, $cmdid, $name, $command, $parameters, $options) {
-        log::add('JPI', 'DEBUG', 'Mise à jour de la commande : ' . $name . ' ' . $command . ' ' . $parameters . ' ' . $options);
+        log::add('JPI', 'DEBUG', 'Mise à jour de la commande ' . $name . ' (Commande JPI:' . $command . ' - Paramètres: ' . $parameters . ' - Options: ' . $options);
         $JPI = eqLogic::byId($id);
 
         $JPICmd = $JPI->getCmd(null, $name);
@@ -164,10 +164,9 @@ class JPI extends eqLogic {
                 foreach ($JPI->getCmd('info') as $cmd) {
                     if ($cmd->getConfiguration('jpiAction') !== '') {
                         $url = 'http://' . $JPI->getConfiguration('jpiIp') . ':' . $JPI->getConfiguration('jpiPort') . '/?action=' . $cmd->getConfiguration('jpiAction') . '&__JPIPLUG=1';
-                        log::add('JPI', 'DEBUG', 'Récupération des informations : ' . $url);
+                        //log::add('JPI', 'DEBUG', 'Récupération des informations : ' . $url);
                         $value = file_get_contents($url);
-                        log::add('JPI', 'DEBUG', 'Résultat : ' . $value);
-                        //$cmd->event($value);
+                        log::add('JPI', 'DEBUG', 'Valeur de la requête  ' . $url . ' : ' . $value);
                         $JPI->checkAndUpdateCmd($cmd, $value);
                         $JPI->save();
 
@@ -183,7 +182,7 @@ class JPI extends eqLogic {
     }
 
     public static function executerequest($action) {
-        log::add('JPI', 'info', 'Commande envoyée au device JPI : ' . $action);
+        // log::add('JPI', 'info', 'Commande envoyée au device JPI : ' . $action);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_URL, $action);
@@ -192,10 +191,10 @@ class JPI extends eqLogic {
         curl_close($ch);
 
         if (preg_match("/\bok\b/i", $response) || preg_match("/\bstorage\b/i", $response)) {
-            log::add('JPI', 'INFO', 'Réponse JPI pour la requête demandée : ' . $response);
+            log::add('JPI', 'INFO', 'Réponse JPI pour la requête ' . $action . ' : ' . $response);
             return $response;
         } else {
-            log::add('JPI', 'INFO', 'Réponse JPI pour la requête demandée : KO');
+            log::add('JPI', 'INFO', 'Réponse JPI pour la requête ' . $action . ' : KO');
             return $response;
         }
     }
@@ -569,19 +568,28 @@ class JPICmd extends cmd {
                 $cmd->event("1");
             }
             $eqLogic->executeinfo($eqLogic->getId());
-        } elseif ($this->getConfiguration('jpiAction') == 'tts') {
-            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . $this->getConfiguration('jpiParametres') . '&volume=' . urlencode($_options['title']) . '&' .  $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
+        }
+
+        if ($this->getConfiguration('jpiAction') == 'tts') {
+            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . $this->getConfiguration('jpiParametres') . '&volume=' . urlencode($_options['title']) . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
             $eqLogic->executerequest($action);
-        } else {
-            if ($this->getConfiguration('jpiAction') !== '') {
-                $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=' . $this->getConfiguration('jpiAction') . $this->getConfiguration('jpiParametres') . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
+        }
+
+        if ($this->getConfiguration('jpiAction') !== 'sendSms' && $this->getConfiguration('jpiAction') !== 'tts' && $this->getSubtype() == 'message') {
+            if ($this->getConfiguration('jpiParametres') == '') {
+                $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=' . $this->getConfiguration('jpiAction') . '&message=' . urlencode($_options['message']) . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
+                $eqLogic->executerequest($action);
+            } else {
+                $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=' . $this->getConfiguration('jpiAction') . '&message=' . urlencode($_options['message']) . '&' . $this->getConfiguration('jpiParametres') . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
                 $eqLogic->executerequest($action);
             }
-        } else {
-            if ($this->getConfiguration('jpiAction') !== '' && $this->getSubtype() == 'message') {
-            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=tts&message=' . urlencode($_options['message']) . $this->getConfiguration('jpiParametres') . '&' .  $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
+        }
+
+        if (($this->getConfiguration('jpiAction') !== 'tts' && $this->getConfiguration('jpiAction') !== 'sendSms' && $this->getSubtype() !== 'message')) {
+            if ($this->getConfiguration('jpiAction') !== '') {
+                $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=' . $this->getConfiguration('jpiAction') . '&' . $this->getConfiguration('jpiParametres') . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
                 $eqLogic->executerequest($action);
-            }            
+            }
         }
     }
 
