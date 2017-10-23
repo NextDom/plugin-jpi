@@ -300,6 +300,7 @@ sendVarToJS('cmdInfo', $cmdInfo);
                 }
                 ;
                 if (val.type === "spinner") {
+              if(key != "volume"){                   
                     title += '<b>' + key + '</b>';
                     $.each(options, function (key2, value2) {
                         if (key === key2) {
@@ -315,7 +316,8 @@ sendVarToJS('cmdInfo', $cmdInfo);
                     });
                 }
                 ;
-
+                }
+                ;
 
 
 
@@ -510,9 +512,12 @@ sendVarToJS('cmdInfo', $cmdInfo);
                 }
                 ;
                 if (val.type === "spinner") {
+           if(key != "volume"){                      
                     title += '<b>' + key + '</b>';
                     title += '<input id="idoptions" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '" step="' + val.check.step + '">';
                     $("#idoptions").append(title);
+                }
+                ;                
                 }
                 ;
             }
