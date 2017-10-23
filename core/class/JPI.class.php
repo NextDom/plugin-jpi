@@ -59,7 +59,7 @@ class JPI extends eqLogic {
         $JPICmd_json = dirname(__FILE__) . '/../config/' . $ip . '_voice.json';
         if (!file_exists($JPICmd_json)) {
             $url = 'http://' . $ip . ':' . $port . '/?action=getVoices&json=1';
-            log::add('JPI', 'INFO', 'Refresh des voix envoyée à l\'équipement JPI : ' . $url);
+            log::add('JPI', 'INFO', 'Détection des voix envoyée à l\'équipement JPI : ' . $url);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
@@ -77,7 +77,7 @@ class JPI extends eqLogic {
         $app_json = dirname(__FILE__) . '/../config/' . $ip . '_app.json';
         if (!file_exists($app_json)) {
             $url = 'http://' . $ip . ':' . $port . '/?action=getPackagesNames&json=1';
-            log::add('JPI', 'INFO', 'Refresh des applications envoyée à l\'équipement JPI : ' . $url);
+            log::add('JPI', 'INFO', 'Détection des applications envoyée à l\'équipement JPI : ' . $url);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
@@ -95,7 +95,7 @@ class JPI extends eqLogic {
         $cmd_json = dirname(__FILE__) . '/../config/' . $ip . '_cmd.json';
         if (!file_exists($cmd_json)) {
             $url = 'http://' . $ip . ':' . $port . '/?action=__NET_CMD__&__FROM_MAIN_APP__=true&net=action&action_ex=_GET_ACTIONS_JSON_';
-            log::add('JPI', 'INFO', 'Refresh des commandes envoyée l\'équipement JPI: ' . $url);
+            log::add('JPI', 'INFO', 'Détection des commandes envoyée l\'équipement JPI: ' . $url);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_URL, "$url");
