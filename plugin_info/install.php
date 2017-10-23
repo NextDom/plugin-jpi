@@ -23,10 +23,12 @@ function JPI_install() {
 }
 
 function JPI_update() {
+	log::add('JPI', 'info', 'Mise à jour des commandes système');
 	$eqLogics = eqLogic::byType('JPI');
 	foreach ($eqLogics as $eqLogic) {
 		$eqLogic->save();
 	}
+	log::add('JPI', 'error', '!!!Bien lire le changelog et surtout la doc');	
 }
 
 function template_remove() {
