@@ -20,7 +20,8 @@ require_once dirname(__FILE__) . "/../../../../core/php/core.inc.php";
 
 if (!jeedom::apiAccess(init('apikey', init('api')))) {
     echo __('Vous n\'etes pas autorisé à effectuer cette action (JPI)', __FILE__);
-    die();
+    log::add('JPI', 'error','Vous n\'etes pas autorisé à effectuer cette action');
+die();
 }
 if (init('test') != '') {
     echo 'OK';
@@ -33,10 +34,9 @@ log::add('JPI', 'info', 'Réponse Ask : ' . $reponse);
 $eqLogics = eqLogic::byType('JPI');
 
 foreach ($eqLogics as $eqLogic) {
-    foreach ($eqLogic->getCmd() as $cmd) {
-
+    foreach ($eqLogic->getCmd('action') as $cmd) {
         if ($cmd->askResponse($reponse)) {
-            continue (3);
+            die();
         }
     }
 }
