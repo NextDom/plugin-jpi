@@ -20,7 +20,7 @@ require_once dirname(__FILE__) . "/../../../../core/php/core.inc.php";
 
 if (!jeedom::apiAccess(init('apikey', init('api')))) {
     echo __('Vous n\'etes pas autorisé à effectuer cette action (JPI)', __FILE__);
-    log::add('JPI', 'error','Vous n\'etes pas autorisé à effectuer cette action');
+    log::add('JPI', 'error','Vous n\'etes pas autorisé à effectuer cette action (JPI)');
 die();
 }
 if (init('test') != '') {
