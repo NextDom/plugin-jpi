@@ -13,7 +13,7 @@ Petit plus : il est compatible avec la fonction ASK !
 
 ## Installation
 
-###Pré-requis
+### Pré-requis
 
     Installer PAW server et l’APK JPI sur votre périphérique android
 
