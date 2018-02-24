@@ -31,23 +31,23 @@ Configuration d'un équipement
 Après avoir créer un équipement, voici la page de configuration
 ![Equipement](../images/Equipement.png)
 
-# Partie 1
+#### Partie 1
 Informations à renseigner pour le bon fonctionnement du plugin :
 
 - *Adresse IP :* adresse IP de l'équipement JPI
 - *Port :* port de connexon de l'équipement JPI
 - *Preset média1 à 4 :* pour les médias (type webradio ou autre) qui pourront être directement lancés depuis le widget
 
-# Partie 2
+#### Partie 2
 - Commandes liées au widget (non modifiable)
 
-# Partie 3
+#### Partie 3
 - Commandes pour vos besoins
 
-# Partie 4  
+#### Partie 4  
 - Bouton pour rafraichir le fichier de configuration JPI (par exemple, suite à une mise à jour de l'APK)
 
-# Partie 5
+#### Partie 5
 - Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (n'apparait que si on est connecté depuis le réseau interne)
 
 
