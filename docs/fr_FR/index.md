@@ -34,23 +34,23 @@ Pour régler la fréquence fréquence de recuperation des données, il faut sél
 Après avoir créer un équipement, voici la page de configuration
 ![Equipement](../images/Equipement.png)
 
-#### Partie 1
+##### Partie 1
 Informations à renseigner pour le bon fonctionnement du plugin :
 
 - *Adresse IP :* adresse IP de l'équipement JPI
 - *Port :* port de connexon de l'équipement JPI
 - *Preset média1 à 4 :* pour les médias (type webradio ou autre) qui pourront être directement lancés depuis le widget
 
-#### Partie 2
+##### Partie 2
 - Commandes liées au widget (non modifiable)
 
-#### Partie 3
+##### Partie 3
 - Commandes pour vos besoins
 
-#### Partie 4  
+##### Partie 4  
 - Bouton pour rafraichir le fichier de configuration JPI (par exemple, suite à une mise à jour de l'APK)
 
-#### Partie 5
+##### Partie 5
 - Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (n'apparait que si on est connecté depuis le réseau interne)
 
 
@@ -62,24 +62,23 @@ Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous av
 ##### Bouton 2
 - Permet de tester la commande
 
-###### Bouton 3
+##### Bouton 3
 - Permet de lancer l'assistant de modification de commande
 
-#### Menu déroulant 4
+##### Menu déroulant 4
 - Permet de sélectionner le type de la commande (utile lors de la création de commande de type info)
 
-#### Champ 5
+##### Champ 5
 - Nom de la commande
 
-#### Champ 6
+##### Champ 6
 - Action JPI
 
-#### Champ 7
+##### Champ 7
 - Paramètres obligatoires
 
-#### Champ 8
+##### Champ 8
 - Paramètres optionnelles
-
 
 
 Changelog
