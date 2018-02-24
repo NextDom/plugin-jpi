@@ -56,6 +56,7 @@ Informations à renseigner pour le bon fonctionnement du plugin :
 
 Création d'une commande
 ===
+Voici l'onglet qui permet de créer des commandes supplémentaire en mode assistant ou automatique.
 ![Commandes](../images/Commandes.png)
 Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous avez le choix entre utiliser l'assistant de création de commande (bouton 9) ou de rentrer manuellement la commande désirée par copier/coller depuis l'APK JPI (bouton 1)
 
@@ -80,6 +81,27 @@ Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous av
 ##### Champ 8
 - Paramètres optionnelles
 
+
+Exemples d'utilisation
+===
+### Comment faire un scénario ASK ?
+Votre appacation android JPI doit être au minimun en  version 0.92.
+Sur l'APK JPI, créer un scénario comme ceci :
+![AskScenarioJPI](../images/AskScenarioJPI.png)
+
+Sur votre jeedom, créer une commande sms comme ceci :
+![AskCommand](../images/AskCommand.png)
+
+Puis créer un scénario comme  ceci :
+![AskScenario](../images/AskScenario.png)
+
+
+### Comment s'assurer que la commande d'envoi SMS a bien réussie ?
+Dans un scénario, il faut utiliser la commande info "statut SMS"  comme déclencheur.
+Voici un exemple :
+![testsms](../images/testsms.png)
+
+
 Faq
 ===
 ### Est-ce que le plugin est compatible HTTPS ?
@@ -89,6 +111,10 @@ Non pas pour le moment.
 Il faut configurer la journalisation du plugin sur INFO ou DEBUG et les logs seront contenus dans le journal JPI.
 
 ### Suite à une mise à jour de l'APK JPI, les nouvelles commandes ne sont pas disponible dans le plugin. Comment faire ?
+Il faut cliquer sur le bouton "Rafraichir équipement JPI". Cela va supprimer le fichier de commande existante sur votre Jeedom et forcer le téléchargement du nouveau fichier.
+![rafraichircommande](../images/rafraichircommande.png)
+
+### Une roue crantée s'affiche dans l'assistant de création de commande
 Il faut cliquer sur le bouton "Rafraichir équipement JPI". Cela va supprimer le fichier de commande existante sur votre Jeedom et forcer le téléchargement du nouveau fichier.
 ![rafraichircommande](../images/rafraichircommande.png)
 
