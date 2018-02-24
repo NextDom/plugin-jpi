@@ -6,7 +6,7 @@ Description
 Ce plugin permet d'utiliser facilement l'application android *JPI*. Il intégre un assistant de création/modification de commande.
 ![assistant](../images/assistant.png)
 
-Il dispose aussi d'un widget (dashboard/mobile) d'état et de contrôle de la partie multimédia avec 4 bouttons pré-définis
+Il dispose aussi d'un widget (dashboard/mobile) d'état et de contrôle de la partie multimédia avec 4 bouttons pré-définis.
 ![widget](../images/widget.png)
 
 *Petit plus du plugin : il est compatible avec la fonction ASK !*
