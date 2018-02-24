@@ -5,4 +5,6 @@
 	"author" : "Jerome MARTINEZ",
 	"require" : "3.0",
 	"category" : "devicecommunication"
+	"changelog" : "https://jeedom.github.io/JPI/#language#/changelog"
+	"documentation" : "https://jeedom.github.io/JPI/#language#/"
 }
