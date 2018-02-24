@@ -21,7 +21,7 @@ Vous pouvez vous aider du tuto de Guillaume :  https://guillaumebraillon.fr/jeed
 
 
 
-Configuration d'un équipement
+Configuration du plugin
 ===
 
 ## Configuration du cron
@@ -54,8 +54,9 @@ Informations à renseigner pour le bon fonctionnement du plugin :
 - Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (n'apparait que si on est connecté depuis le réseau interne)
 
 
-Utilisation
+Création d'une commande
 ===
+![Commandes](../images/Commandes.png)
 Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous avez le choix entre utiliser l'assistant de création de commande (bouton 9) ou de rentrer manuellement la commande désirée par copier/coller depuis l'APK JPI (bouton 1)
 
 #### Bouton 2
@@ -65,7 +66,7 @@ Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous av
 - Permet de lancer l'assistant de modification de commande
 
 #### Menu déroulant 4
-- Permet de sélection le type de la commande (utile lors de la création de commande de type info)
+- Permet de sélectionner le type de la commande (utile lors de la création de commande de type info)
 
 #### Champ 5
 - Nom de la commande
@@ -78,6 +79,7 @@ Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous av
 
 #### Champ 8
 - Paramètres optionnelles
+
 
 
 Changelog
