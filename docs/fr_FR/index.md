@@ -17,8 +17,14 @@ Installation
 Installer PAW server et l'APK JPI sur votre périphérique android
 
 ### Comment faire ?
-Vous pouvez vous aider du tuto de Guillaume :  https://guillaumebraillon.fr/jeedom-installation-et-configuration-de-jeedom-paw-interface/
 
+Il faut installer deux applications android sur votre périphérique.
+Pour vous simplifier la tâche, vous pouvez utiliser les deux QR Code qui se trouvent dans la partie configuration du plugin.
+- Le premier sert à installer le serveur PAW (playstore Goole)
+- Le second sert à installer le serveur JPI.
+![QRCode](../images/QRCode.png)
+
+Vous pouvez aussi vous aider du tuto de Guillaume :  https://guillaumebraillon.fr/jeedom-installation-et-configuration-de-jeedom-paw-interface/
 
 
 Configuration du plugin
@@ -26,7 +32,7 @@ Configuration du plugin
 
 ## Réglage du cron
 
-Pour régler la fréquence fréquence de recuperation des données, il faut séléctionner le cron dans la partie configuration du plugin
+Pour régler la fréquence fréquence de recuperation des données, il faut séléctionner le cron dans la partie configuration du plugin.
 ![cron](../images/cron.png)
 
 ## Paramètrage d'un équipement

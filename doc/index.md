@@ -1,3 +1,0 @@
-# Jeedom-JPI
-
-## Présentation
