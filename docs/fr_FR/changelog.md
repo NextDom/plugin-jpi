@@ -1,4 +1,3 @@
-
 Version 2.01 (Version en cours sur le market)
 ===
 - Mise à jour de la documentation
