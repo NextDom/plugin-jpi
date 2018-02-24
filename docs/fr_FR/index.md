@@ -59,10 +59,10 @@ Création d'une commande
 ![Commandes](../images/Commandes.png)
 Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous avez le choix entre utiliser l'assistant de création de commande (bouton 9) ou de rentrer manuellement la commande désirée par copier/coller depuis l'APK JPI (bouton 1)
 
-#### Bouton 2
+##### Bouton 2
 - Permet de tester la commande
 
-#### Bouton 3
+###### Bouton 3
 - Permet de lancer l'assistant de modification de commande
 
 #### Menu déroulant 4
