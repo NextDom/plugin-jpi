@@ -25,27 +25,27 @@ if (!isConnect()) {
 
 <form class="form-horizontal">
     <fieldset>
-
-        <span>
-            <div class="form-group"> <br>
-                <a href="https://jeedom.github.io/documentation/third_plugin/JPI/fr_FR/index.html" target="_blank"><font size="+1"><center>Cliquer pour voir la documentation du plugin</center></font></a>
-            </div>
-        </span>
-        <div class="form-group"> <br>
-
+        <div class="form-group">
             <label class="col-lg-4 control-label">{{Fréquence de recuperation des données}}</label>
             <div class="col-lg-4">
                 <select id="frequence" class="configKey form-control"  data-l1key="frequence" >
-                    <option value="1min">{{Toutes les 1 minutes (Conseillé uniquement pour le test)}}</option>                    
+                    <option value="1min">{{Toutes les 1 minutes (Conseillé uniquement pour le test)}}</option>
                     <option value="5min">{{Toutes les 5 minutes}}</option>
                     <option value="15min">{{Toutes les 15 minutes}}</option>
                     <option value="30min">{{Toutes les 30 minutes}}</option>
                     <option value="60min">{{Toutes les heures}}</option>
                 </select>
-            </div>
-        </div>
+   </div>
 
-        <?php
-        ?>
+
     </fieldset>
 </form>
+
+<div class="row">
+  <div class="col-lg-6 text-center"><img src="plugins/JPI/resources/PAW.png" height="200" width="200" /></div>
+  <div class="col-lg-6 text-center"><img src="plugins/JPI/resources/APK.png" height="200" width="200" /></div>
+</div>
+<div class="row">
+  <div class="col-lg-6 text-center">Lien Paw</div>
+  <div class="col-lg-6 text-center">Lien JPI</div>
+</div>
