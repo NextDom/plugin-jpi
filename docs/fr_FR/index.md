@@ -1,8 +1,9 @@
 Jeedom-JPI
-==============================
+===========
 
 Description 
 -----------
+
 Ce plugin permet d’utiliser facilement l’application android **JPI**. POur utiliser ce plugin, il faut au minimum utiliser la version 0.92 de l’APK et la version 3 de Jeedom.
 Il intégre un assistant de création/modification de commande.
 
