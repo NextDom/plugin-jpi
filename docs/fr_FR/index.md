@@ -26,6 +26,9 @@ Configuration d'un équipement
 
 ## Configuration du cron
 
+Pour régler la fréquence fréquence de recuperation des données, il faut séléctionner le cron dans la partie configuration du plugin
+![cron](../images/cron.png)
+
 ## Configuration d'un équipement
 
 Après avoir créer un équipement, voici la page de configuration
@@ -55,32 +58,26 @@ Utilisation
 ===
 Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous avez le choix entre utiliser l'assistant de création de commande (bouton 9) ou de rentrer manuellement la commande désirée par copier/coller depuis l'APK JPI (bouton 1)
 
-===== Bouton 2
-** Permet de tester la commande
+#### Bouton 2
+- Permet de tester la commande
 
-===== Bouton 3
-** Permet de lancer l'assistant de modification de commande
+#### Bouton 3
+- Permet de lancer l'assistant de modification de commande
 
-===== Menu déroulant 4
-** Permet de sélection le type de la commande (utile lors de la création de commande de type info)
+#### Menu déroulant 4
+- Permet de sélection le type de la commande (utile lors de la création de commande de type info)
 
-===== Champ 5
-** Nom de la commande
+#### Champ 5
+- Nom de la commande
 
-===== Champ 6
-** Action JPI
+#### Champ 6
+- Action JPI
 
-===== Champ 7
-** Paramètres obligatoires
+#### Champ 7
+- Paramètres obligatoires
 
-===== Champ 8
-** Paramètres optionnelles
-
-= Réglage du cron
-
-Pour régler la fréquence fréquence de recuperation des données, il faut séléctionner le cron dans la partie configuration du plugin
-
-image::../images/cron.png[]
+#### Champ 8
+- Paramètres optionnelles
 
 
 Changelog
