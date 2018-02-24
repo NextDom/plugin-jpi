@@ -133,6 +133,7 @@ Changelog
 
 ### Version 2.01 (Version en cours sur le market)
 - Mise à jour de la documentation
+- Ajout des QR COdes pour télécharger les prérequis
 
 ### Version 2.0 (2017-11-04 01:02:22)
 - Ajout d’un assistant de création/modification de commande
