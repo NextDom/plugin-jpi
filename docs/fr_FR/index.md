@@ -34,25 +34,25 @@ Après avoir créer un équipement, voici la page de configuration
 # Partie 1
 Informations à renseigner pour le bon fonctionnement du plugin :
 
-** *Adresse IP :* adresse IP de l'équipement JPI
-** *Port :* port de connexon de l'équipement JPI
-** *Preset média1 à 4 :* pour les médias (type webradio ou autre) qui pourront être directement lancés depuis le widget
+- *Adresse IP :* adresse IP de l'équipement JPI
+- *Port :* port de connexon de l'équipement JPI
+- *Preset média1 à 4 :* pour les médias (type webradio ou autre) qui pourront être directement lancés depuis le widget
 
 # Partie 2
-** Commandes liées au widget
+- Commandes liées au widget (non modifiable)
 
 # Partie 3
-** Commandes pour vos besoins
+- Commandes pour vos besoins
 
 # Partie 4  
-** Bouton pour rafraichir le fichier de configuration JPI (par exemple, suite à une mise à jour de l'APK)
+- Bouton pour rafraichir le fichier de configuration JPI (par exemple, suite à une mise à jour de l'APK)
 
 # Partie 5
-** Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (Ne fonctionne uniquement depuis une connexion interne)
+- Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (n'apparait que si on est connecté depuis le réseau interne)
 
 
-= Utilisation
-
+Utilisation
+===
 Pour ajouter une commande, il faut aller dans l'onglet commande, ensuite vous avez le choix entre utiliser l'assistant de création de commande (bouton 9) ou de rentrer manuellement la commande désirée par copier/coller depuis l'APK JPI (bouton 1)
 
 ===== Bouton 2
