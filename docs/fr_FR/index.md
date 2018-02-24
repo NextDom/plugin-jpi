@@ -125,7 +125,7 @@ Il faut cliquer sur le bouton "Rafraichir équipement JPI". Cela va supprimer le
 ![rafraichircommande](../images/rafraichircommande.png)
 
 ### Le bouton *lien* vers équipement JPI n'est pas affiché ?
-Ce fonctionnement est normal, ce dernier n'est pas visibleen dehors du réseau local.
+Ce fonctionnement est normal, ce dernier n'est pas visible en dehors du réseau local.
 
 
 Changelog
