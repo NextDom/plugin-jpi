@@ -5,11 +5,12 @@ Ce plugin permet d'utiliser facilement l'application android *JPI*. Il intégre 
 ![assistant](../images/assistant.png)
 
 Il dispose aussi d'un widget (dashboard/mobile) d'état et de contrôle de la partie multimédia avec 4 bouttons pré-définis.
+
 ![widget](../images/widget.png)
 
 *Petit plus du plugin : il est compatible avec la fonction ASK !*
 
-installation
+Installation
 ===
 
 ### Pré-requis
@@ -19,29 +20,34 @@ Installer PAW server et l'APK JPI sur votre périphérique android
 Vous pouvez vous aider du tuto de Guillaume :  https://guillaumebraillon.fr/jeedom-installation-et-configuration-de-jeedom-paw-interface/
 
 
+
 Configuration d'un équipement
 ===
+
+## Configuration du cron
+
+## Configuration d'un équipement
 
 Après avoir créer un équipement, voici la page de configuration
 ![Equipement](../images/Equipement.png)
 
-## Partie 1
+# Partie 1
 Informations à renseigner pour le bon fonctionnement du plugin :
 
 ** *Adresse IP :* adresse IP de l'équipement JPI
 ** *Port :* port de connexon de l'équipement JPI
-** *Preset média1 à 4 : pour les médias (type webradio ou autre) qui pourront être directement lancés depuis le widget
+** *Preset média1 à 4 :* pour les médias (type webradio ou autre) qui pourront être directement lancés depuis le widget
 
-===== Partie 2
+# Partie 2
 ** Commandes liées au widget
 
-===== Partie 3
+# Partie 3
 ** Commandes pour vos besoins
 
-===== Partie 4  
+# Partie 4  
 ** Bouton pour rafraichir le fichier de configuration JPI (par exemple, suite à une mise à jour de l'APK)
 
-===== Partie 5
+# Partie 5
 ** Bouton pour ouvrir un modal afin d'accèder directement à la configuration de l'APK JPI (Ne fonctionne uniquement depuis une connexion interne)
 
 
