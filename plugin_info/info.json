@@ -4,5 +4,7 @@
 	"licence" : "AGPL",
 	"author" : "Jerome MARTINEZ",
 	"require" : "3.0",
-	"category" : "devicecommunication"
+	"category" : "devicecommunication",
+	"changelog" : "https://jmz84.github.io/Jeedom-JPI/#language#/changelog",
+	"documentation" : "https://jmz84.github.io/Jeedom-JPI/#language#/"
 }
