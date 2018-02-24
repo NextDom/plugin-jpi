@@ -11,13 +11,13 @@ widget
 
 Petit plus : il est compatible avec la fonction ASK !
 
+Installation
+------------
 
-## Installation
-
-### Pré-requis
+a. Pré-requis
 Installer PAW server et l’APK JPI sur votre périphérique android
 
-### Comment faire ?
+b. Comment faire ?
 Vous pouvez vous aider du tuto de Guillaume : https://guillaumebraillon.fr/jeedom-installation-et-configuration-de-jeedom-paw-interface/
 
 
