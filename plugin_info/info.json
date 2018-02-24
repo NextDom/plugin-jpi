@@ -3,6 +3,6 @@
 	"name" : "JPI Plugin",
 	"licence" : "AGPL",
 	"author" : "Jerome MARTINEZ",
-	"require" : "2.4",
+	"require" : "3.0",
 	"category" : "devicecommunication"
 }
