@@ -1,14 +1,14 @@
 Description
 ===
 
-Ce plugin permet d'utiliser facilement l'application android *JPI*. Il intégre un assistant de création/modification de commande.
+Ce plugin permet d'utiliser facilement l'application android **JPI** sans passer par le plugin script. Il intégre un assistant de création/modification de commande.
 ![assistant](../images/assistant.png)
 
 Il dispose aussi d'un widget (dashboard/mobile) d'état et de contrôle de la partie multimédia avec 4 bouttons pré-définis.
 
 ![widget](../images/widget.png)
 
-*Petit plus du plugin : il est compatible avec la fonction ASK !*
+**Petit plus : il est compatible avec la fonction ASK !**
 
 Installation
 ===
@@ -24,7 +24,7 @@ Pour vous simplifier la tâche, vous pouvez utiliser les deux QR Code qui se tro
 - Le second sert à installer le serveur JPI.
 ![QRCode](../images/QRCode.png)
 
-Vous pouvez aussi vous aider du tuto de Guillaume :  https://guillaumebraillon.fr/jeedom-installation-et-configuration-de-jeedom-paw-interface/
+Vous pouvez aussi vous aider du tuto de [blusy38](https://guillaumebraillon.fr/jeedom-installation-et-configuration-de-jeedom-paw-interface/)
 
 
 Configuration du plugin
@@ -43,9 +43,9 @@ Après avoir créer un équipement, voici la page de configuration
 ##### Partie 1
 Informations à renseigner pour le bon fonctionnement du plugin :
 
-- *Adresse IP :* adresse IP de l'équipement JPI
-- *Port :* port de connexon de l'équipement JPI
-- *Preset média1 à 4 :* pour les médias (type webradio ou autre) qui pourront être directement lancés depuis le widget
+- **Adresse IP :** adresse IP de l'équipement JPI
+- **Port :** port de connexon de l'équipement JPI
+- **Preset média1 à 4 :** pour les médias (type webradio ou autre) qui pourront être directement lancés depuis le widget
 
 ##### Partie 2
 - Commandes liées au widget (non modifiable)
@@ -124,7 +124,7 @@ Il faut cliquer sur le bouton "Rafraichir équipement JPI". Cela va supprimer le
 Il faut cliquer sur le bouton "Rafraichir équipement JPI". Cela va supprimer le fichier de commande existante sur votre Jeedom et forcer le téléchargement du nouveau fichier.
 ![rafraichircommande](../images/rafraichircommande.png)
 
-### Le bouton *lien* vers équipement JPI n'est pas affiché ?
+### Le bouton lien vers équipement JPI n'est pas affiché ?
 Ce fonctionnement est normal, ce dernier n'est pas visibleen dehors du réseau local.
 
 
