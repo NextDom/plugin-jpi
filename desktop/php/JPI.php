@@ -67,7 +67,7 @@ foreach ($eqLogics as $eqLogic) {
             <div role="tabpanel" class="tab-pane active" id="eqlogictab">
                 <br/>
                 <div class="row">
-                    <div class="col-sm-7">      
+                    <div class="col-sm-7">
                         <form class="form-horizontal">
                             <fieldset>
                                 <div class="form-group">
@@ -97,6 +97,15 @@ foreach (object::all() as $object) {
                                        </select>
                                     </div>
                                 </div>
+                              <div class="form-group">
+                                <label class="col-sm-4 control-label">{{Version HTTP}}</label>
+                                <div class="col-sm-4">
+                                  <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="jpiProto">
+                                    <option value="http">http</option>
+                                    <option value="https">https</option>
+                                  </select>
+                                </div>
+                              </div>
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Adresse IP}}</label>
                                     <div class="col-sm-6">
@@ -107,33 +116,33 @@ foreach (object::all() as $object) {
                                     <label class="col-sm-4 control-label">{{Port}}</label>
                                     <div class="col-sm-6">
                                         <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="jpiPort" />
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Preset média 1}}</label>
                                     <div class="col-sm-6">
                                         <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="jpiPreset1" />
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Preset média 2}}</label>
                                     <div class="col-sm-6">
                                         <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="jpiPreset2" />
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Preset média 3}}</label>
                                     <div class="col-sm-6">
                                         <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="jpiPreset3" />
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label">{{Preset média 4}}</label>
                                     <div class="col-sm-6">
                                         <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="jpiPreset4" />
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
 
                                 </div>
                             </fieldset>
@@ -161,9 +170,9 @@ if (network::getUserLocation() == 'internal') {
                 <div role="tabpanel" class="tab-pane" id="commandtabCmdWidget">
                     <table id="table_cmdWidget" class="table table-bordered table-condensed">
                         <thead>
-                            <tr> 
-                                <th style="width: 50px;"></th>  
-                                <th style="width: 150px;">{{Nom}}</th>                          
+                            <tr>
+                                <th style="width: 50px;"></th>
+                                <th style="width: 150px;">{{Nom}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -179,9 +188,9 @@ if (network::getUserLocation() == 'internal') {
                         <thead>
                             <tr>
                                 <th style="width: 65px;"></th>
-                                <th style="width: 10px;"></th>                  
+                                <th style="width: 10px;"></th>
                                 <th style="width: 100px;">{{Nom}}</th>
-                                <th style="width: 100px;">{{Actions}}</th>                                
+                                <th style="width: 100px;">{{Actions}}</th>
                                 <th style="width: 280px;">{{Paramètres}}</th>
                                 <th style="width: 280px;">{{Options}}</th>
 
@@ -203,4 +212,4 @@ include_file('desktop', 'JPI', 'js', 'JPI');
 ?>
 <?php
 include_file('core', 'plugin.template', 'js');
-?>    
+?>
