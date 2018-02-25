@@ -19,7 +19,7 @@
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
 function JPI_install() {
-    
+
 }
 
 function JPI_update() {
@@ -28,11 +28,11 @@ function JPI_update() {
 	foreach ($eqLogics as $eqLogic) {
 		$eqLogic->save();
 	}
-	log::add('JPI', 'error', '!!!Bien lire le changelog et surtout la doc');	
+	log::add('JPI', 'error', 'Avec cette nouvelle version, il est impératif de choisir le type de connexion dans les équipements !');
 }
 
 function template_remove() {
-    
+
 }
 
 ?>

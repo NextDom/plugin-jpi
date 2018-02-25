@@ -71,7 +71,7 @@ foreach ($eqLogics as $eqLogic) {
                         <form class="form-horizontal">
                             <fieldset>
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label">"{{Nom équipement JPI}}</label>
+                                    <label class="col-sm-4 control-label">{{Nom équipement JPI}}</label>
                                     <div class="col-sm-6">
                                         <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
                                         <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom équipement JPI}}" />
@@ -98,7 +98,7 @@ foreach (object::all() as $object) {
                                     </div>
                                 </div>
                               <div class="form-group">
-                                <label class="col-sm-4 control-label">{{Version HTTP}}</label>
+                                <label class="col-sm-4 control-label">{{Connexion}}</label>
                                 <div class="col-sm-4">
                                   <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="jpiProto">
                                     <option value="http">http</option>
