@@ -1,4 +1,5 @@
 <?php
+
 /* This file is part of Jeedom.
  *
  * Jeedom is free software: you can redistribute it and/or modify
@@ -17,14 +18,14 @@
 require_once dirname(__FILE__) . "/../../../../core/php/core.inc.php";
 if (!jeedom::apiAccess(init('apikey', init('api')))) {
     echo __('Vous n\'etes pas autorisé à effectuer cette action (JPI)', __FILE__);
-    log::add('JPI', 'error','Vous n\'etes pas autorisé à effectuer cette action (JPI)');
-die();
+    log::add('JPI', 'error', 'Vous n\'etes pas autorisé à effectuer cette action (JPI)');
+    die();
 }
 if (init('test') != '') {
     echo 'OK';
     die();
 }
-$reponse = init('reponse');
+$reponse  = init('reponse');
 log::add('JPI', 'info', 'Réponse Ask : ' . $reponse);
 $eqLogics = eqLogic::byType('JPI');
 foreach ($eqLogics as $eqLogic) {
