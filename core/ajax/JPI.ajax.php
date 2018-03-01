@@ -21,55 +21,55 @@ try {
     include_file('core', 'authentification', 'php');
 
     if (!isConnect('admin')) {
-        throw new Exception(__('401 - Accès non autorisé', __FILE__));
+        throw new \Exception(__('401 - Accès non autorisé', __FILE__));
     }
 
     if (init('action') == 'getjpiVoice') {
-        $ip = (init('ip'));
+        $ip   = (init('ip'));
         $port = (init('port'));
         ajax::success(JPI::getjpiVoice($ip, $port));
     }
 
     if (init('action') == 'getjpiApp') {
-        $ip = (init('ip'));
+        $ip   = (init('ip'));
         $port = (init('port'));
         ajax::success(JPI::getjpiApp($ip, $port));
     }
 
     if (init('action') == 'getjpiActions') {
-        $ip = (init('ip'));
+        $ip   = (init('ip'));
         $port = (init('port'));
         ajax::success(JPI::getjpiActions($ip, $port));
     }
 
     if (init('action') == 'autoDetectModule') {
-        $ip = (init('ip'));
+        $ip   = (init('ip'));
         $port = (init('port'));
         ajax::success(JPI::autoDetectModule($ip, $port));
     }
 
     if (init('action') == 'AddCommand') {
-        $id = (init('id'));
-        $name = (init('name'));
-        $command = (init('command'));
+        $id         = (init('id'));
+        $name       = (init('name'));
+        $command    = (init('command'));
         $parameters = (init('parameters'));
-        $options = (init('options'));
+        $options    = (init('options'));
         ajax::success(JPI::AddCommand($id, $name, $command, $parameters, $options));
     }
 
     if (init('action') == 'updateCommand') {
-        $cmdid = (init('cmdid'));
-        $id = (init('id'));
-        $name = (init('name'));
-        $command = (init('command'));
+        $cmdid      = (init('cmdid'));
+        $id         = (init('id'));
+        $name       = (init('name'));
+        $command    = (init('command'));
         $parameters = (init('parameters'));
-        $options = (init('options'));
+        $options    = (init('options'));
         ajax::success(JPI::updateCommand($id, $cmdid, $name, $command, $parameters, $options));
     }
 
-    throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
+    throw new \Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
     /*     * *********Catch exeption*************** */
-} catch (Exception $e) {
+} catch (\Exception $e) {
     ajax::error(displayExeption($e), $e->getCode());
 }
-?> 
+ 
