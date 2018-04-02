@@ -85,8 +85,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" >{{Objet parent}}</label>
-                                    <div class="col-sm-3">
+                                    <label class="col-sm-4 control-label" >{{Objet parent}}</label>
+                                    <div class="col-sm-6">
                                         <select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
                                             <option value="">{{Aucun}}</option>
                                             <?php
