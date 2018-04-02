@@ -1,9 +1,9 @@
 
-[![license](https://img.shields.io/github/license/Jeedom-Plugins-Extra/plugin-template.svg)](./LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/Jeedom-Plugins-Extra/plugin-template.svg)](../../graphs/contributors) [![GitHub release](https://img.shields.io/github/release/Jeedom-Plugins-Extra/plugin-template.svg)](../../releases) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/_USERNAME) [![Waffle.io - Columns and their card count](https://badge.waffle.io/Jeedom-Plugins-Extra/plugin-template.svg?columns=all)](https://waffle.io/Jeedom-Plugins-Extra/plugin-template)
+[![license](https://img.shields.io/github/license/plugin-jpi/plugin-template.svg)](./LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/plugin-jpi/plugin-template.svg)](../../graphs/contributors) [![GitHub release](https://img.shields.io/github/release/plugin-jpi/plugin-template.svg)](../../releases) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/_USERNAME) [![Waffle.io - Columns and their card count](https://badge.waffle.io/plugin-jpi/plugin-template.svg?columns=all)](https://waffle.io/plugin-jpi/plugin-template)
 
-### Master: [![Build Status](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-template.svg?branch=master)](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-template)  [![Coverage Status](https://coveralls.io/repos/github/Jeedom-Plugins-Extra/plugin-template/badge.svg?branch=master)](https://coveralls.io/github/Jeedom-Plugins-Extra/plugin-template?branch=master)
+### Master: [![Build Status](https://travis-ci.org/plugin-jpi/plugin-template.svg?branch=master)](https://travis-ci.org/plugin-jpi/plugin-template)  [![Coverage Status](https://coveralls.io/repos/github/plugin-jpi/plugin-template/badge.svg?branch=master)](https://coveralls.io/github/plugin-jpi/plugin-template?branch=master)
 
-### Develop: [![Build Status](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-template.svg?branch=develop)](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-template)  [![Coverage Status](https://coveralls.io/repos/github/Jeedom-Plugins-Extra/plugin-template/badge.svg?branch=develop)](https://coveralls.io/github/Jeedom-Plugins-Extra/plugin-template?branch=develop)
+### Develop: [![Build Status](https://travis-ci.org/plugin-jpi/plugin-template.svg?branch=develop)](https://travis-ci.org/plugin-jpi/plugin-template)  [![Coverage Status](https://coveralls.io/repos/github/plugin-jpi/plugin-template/badge.svg?branch=develop)](https://coveralls.io/github/plugin-jpi/plugin-template?branch=develop)
 
 # Présentation:
 
@@ -16,7 +16,7 @@ Ce plugin permettant d'utiliser facilement l'application android **JPI** sans pa
 
 # Documentation complète:
 
-[![Read the Docs](plugin_info/JPI_icon.png)](https://jeedom-plugins-extra.github.io/plugin-jpi)
+[![Read the Docs](plugin_info/JPI_icon.png)](https://plugin-jpi.github.io/plugin-jpi)
 
 
 [![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/jmz84/)
