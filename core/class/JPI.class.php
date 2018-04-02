@@ -175,9 +175,7 @@ class JPI extends eqLogic
 
     public static function executeinfo()
     {
-
         $eqLogics = eqLogic::byType('JPI');
-
         foreach ($eqLogics as $JPI) {
             if ($JPI->getIsEnable() == 1) {
                 foreach ($JPI->getCmd('info') as $cmd) {
@@ -191,10 +189,17 @@ class JPI extends eqLogic
                         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
                         $value = curl_exec($ch);
                         curl_close($ch);
-                        if (empty($value)){
-                            log::add('JPI', 'error', 'L\'équipement JPI n\'est pas accessible !');
+                        if (empty($value) || preg_match("/\bPAW Server\b/i", $value)){
+                            log::add('JPI', 'error', 'L\'équipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Le widget a été masqué sur le dashboard pour éviter des dysfonctionnements');
+                            $JPI->setIsVisible(0);
+                            $JPI->save();
                         }else{
+                            if ($JPI->getIsVisible() == 0){
+                                $JPI->setIsVisible(1);
+                                $JPI->save();
+                            }
                             log::add('JPI', 'DEBUG', 'Valeur de la requête  ' . $url . ' : ' . $value);
+
                             $JPI->checkAndUpdateCmd($cmd, $value);
                             $JPI->save();
                             if ($cmd->getConfiguration('jpiAction') == 'getBattLevel') {
