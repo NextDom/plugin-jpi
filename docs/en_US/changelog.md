@@ -1,4 +1,11 @@
-### Version 2.01 (Version en cours sur le market)
+### Version 2.02 (Version en cours sur le market)
+- Mise à jour de l'icone
+- Ajout du support HTTPS
+- Ajout API dédiée au plugin
+- Ajout d'une alerte (centre de message Jeedom) sur défaut de communication d'un équipement JPI
+- Correction d'un bug sur l'assistant de création de commandes
+
+### Version 2.01 (2018-02-26 04:50:58)
 - Mise à jour de la documentation
 - Ajout des QR Codes pour télécharger les prérequis
 
