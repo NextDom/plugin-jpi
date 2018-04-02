@@ -1,49 +1,23 @@
-# Plugin jpi pour Jeedom
 
-<img src="plugin_info/jpi_icon.png" align="right" height="160" width="150">
+[![license](https://img.shields.io/github/license/Jeedom-Plugins-Extra/plugin-template.svg)](./LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/Jeedom-Plugins-Extra/plugin-template.svg)](../../graphs/contributors) [![GitHub release](https://img.shields.io/github/release/Jeedom-Plugins-Extra/plugin-template.svg)](../../releases) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/_USERNAME) [![Waffle.io - Columns and their card count](https://badge.waffle.io/Jeedom-Plugins-Extra/plugin-template.svg?columns=all)](https://waffle.io/Jeedom-Plugins-Extra/plugin-template)
 
-Ce plugin permet d'utiliser facilement l'application android **JPI** sans passer par le plugin script.
+### Master: [![Build Status](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-template.svg?branch=master)](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-template)  [![Coverage Status](https://coveralls.io/repos/github/Jeedom-Plugins-Extra/plugin-template/badge.svg?branch=master)](https://coveralls.io/github/Jeedom-Plugins-Extra/plugin-template?branch=master)
 
+### Develop: [![Build Status](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-template.svg?branch=develop)](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-template)  [![Coverage Status](https://coveralls.io/repos/github/Jeedom-Plugins-Extra/plugin-template/badge.svg?branch=develop)](https://coveralls.io/github/Jeedom-Plugins-Extra/plugin-template?branch=develop)
 
-### Market
-
-Retrouvez le sur le Market Jeedom [ici](https://www.jeedom.com/market/index.php?v=d&p=market&type=plugin&&name=JPI)
+# Présentation:
 
 
-### Documentation
+Ce plugin permettant d'utiliser facilement l'application android **JPI** sans passer par le plugin script.
+![widget](../images/widget.png)
 
-Vous trouverez la documentation [ici](https://jeedom-plugins-extra.github.io/plugin-jpi/#language#/)
+# Documentation du plugin:
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](docs/fr_FR/presentation.md)
+[présentation](docs/fr_FR/presentation.md) [configuration](docs/fr_FR/configuration.md) [faq](docs/fr_FR/faq.md) [changelog](docs/fr_FR/changelog.md)
 
+# Documentation complète:
 
-### Prévisualisation
-
-<img src="docs/images/widget.png" align="center">
-
-
-### Forum
-
-Lien vers le forum [ici](https://www.jeedom.com/forum/viewtopic.php?f=141&t=25330&hilit=jpi)
+[![Read the Docs](plugin_info/JPI_icon.png)](https://jeedom-plugins-extra.github.io/plugin-jpi)
 
 
-### Chatroom
-
-Lien vers le chat [ici](https://gitter.im/Jeedom-Plugins-Extra/plugin-jpi)
-
-
-### Fonctions disponibles
-
-Infos :
-* le plugin 100% compatible avec l'application android JPI
-
-Actions :
-* Tout ce que permet l'application android JPI
-
-Scénarios possible (ceux que j'ai chez moi) :
-* Envoyer des sms
-* Envoyer des TTS
-* Récupérer la valeur de la luminosité
-
-<img src="https://github.com/Jeedom-Plugins-Extra/plugin-jpi/blob/master/docs/images/JPI_icon.png" align="right" height="100" width="95">
-
-## <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC" src="https://creativecommons.org/images/deed/cc_blue_x2.png" height="24px" width="24px"><img alt="attribution" src="https://creativecommons.org/images/deed/attribution_icon_blue_x2.png" height="24px" width="24px"><img alt="SA" src="https://creativecommons.org/images/deed/sa_blue_x2.png" height="24px" width="24px"> Team Jeedom-Plugins-Extra </a>
-### Retour à l'accueil du [Wiki](https://github.com/Jeedom-Plugins-Extra/Jeedom-Plugins-Extra/wiki) ou de la [Team](https://github.com/Jeedom-Plugins-Extra)
+[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/jmz84/)
