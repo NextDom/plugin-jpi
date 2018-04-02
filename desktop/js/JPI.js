@@ -50,7 +50,8 @@ $('#bt_autoDetectDevice').on('click', function () {
                 data: {
                     action: "autoDetectModule",
                     ip: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiIp]').value(),
-                    port: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiPort]').value()
+                    port: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiPort]').value(),
+					proto: $('.eqLogicAttr[data-l1key=configuration][data-l2key=jpiProto]').value()
                 },
                 dataType: 'json',
                 global: false,

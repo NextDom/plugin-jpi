@@ -127,7 +127,7 @@
             foreach ($files as $file) {
                 unlink($file);
             }
-            log::add('JPI', 'INFO', 'Refresh de la configuration en cours ' . $ip . ' ' .$port, $proto);
+            log::add('JPI', 'INFO', 'Refresh de la configuration en cours');
             self::getjpiActions($ip, $port, $proto);
             self::getjpiApp($ip, $port, $proto);
             self::getjpiVoice($ip, $port, $proto);
