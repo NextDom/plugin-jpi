@@ -4,11 +4,6 @@
 
 ### Develop: [![Build Status](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-jpi.svg?branch=Develop)](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-jpi)  [![Coverage Status](https://coveralls.io/repos/github/Jeedom-Plugins-Extra/plugin-jpi/badge.svg?branch=Develop)](https://coveralls.io/github/Jeedom-Plugins-Extra/plugin-jpi?branch=Develop)
 
-
-### Master: [![Build Status](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-jpi.svg?branch=master)](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-jpi)  [![Coverage Status](https://coveralls.io/repos/github/Jeedom-Plugins-Extra/plugin-jpi/badge.svg?branch=master)](https://coveralls.io/github/Jeedom-Plugins-Extra/plugin-jpi?branch=master)
-
-### Develop: [![Build Status](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-jpi.svg?branch=develop)](https://travis-ci.org/Jeedom-Plugins-Extra/plugin-jpi)  [![Coverage Status](https://coveralls.io/repos/github/Jeedom-Plugins-Extra/plugin-jpi/badge.svg?branch=develop)](https://coveralls.io/github/Jeedom-Plugins-Extra/plugin-jpi?branch=develop)
-
 # Présentation:
 
 Ce plugin permettant d'utiliser facilement l'application android **JPI** sans passer par le plugin script.
