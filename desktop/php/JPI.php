@@ -205,7 +205,7 @@
                                 <th style="width: 100px;">{{Actions}}</th>
                                 <th style="width: 280px;">{{Paramètres}}</th>
                                 <th style="width: 280px;">{{Options}}</th>
-
+								<th style="width: 10px;">{{Retenter}}</th>
                             </tr>
                         </thead>
                         <tbody>
