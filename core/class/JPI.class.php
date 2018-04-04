@@ -183,53 +183,57 @@ class JPI extends eqLogic
     {
         $eqLogics = eqLogic::byType('JPI');
         $retention = config::byKey('retention', 'JPI');
-        foreach ($eqLogics as $JPI) {
-            if ($JPI->getIsEnable() == 1) {
-                $url = $JPI->getConfiguration('jpiProto') . '://' . $JPI->getConfiguration('jpiIp') . ':' . $JPI->getConfiguration('jpiPort') . '/?path=%2Fsdcard0%2Fpaw%2FJPI%2Fconfig%2Fconfig.json&mode=download';
-                $dir 	= calculPath(config::byKey('backupdDir', 'JPI')) . '/'. $JPI->getId();
-                $jsonFile 	= $dir . '/' .$JPI->getName() . '_' . date('dmY_hia') .'.json';
-                log::add('JPI', 'DEBUG', 'Sauvegarde de la configuration de l\'équipement '. $JPI->getName() . ' dans le fichier : '. $jsonFile);
-                if (!file_exists($dir)) {
-                    mkdir($dir, 0777, true);
-                }
-                file_put_contents($jsonFile, fopen($url, 'r'));
-
-                $files = array();
-
-                if ($handle = opendir($dir))
-                {
-                    while (false !== ($file = readdir($handle)))
-                    {
-                        if ($file != "." && $file != "..")
-                        {
-                            $files[filemtime($dir."/".$file)] = $file;
-                        }
+        if ($retention !== "none"){
+            foreach ($eqLogics as $JPI) {
+                if ($JPI->getIsEnable() == 1) {
+                    $url = $JPI->getConfiguration('jpiProto') . '://' . $JPI->getConfiguration('jpiIp') . ':' . $JPI->getConfiguration('jpiPort') . '/?path=%2Fsdcard0%2Fpaw%2FJPI%2Fconfig%2Fconfig.json&mode=download';
+                    $dir 	= calculPath(config::byKey('backupdDir', 'JPI')) . '/'. $JPI->getId();
+                    $jsonFile 	= $JPI->getName() . '_' . date('dmY_hia') .'.json';
+                    $trimjsonFile = preg_replace('/\\s/','',$jsonFile);
+                    $completeFile = $dir . '/' . $trimjsonFile;
+                    log::add('JPI', 'DEBUG', 'Sauvegarde de la configuration de l\'équipement '. $JPI->getName() . ' dans le fichier : '. $completeFile);
+                    if (!file_exists($dir)) {
+                        mkdir($dir, 0777, true);
                     }
-                    closedir($handle);
-                }
-                if ( count($files) > $retention )
-                {
-                    // sort
-                    ksort($files);
-                    $filetodelete = count($files) - $retention;
-                    foreach($files as $file)
+                    file_put_contents($completeFile, fopen($url, 'r'));
+
+                    $files = array();
+
+                    if ($handle = opendir($dir))
                     {
-                        if ( $filetodelete > 0 )
+                        while (false !== ($file = readdir($handle)))
                         {
-                            log::add('JPI','debug',"delete ".$file);
-                            unlink($dir."/".$file);
-                            $path_parts=pathinfo($file);
-                            $file = $path_parts['filename'] . '_mini.jpg';
-                            if (file_exists($dir."/".$file)) {
-                                log::add('JPI','debug',"delete ".$file);
-                                unlink($dir."/".$file);
+                            if ($file != "." && $file != "..")
+                            {
+                                $files[filemtime($dir."/".$file)] = $file;
                             }
                         }
-                        $filetodelete--;
+                        closedir($handle);
+                    }
+                    if ( count($files) > $retention )
+                    {
+
+                        ksort($files);
+                        $filetodelete = count($files) - $retention;
+                        foreach($files as $file)
+                        {
+                            if ( $filetodelete > 0 )
+                            {
+                                log::add('JPI','debug',"Suppression du fichier de sauvegarde : ".$file);
+                                unlink($dir."/".$file);
+                                $path_parts=pathinfo($file);
+                                $file = $path_parts['filename'];
+                                if (file_exists($dir."/".$file)) {
+                                    log::add('JPI','debug',"Suppression du fichier de sauvegarde : ".$file);
+                                    unlink($dir."/".$file);
+                                }
+                            }
+                            $filetodelete--;
+                        }
                     }
                 }
-            }
 
+            }
         }
     }
 

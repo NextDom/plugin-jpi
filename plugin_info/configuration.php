@@ -46,7 +46,7 @@ die();
         <label class="col-lg-3 text-center control-label">{{Point de restauration à garder}}</label>
           <div class="col-lg-3 text-center ">
             <select id="frequence" class="configKey form-control"  data-l1key="retention" >
-                <option value="1" >{{1}}</option>
+                <option value="none" >{{Désactivé}}</option>
                 <option value="2">{{2}}</option>
                 <option value="3">{{3}}</option>
                 <option value="4">{{4}}</option>
