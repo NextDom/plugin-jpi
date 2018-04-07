@@ -340,7 +340,7 @@ class JPI extends eqLogic
             log::add('JPI', 'DEBUG', 'Requete lancée pour la commande ' . $cmdName . ' : ' . $action . ' - Résultat : ' . $response);
             if(preg_match("/\bok\b/i", $response) || preg_match("/\bstorage\b/i", $response)){
                 $result = true;
-                return $result;
+                return $response;
 
             }else {
                 log::add('JPI', 'error', 'La requete pour la commande ' . $cmdName . ' n\'a pas été exécutée');
@@ -739,24 +739,32 @@ class JPICmd extends cmd
             $cmdName = $this->getName();
             $retry = $this->getConfiguration('jpiRetry');
             $eqLogic->executerequest($action, $cmdName, $retry);
-            $action = $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=delete&filePath=' . urlencode($response) . '&__JPIPLUG=1';
+            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=delete&filePath=' . urlencode($response) . '&__JPIPLUG=1';
             $eqLogic->executerequest($action);
         }
 
         if ($this->getConfiguration('jpiAction') == 'sendMail') {
-            $jeedomurl = network::getNetworkAccess('internal');
-            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=download&url=' .urlencode($jeedomurl . '/core/php/downloadFile.php?apikey=' . config::byKey('api') . '&pathfile=' . $_options['files'][0])  . '&__JPIPLUG=1';
-            $response = $eqLogic->executerequest($action);
-            $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=sendMail&' . $this->getConfiguration('jpiParametres') . '&message=' . urlencode($_options['message']) . '&attach=' . urlencode($response) . '&__JPIPLUG=1';
-            $cmdName = $this->getName();
-            $retry = $this->getConfiguration('jpiRetry');
-            $eqLogic->executerequest($action, $cmdName, $retry);
-            $action = $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=delete&filePath=' . urlencode($response) . '&__JPIPLUG=1';
-            $eqLogic->executerequest($action);
+            if(isset($_options['files'])) {
+                $jeedomurl = network::getNetworkAccess('internal');
+                $retry = $this->getConfiguration('jpiRetry');
+                $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=download&url=' .urlencode($jeedomurl . '/core/php/downloadFile.php?apikey=' . config::byKey('api') . '&pathfile=' . $_options['files'][0])  . '&__JPIPLUG=1';
+                $cmdName = "Upload file";
+                $response = $eqLogic->executerequest($action, $cmdName, $retry);
+                $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=sendMail&' . $this->getConfiguration('jpiParametres') . '&message=' . urlencode($_options['message']) . '&attach=' . urlencode($response) . '&__JPIPLUG=1';
+                $cmdName = $this->getName();
+                $eqLogic->executerequest($action, $cmdName, $retry);
+                $action = 'http://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=delete&filePath=' . urlencode($response) . '&__JPIPLUG=1';
+                $cmdName = "Delete file";
+                $response = $eqLogic->executerequest($action, $cmdName, $retry);
+            }else{
+                $action = $eqLogic->getConfiguration('jpiProto') . '://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=' . $this->getConfiguration('jpiAction') . '&message=' . urlencode($_options['message']) . '&__JPIPLUG=1';
+                $cmdName = $this->getName();
+                $retry = $this->getConfiguration('jpiRetry');
+                $eqLogic->executerequest($action, $cmdName, $retry);
+            }
         }
 
-
-        if ($this->getConfiguration('jpiAction') !== 'sendSms' && $this->getConfiguration('jpiAction') !== 'tts' && $this->getSubtype() == 'message') {
+        if ($this->getConfiguration('jpiAction') !== 'sendSms' && $this->getConfiguration('jpiAction') !== 'sendMms' && $this->getConfiguration('jpiAction') !== 'tts' && $this->getConfiguration('jpiAction') !== 'sendMail' && $this->getSubtype() == 'message') {
             if ($this->getConfiguration('jpiParametres') == '') {
                 $action = $eqLogic->getConfiguration('jpiProto') . '://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=' . $this->getConfiguration('jpiAction') . '&message=' . urlencode($_options['message']) . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
                 $cmdName = $this->getName();
@@ -770,7 +778,7 @@ class JPICmd extends cmd
             }
         }
 
-        if (($this->getConfiguration('jpiAction') !== 'tts' && $this->getConfiguration('jpiAction') !== 'sendSms' && $this->getSubtype() !== 'message')) {
+        if (($this->getConfiguration('jpiAction') !== 'tts' && $this->getConfiguration('jpiAction') !== 'sendSms' && $this->getConfiguration('jpiAction') !== 'sendMail' && $this->getConfiguration('jpiAction') !== 'sendMms' && $this->getSubtype() !== 'message')) {
             if ($this->getConfiguration('jpiAction') !== '') {
                 $action = $eqLogic->getConfiguration('jpiProto') . '://' . $eqLogic->getConfiguration('jpiIp') . ':' . $eqLogic->getConfiguration('jpiPort') . '/?action=' . $this->getConfiguration('jpiAction') . '&' . $this->getConfiguration('jpiParametres') . '&' . $this->getConfiguration('jpiOptions') . '&__JPIPLUG=1';
                 $cmdName = $this->getName();
