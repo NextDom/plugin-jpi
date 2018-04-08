@@ -1,86 +1,86 @@
-<div class="eqLogic-widget eqLogic JPI" style="min-width: 350px;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#;" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" >
-    <span class="statusCmd pull-right" style="position : absolute;left : 2px;z-index: 1030;"></span>
-    <span class="spanvoice tooltips" style="position : absolute;bottom: 3px;left: 3px;cursor:pointer"><i class="fa fa-microphone" title="Reconnaissance vocale"></i></span>
-    <i class='fa fa-refresh pull-right cursor refresh' style="margin-top: 3px;margin-right: 3px;"></i>
-    <span class="cmd cmd-widget" data-cmd_id="#refresh_id#" style="display:none;"></span>
-    <center class="widget-name" style="#hideEqLogicName#">#name_display#  <span style="font-size: 0.85em;position: relative;top:-2px;">#object_name#</span></center>
+  <div class="eqLogic-widget eqLogic JPI" style="min-width: 350px;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#;" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" >
+      <span class="statusCmd pull-right" style="position : absolute;left : 2px;z-index: 1030;"></span>
+      <span class="spanvoice tooltips" style="position : absolute;bottom: 3px;left: 3px;cursor:pointer"><i class="fa fa-microphone" title="Reconnaissance vocale"></i></span>
+      <i class='fa fa-refresh pull-right cursor refresh' style="margin-top: 3px;margin-right: 3px;"></i>
+      <span class="cmd cmd-widget" data-cmd_id="#refresh_id#" style="display:none;"></span>
+      <center class="widget-name" style="#hideEqLogicName#">#name_display#  <span style="font-size: 0.85em;position: relative;top:-2px;">#object_name#</span></center>
 
-    <div class="row">
-        <div class="col-xs-5">
-            <center style="margin-top:5px">
-                <span class="spanversion" style="font-size : 1em;"><i class="fa fa-info-circle" title="Version APK"></i>&nbsp;#infoversion#</span><br>
-                <span class="spanbatterie" style="font-size : 1em;"><i class="fa fa-battery-full" title="Niveau batterie"></i>&nbsp;#infobatterie# %</span><br>
-                <span class="spansignal" style="font-size : 1em;"><i class="fa fa-wifi" title="Puissance Wifi"></i>&nbsp;#infosignal# %</span><br>
-                <span class="spansms" style="font-size : 1em;"><i class="fa fa-commenting" title="SMS envoyés"></i>&nbsp;#infosms#</span><br>
-                <span class="spanvolume" style="font-size : 1em;"><i class="fa fa-volume-off" title="Volume média"></i>&nbsp;#infovolume#</span>
+      <div class="row">
+          <div class="col-xs-5">
+              <center style="margin-top:5px">
+                  <span class="spanversion" style="font-size : 1em;"><i class="fa fa-info-circle" title="Version APK"></i>&nbsp;#infoversion#</span><br>
+                  <span class="spanbatterie" style="font-size : 1em;"><i class="fa fa-battery-full" title="Niveau batterie"></i>&nbsp;#infobatterie# %</span><br>
+                  <span class="spansignal" style="font-size : 1em;"><i class="fa fa-wifi" title="Puissance Wifi"></i>&nbsp;#infosignal# %</span><br>
+                  <span class="spansms" style="font-size : 1em;"><i class="fa fa-commenting" title="SMS envoyés"></i>&nbsp;#infosms#</span><br>
+                  <span class="spanvolume" style="font-size : 1em;"><i class="fa fa-volume-off" title="Volume média"></i>&nbsp;#infovolume#</span>
 
-            </center>
-        </div>
+              </center>
+          </div>
 
-        <div class="col-xs-6">
-            <center style="margin-top:5px">
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised mute" title="mute" style="background-color:#FFB732 !important;border-color : transparent !important;"><i class="fa fa-volume-off"></i></a>               
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised unmute" title="unmute" style="background-color:#FFB732 !important;border-color : transparent !important;"><i class="fa fa-volume-up"></i></a><br> 
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised play" title="play" style="background-color:#6FB76F !important;border-color : transparent !important;"><i class="fa fa-play"></i></a> 
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised pause" title="pause" style="background-color:#ff4357 !important;border-color : transparent !important;"><i class="fa fa-pause"></i></a> 
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised stop" title="stop" style="background-color:#ff4357 !important;border-color : transparent !important;"><i class="fa fa-stop"></i></a> 
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised next" title="next" style="background-color:#ff4357 !important;border-color : transparent !important;"><i class="fa fa-step-forward"></i></a><br> 
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset1" title="preset1" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a> 
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset2" title="preset2" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a> 
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset3" title="preset3" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a> 
-                <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset4" title="preset4" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a> 
-        </div>
-        <div align="center">
-            <div class="volumemedia full-width-slider" style="min-width:350px;height:30px;margin-left:10px">
-                <input type="range" min="0" max="100" data-theme="a" value="#infovolume#"/>
-            </div>
-        </div>
-    </div>
-    <script>
+          <div class="col-xs-6">
+              <center style="margin-top:5px">
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised mute" title="mute" style="background-color:#FFB732 !important;border-color : transparent !important;"><i class="fa fa-volume-off"></i></a>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised unmute" title="unmute" style="background-color:#FFB732 !important;border-color : transparent !important;"><i class="fa fa-volume-up"></i></a><br>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised play" title="play" style="background-color:#6FB76F !important;border-color : transparent !important;"><i class="fa fa-play"></i></a>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised pause" title="pause" style="background-color:#ff4357 !important;border-color : transparent !important;"><i class="fa fa-pause"></i></a>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised stop" title="stop" style="background-color:#ff4357 !important;border-color : transparent !important;"><i class="fa fa-stop"></i></a>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised next" title="next" style="background-color:#ff4357 !important;border-color : transparent !important;"><i class="fa fa-step-forward"></i></a><br>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset1" title="preset1" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset2" title="preset2" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset3" title="preset3" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a>
+                  <a class="action ui-btn ui-mini ui-btn-inline ui-btn-raised preset4" title="preset4" style="background-color:#6666ff !important;border-color : transparent !important;"><i class="fa fa-music"></i></a>
+          </div>
+          <div align="center">
+              <div class="volumemedia full-width-slider" style="min-width:350px;height:30px;margin-left:10px">
+                  <input type="range" min="0" max="100" data-theme="a" value="#infovolume#"/>
+              </div>
+          </div>
+      </div>
+      <script>
 
-        $("body").delegate(".JPI[data-eqLogic_uid=#uid#] .volumemedia", 'slidestop', function (event, ui) {
-            jeedom.cmd.execute({id: '#cmd_setvolumemedia_id#', value: {slider: $(".JPI[data-eqLogic_uid=#uid#] .volumemedia input").value()}});
-            $(".eqLogic[data-eqLogic_uid=#uid#] .spanvolume").empty().append(' <i class="fa fa-volume-off" style="margin-top:-5px"; title="Volume"></i>' + ' ' + $(".JPI[data-eqLogic_uid=#uid#] .volumemedia input").value());
-        });
+          $("body").delegate(".JPI[data-eqLogic_uid=#uid#] .volumemedia", 'slidestop', function (event, ui) {
+              jeedom.cmd.execute({id: '#cmd_setvolumemedia_id#', value: {slider: $(".JPI[data-eqLogic_uid=#uid#] .volumemedia input").value()}});
+              $(".eqLogic[data-eqLogic_uid=#uid#] .spanvolume").empty().append(' <i class="fa fa-volume-off" style="margin-top:-5px"; title="Volume"></i>' + ' ' + $(".JPI[data-eqLogic_uid=#uid#] .volumemedia input").value());
+          });
 
 
 
-        $('.eqLogic[data-eqLogic_uid=#uid#] .mute').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_mute_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .unmute').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_unmute_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .play').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_play_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .pause').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_pause_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .stop').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_stop_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .next').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_next_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .preset1').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_preset1_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .preset2').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_preset2_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .preset3').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_preset3_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .preset4').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_preset4_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .spanvoice').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_voice_id#'});
-        });
-        $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
-            jeedom.cmd.execute({id: '#cmd_refresh_id#'});
-        });
-    </script>
+          $('.eqLogic[data-eqLogic_uid=#uid#] .mute').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_mute_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .unmute').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_unmute_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .play').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_play_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .pause').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_pause_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .stop').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_stop_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .next').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_next_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .preset1').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_preset1_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .preset2').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_preset2_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .preset3').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_preset3_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .preset4').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_preset4_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .spanvoice').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_voice_id#'});
+          });
+          $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
+              jeedom.cmd.execute({id: '#cmd_refresh_id#'});
+          });
+      </script>
 
-</div>
+  </div>
