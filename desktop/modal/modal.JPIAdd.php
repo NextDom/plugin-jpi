@@ -153,15 +153,18 @@ $('#idactions').on('change', function () {
             }
             ;
 
+
             if (val.type == "text" || val.type == "textarea" || val.type == "basic") {
                 if (key === "message") {
                     title += '<FONT color="red"><b>Le champ message est à remplir dans les scénarios !<br> Ne pas oublier de séléctionner le type de commande action/message.</b></FONT>';
                     $("#idparameters").append(title);
-                }
-                if (key != "packageName"){
-                    title += '<b>' + key + '</b>';
-                    title += '<input id="parameters" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '">';
-                    $("#idparameters").append(title);
+                } else {
+                    if (key != "packageName" && key != "imagePath"){
+                        title += '<b>' + key + '</b>';
+                        title += '<input id="parameters" type="input" class="form-control" name="' + key + '" placeholder="' + val.description + '">';
+                        $("#idparameters").append(title);
+                    }
+                    ;
                 }
                 ;
             }
@@ -186,47 +189,49 @@ $('#idactions').on('change', function () {
 
 
         if (val.required == false) {
-
-            if (val.type == "text" || val.type == "textarea" || val.type == "basic") {
-                title += '<b>' + key + '</b>';
-                title += '<input id="options" type="input" class="form-control" name="' + key + '" value="' + val.defaultValue + '" placeholder="' + val.description + '">'
-                $("#idoptions").append(title);
-            }
-            ;
-
-            if (val.type == "boolean") {
-                title += '<b>' + key + '</b>';
-                title += '<form>';
-                if (val.defaultValue === 1) {
-                    title += '<input id="options" type="radio" name="' + key + '" value="1" checked>  Oui';
-                    title += ' <input id="options" type="radio" name="' + key + '" value="0">  Non';
-                } else {
-                    title += '<input id="options" type="radio" name="' + key + '" value="1"  >  Oui';
-                    title += ' <input id="options" type="radio" name="' + key + '" value="0" checked>  Non';
+            if (actionVal != "sendMail") {
+                if (val.type == "text" || val.type == "textarea" || val.type == "basic") {
+                    title += '<b>' + key + '</b>';
+                    title += '<input id="options" type="input" class="form-control" name="' + key + '" value="' + val.defaultValue + '" placeholder="' + val.description + '">'
+                    $("#idoptions").append(title);
                 }
                 ;
-                title += '</form>';
-                $("#idoptions").append(title);
-            }
-            ;
-            if (val.type == "select") {
-                if (isset(val.magic) && is_array(val.magic)) {
+
+                if (val.type == "boolean") {
                     title += '<b>' + key + '</b>';
-                    title += '<select id="options" class="form-control" name="' + key + '">';
-                    title += '<option value="' + val.defaultValue + '">' + val.defaultValue + '</option>';
-                    title += '<option value="">- Selectionner une option -</option>';
-                    $.each(val.magic, function (key, value) {
-                        title += '<option value="' + key + '">' + value.title + '</option>';
-                    });
+                    title += '<form>';
+                    if (val.defaultValue === 1) {
+                        title += '<input id="options" type="radio" name="' + key + '" value="1" checked>  Oui';
+                        title += ' <input id="options" type="radio" name="' + key + '" value="0">  Non';
+                    } else {
+                        title += '<input id="options" type="radio" name="' + key + '" value="1"  >  Oui';
+                        title += ' <input id="options" type="radio" name="' + key + '" value="0" checked>  Non';
+                    }
+                    ;
+                    title += '</form>';
                     $("#idoptions").append(title);
                 }
-            }
-            ;
-            if (val.type == "spinner") {
-                if(key != "volume"){
-                    title += '<b>' + key + '</b>';
-                    title += '<input id="idoptions" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '" step="' + val.check.step + '" value="' + val.defaultValue + '">';
-                    $("#idoptions").append(title);
+                ;
+                if (val.type == "select") {
+                    if (isset(val.magic) && is_array(val.magic)) {
+                        title += '<b>' + key + '</b>';
+                        title += '<select id="options" class="form-control" name="' + key + '">';
+                        title += '<option value="' + val.defaultValue + '">' + val.defaultValue + '</option>';
+                        title += '<option value="">- Selectionner une option -</option>';
+                        $.each(val.magic, function (key, value) {
+                            title += '<option value="' + key + '">' + value.title + '</option>';
+                        });
+                        $("#idoptions").append(title);
+                    }
+                }
+                ;
+                if (val.type == "spinner") {
+                    if(key != "volume"){
+                        title += '<b>' + key + '</b>';
+                        title += '<input id="idoptions" type="number" class="form-control" name="' + key + '" min="' + val.check.min + '" max="' + val.check.max + '" step="' + val.check.step + '" value="' + val.defaultValue + '">';
+                        $("#idoptions").append(title);
+                    }
+                    ;
                 }
                 ;
             }

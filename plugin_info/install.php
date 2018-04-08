@@ -20,7 +20,8 @@ require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
 function JPI_install() {
     jeedom::getApiKey('JPI');
-
+    $dir = '/var/www/html/plugins/JPI/data';
+    config::save('backupdDir', $dir, 'JPI'); 
 }
 
 function JPI_update() {

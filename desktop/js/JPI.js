@@ -22,7 +22,14 @@ $('#bt_Device').on('click', function () {
     });
     $('#md_modal').load('index.php?v=d&plugin=JPI&modal=modal.JPI&id=' + $('.eqLogicAttr[data-l1key=id]').value()).dialog('open');
 });
-
+$('#bt_Backup').on('click', function () {
+    $('#md_modal').dialog({
+        title: "Gestionnaire de sauvegarde de votre équipement JPI",
+        MaxWidth: 600,
+        MaxHeight: 600
+    });
+    $('#md_modal').load('index.php?v=d&plugin=JPI&modal=modal.JPIBackup&id=' + $('.eqLogicAttr[data-l1key=id]').value()).dialog('open');
+});
 $("body").undelegate('.bt_addInAction', 'click').delegate('.bt_addInAction', 'click', function () {
     $('#md_modal').dialog({
         title: "Assistant de modification de commande JPI",
@@ -112,8 +119,6 @@ function addCmdToTable(_cmd) {
     }
 
 
-
-
     if (_cmd.configuration.type !== 'cmdwiget') {
         tr += '<td>';
         if (is_numeric(_cmd.id)) {
@@ -146,6 +151,14 @@ function addCmdToTable(_cmd) {
         tr += '<td>';
         tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="jpiOptions" placeholder="{{Options}}">';
         tr += '</td>';
+
+        tr += '<td>';
+  		tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="jpiRetry">';
+  		tr += '<option value="oui">{{Oui}}</option>';
+  		tr += '<option value="non" selected>{{Non}}</option>';
+		tr += '</select>';
+        tr += '</td>';
+                
         $('#table_cmd tbody').append(tr);
         $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
         if (isset(_cmd.type)) {
