@@ -139,7 +139,6 @@ class JPI extends eqLogic
         if ($frequence == '1min') {
             self::executeinfo();
         }
-        self::executeBackup();
     }
 
     public function cron5($_eqlogic_id = null)
