@@ -281,7 +281,7 @@ class JPI extends eqLogic
                         $value = curl_exec($ch);
                         curl_close($ch);
                         if (empty($value) || preg_match("/\bPAW Server\b/i", $value)){
-                            log::add('JPI', 'error', 'L\'équipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Le widget a été masqué sur le dashboard pour éviter des dysfonctionnements');
+                            log::add('JPI', 'error', 'L\'équipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Le widget a été masqué sur le dashboard pour éviter des dysfonctionnements ('. $value .')');
                             $JPI->setIsVisible(0);
                             $JPI->save();
                         }else{
