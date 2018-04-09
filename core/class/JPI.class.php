@@ -6,7 +6,7 @@
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
-*
+*cron
 * Jeedom is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
@@ -279,7 +279,7 @@ class JPI extends eqLogic
                         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
                         $value = curl_exec($ch);
                         curl_close($ch);
-                        if (empty($value) || preg_match("/\bPAW Server\b/i", $value)){
+                        if (preg_match("/\bPAW Server\b/i", $value)){
                             log::add('JPI', 'error', 'L\'équipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Le widget a été masqué sur le dashboard pour éviter des dysfonctionnements ('. $value .')');
                             $JPI->setIsVisible(0);
                             $JPI->save();
