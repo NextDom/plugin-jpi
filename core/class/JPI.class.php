@@ -24,7 +24,7 @@ class JPI extends eqLogic
 
     public static function AddCommand($id, $name, $command, $parameters, $options)
     {
-        log::add('JPI', 'DEBUG', 'CrÃ©ation de la commande ' . $name . ' (Action : ' . $command . ' - ParamÃ¨tres : ' . $parameters . ' - Options : ' . $options . ')');
+        log::add('JPI', 'DEBUG', 'Création de la commande ' . $name . ' (Action : ' . $command . ' - Paramètres : ' . $parameters . ' - Options : ' . $options . ')');
         $JPI    = eqLogic::byId($id);
         $JPICmd = $JPI->getCmd(null, $name);
         if (!is_object($JPICmd)) {
@@ -42,7 +42,7 @@ class JPI extends eqLogic
 
     public static function updateCommand($id, $cmdid, $name, $command, $parameters, $options)
     {
-        log::add('JPI', 'DEBUG', 'Mise Ã  jour de la commande ' . $name . ' (Action : ' . $command . ' - ParamÃ¨tres : ' . $parameters . ' - Options : ' . $options . ')');
+        log::add('JPI', 'DEBUG', 'Mise à jour de la commande ' . $name . ' (Action : ' . $command . ' - Paramètres : ' . $parameters . ' - Options : ' . $options . ')');
         $JPI = eqLogic::byId($id);
 
         $JPICmd = $JPI->getCmd(null, $name);
@@ -63,7 +63,7 @@ class JPI extends eqLogic
         $JPICmd_json = dirname(__FILE__) . '/../config/' . $ip . '_voice.json';
         if (!file_exists($JPICmd_json)) {
             $url      = $proto . '://' . $ip . ':' . $port . '/?action=getVoices&json=1';
-            log::add('JPI', 'INFO', 'DÃ©tection des voix envoyÃ©e Ã  l\'Ã©quipement JPI : ' . $url);
+            log::add('JPI', 'INFO', 'Détection des voix envoyée à l\'équipement JPI : ' . $url);
             $ch       = curl_init();
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -73,7 +73,7 @@ class JPI extends eqLogic
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($JPICmd_json, $response);
-            log::add('JPI', 'DEBUG', 'Valeurs rÃ©cupÃ©rÃ©es: ' . $response);
+            log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
         } else {
             return json_decode(file_get_contents($JPICmd_json), true);
         }
@@ -84,7 +84,7 @@ class JPI extends eqLogic
         $app_json = dirname(__FILE__) . '/../config/' . $ip . '_app.json';
         if (!file_exists($app_json)) {
             $url      = $proto . '://' . $ip . ':' . $port . '/?action=getPackagesNames&json=1';
-            log::add('JPI', 'INFO', 'DÃ©tection des applications envoyÃ©e Ã  l\'Ã©quipement JPI : ' . $url);
+            log::add('JPI', 'INFO', 'Détection des applications envoyée à l\'équipement JPI : ' . $url);
             $ch       = curl_init();
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -94,7 +94,7 @@ class JPI extends eqLogic
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($app_json, $response);
-            log::add('JPI', 'DEBUG', 'Valeurs rÃ©cupÃ©rÃ©es: ' . $response);
+            log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
         } else {
             return json_decode(file_get_contents($app_json), true);
         }
@@ -105,7 +105,7 @@ class JPI extends eqLogic
         $cmd_json = dirname(__FILE__) . '/../config/' . $ip . '_cmd.json';
         if (!file_exists($cmd_json)) {
             $url      = $proto . '://' . $ip . ':' . $port . '/?action=__NET_CMD__&__FROM_MAIN_APP__=true&net=action&action_ex=_GET_ACTIONS_JSON_';
-            log::add('JPI', 'INFO', 'DÃ©tection des commandes envoyÃ©e l\'Ã©quipement JPI: ' . $url);
+            log::add('JPI', 'INFO', 'Détection des commandes envoyée l\'équipement JPI: ' . $url);
             $ch       = curl_init();
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -115,7 +115,7 @@ class JPI extends eqLogic
             $response = curl_exec($ch);
             curl_close($ch);
             file_put_contents($cmd_json, $response);
-            log::add('JPI', 'DEBUG', 'Valeurs rÃ©cupÃ©rÃ©es: ' . $response);
+            log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
         } else {
             return json_decode(file_get_contents($cmd_json), true);
         }
@@ -191,7 +191,7 @@ class JPI extends eqLogic
                     $jsonFile 	= $JPI->getName() . '_' . date('dmY_hia') .'.json';
                     $trimjsonFile = preg_replace('/\\s/','',$jsonFile);
                     $completeFile = $dir . '/' . $trimjsonFile;
-                    log::add('JPI', 'DEBUG', 'Sauvegarde de la configuration de l\'Ã©quipement '. $JPI->getName() . ' dans le fichier : '. $completeFile);
+                    log::add('JPI', 'DEBUG', 'Sauvegarde de la configuration de l\'équipement '. $JPI->getName() . ' dans le fichier : '. $completeFile);
                     if (!file_exists($dir)) {
                         mkdir($dir, 0777, true);
                     }
@@ -253,7 +253,7 @@ class JPI extends eqLogic
                 $value = curl_exec($ch);
                 curl_close($ch);
                 if ($value !== "OK"){
-                    log::add('JPI', 'error', 'Une mise Ã  jour est disponible pour l\'Ã©quipement '. $JPI->getName() .' (' . $value .')');
+                    log::add('JPI', 'error', 'Une mise à jour est disponible pour l\'équipement '. $JPI->getName() .' (' . $value .')');
                 }
             }
         }
@@ -280,7 +280,7 @@ class JPI extends eqLogic
                         $value = curl_exec($ch);
                         curl_close($ch);
                         if (preg_match("/\bPAW Server\b/i", $value) || preg_match("/\initialising\b/i", $value)){
-                            log::add('JPI', 'error', 'L\'Ã©quipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Merci de contrÃ´ler votre pÃ©riphÃ©rique JPI');
+                            log::add('JPI', 'error', 'L\'équipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Merci de contrôler votre périphérique JPI');
                             //$JPI->setIsVisible(0);
                             //$JPI->checkAndUpdateCmd($cmd, $value);
                            // $JPI->save();
@@ -293,7 +293,7 @@ $JPI->save();
                                 $JPI->setIsVisible(1);
                                 $JPI->save();
                             }
-                            log::add('JPI', 'DEBUG', 'Valeur de la requÃªte  ' . $url . ' : ' . $value);
+                            log::add('JPI', 'DEBUG', 'Valeur de la requête  ' . $url . ' : ' . $value);
 
                             $JPI->checkAndUpdateCmd($cmd, $value);
                             $JPI->save();
@@ -325,13 +325,13 @@ $JPI->refreshWidget();
                 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
                 $response = curl_exec($ch);
                 curl_close($ch);
-                log::add('JPI', 'DEBUG', 'Requete lancÃ©e pour la commande 1' . $cmdName . ' : ' . $action . ' - RÃ©sultat : ' . $response);
+                log::add('JPI', 'DEBUG', 'Requete lancée pour la commande 1' . $cmdName . ' : ' . $action . ' - Résultat : ' . $response);
                 if(preg_match("/\bok\b/i", $response) || preg_match("/\bstorage\b/i", $response)){
                     $result = true;
                     return $result;
                 }
             }while(!$result && $i < 4);
-            log::add('JPI', 'error', 'La requete pour la commande ' . $cmdName . ' n\'a pas Ã©tÃ© exÃ©cutÃ©e');
+            log::add('JPI', 'error', 'La requete pour la commande ' . $cmdName . ' n\'a pas été exécutée');
         }else{
             log::add('JPI', 'INFO', 'Execution de la commande : ' . $cmdName);
             $ch       = curl_init();
@@ -342,13 +342,13 @@ $JPI->refreshWidget();
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
             $response = curl_exec($ch);
             curl_close($ch);
-            log::add('JPI', 'DEBUG', 'Requete lancÃ©e pour la commande ' . $cmdName . ' : ' . $action . ' - RÃ©sultat : ' . $response);
+            log::add('JPI', 'DEBUG', 'Requete lancée pour la commande ' . $cmdName . ' : ' . $action . ' - Résultat : ' . $response);
             if(preg_match("/\bok\b/i", $response) || preg_match("/\bstorage\b/i", $response)){
                 $result = true;
                 return $response;
 
             }else {
-                log::add('JPI', 'error', 'La requete pour la commande ' . $cmdName . ' n\'a pas Ã©tÃ© exÃ©cutÃ©e');
+                log::add('JPI', 'error', 'La requete pour la commande ' . $cmdName . ' n\'a pas été exécutée');
             }
         }
     }
@@ -413,7 +413,7 @@ $JPI->refreshWidget();
         $JPICmd = $this->getCmd(null, 'infosms');
         if (!is_object($JPICmd)) {
             $JPICmd = new JPICmd();
-            $JPICmd->setName(__('Nombre de SMS envoyÃ©s', __FILE__));
+            $JPICmd->setName(__('Nombre de SMS envoyés', __FILE__));
             $JPICmd->setEqLogic_id($this->getId());
             $JPICmd->setLogicalId('infosms');
             $JPICmd->setType('info');
@@ -611,7 +611,7 @@ $JPI->refreshWidget();
     {
         $ip    = $this->getConfiguration('jpiIp');
         $files = glob(dirname(__FILE__) . '/../config/' . $ip . '*.json');
-        log::add('JPI', 'INFO', 'Supression des fichiers de configuration pour l\'Ã©quipement JPI ' . $ip);
+        log::add('JPI', 'INFO', 'Supression des fichiers de configuration pour l\'équipement JPI ' . $ip);
         foreach ($files as $file) {
             unlink($file);
         }
