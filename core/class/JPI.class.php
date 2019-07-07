@@ -252,7 +252,7 @@ class JPI extends eqLogic
                 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
                 $value = curl_exec($ch);
                 curl_close($ch);
-                if ($value !== "OK"){
+                if ($value !== "OK" && !empty($value) ){
                     log::add('JPI', 'error', 'Une mise à jour est disponible pour l\'équipement '. $JPI->getName() .' (' . $value .')');
                 }
             }
