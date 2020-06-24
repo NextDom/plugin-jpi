@@ -74,9 +74,8 @@ class JPI extends eqLogic
             curl_close($ch);
             file_put_contents($JPICmd_json, $response);
             log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
-        } else {
-            return json_decode(file_get_contents($JPICmd_json), true);
         }
+        return json_decode(file_get_contents($JPICmd_json), true);
     }
 
     public static function getjpiApp($ip, $port,$proto)
@@ -95,9 +94,8 @@ class JPI extends eqLogic
             curl_close($ch);
             file_put_contents($app_json, $response);
             log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
-        } else {
-            return json_decode(file_get_contents($app_json), true);
         }
+        return json_decode(file_get_contents($app_json), true);
     }
 
     public static function getjpiActions($ip, $port, $proto)
@@ -116,9 +114,8 @@ class JPI extends eqLogic
             curl_close($ch);
             file_put_contents($cmd_json, $response);
             log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
-        } else {
-            return json_decode(file_get_contents($cmd_json), true);
         }
+        return json_decode(file_get_contents($cmd_json), true);
     }
 
     public static function autoDetectModule($ip, $port, $proto)
@@ -285,7 +282,7 @@ class JPI extends eqLogic
                             //$JPI->checkAndUpdateCmd($cmd, $value);
                            // $JPI->save();
 $value ='N/A';
-$JPI->checkANdUpdateCmd($cmd, $value);                           
+$JPI->checkANdUpdateCmd($cmd, $value);
 $JPI->save();
 
                         }else{
