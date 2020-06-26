@@ -189,7 +189,7 @@ $('#idactions').on('change', function () {
 
 
         if (val.required == false) {
-            if (actionVal != "sendMail") {
+            if (cmdvalue != "sendMail") {
                 if (val.type == "text" || val.type == "textarea" || val.type == "basic") {
                     title += '<b>' + key + '</b>';
                     title += '<input id="options" type="input" class="form-control" name="' + key + '" value="' + val.defaultValue + '" placeholder="' + val.description + '">'

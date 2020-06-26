@@ -74,9 +74,8 @@ class JPI extends eqLogic
             curl_close($ch);
             file_put_contents($JPICmd_json, $response);
             log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
-        } else {
-            return json_decode(file_get_contents($JPICmd_json), true);
         }
+        return json_decode(file_get_contents($JPICmd_json), true);
     }
 
     public static function getjpiApp($ip, $port,$proto)
@@ -95,9 +94,8 @@ class JPI extends eqLogic
             curl_close($ch);
             file_put_contents($app_json, $response);
             log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
-        } else {
-            return json_decode(file_get_contents($app_json), true);
         }
+        return json_decode(file_get_contents($app_json), true);
     }
 
     public static function getjpiActions($ip, $port, $proto)
@@ -116,9 +114,8 @@ class JPI extends eqLogic
             curl_close($ch);
             file_put_contents($cmd_json, $response);
             log::add('JPI', 'DEBUG', 'Valeurs récupérées: ' . $response);
-        } else {
-            return json_decode(file_get_contents($cmd_json), true);
         }
+        return json_decode(file_get_contents($cmd_json), true);
     }
 
     public static function autoDetectModule($ip, $port, $proto)
@@ -279,10 +276,12 @@ class JPI extends eqLogic
                         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
                         $value = curl_exec($ch);
                         curl_close($ch);
-                        if (preg_match("/\bPAW Server\b/i", $value)){
-                            log::add('JPI', 'error', 'L\'équipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Le widget a été masqué sur le dashboard pour éviter des dysfonctionnements');
-                            $JPI->setIsVisible(0);
+                        if (preg_match("/\bPAW Server\b/i", $value) || preg_match("/\initialising\b/i", $value)){
+                            log::add('JPI', 'error', 'L\'équipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Merci de contrôler votre périphérique JPI');
+                            $value ='N/A';
+                            $JPI->checkANdUpdateCmd($cmd, $value);
                             $JPI->save();
+
                         }else{
                             if ($JPI->getIsVisible() == 0){
                                 $JPI->setIsVisible(1);
@@ -296,8 +295,9 @@ class JPI extends eqLogic
                                 $JPI->batteryStatus($value);
                                 $JPI->save();
                             }
-                            $JPI->refreshWidget();
+                           // $JPI->refreshWidget();
                         }
+$JPI->refreshWidget();
                     }
                 }
             }

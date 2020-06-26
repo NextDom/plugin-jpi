@@ -475,7 +475,7 @@ $('#idactions').on('change', function () {
         ;
 
         if (val.required === false) {
-            if (actionVal != "sendMail") {
+            if (cmdvalue != "sendMail") {
 
                 if (val.type === "basic" || val.type === "text" || val.type === "textarea") {
                     title += '<b>' + key + '</b>';

@@ -13,7 +13,6 @@
                 <span class="spansignal" style="font-size : 1em;"><i class="fa fa-wifi" title="Puissance Wifi"></i>&nbsp;#infosignal# %</span><br>
                 <span class="spansms" style="font-size : 1em;"><i class="fa fa-commenting" title="SMS envoyés"></i>&nbsp;#infosms#</span><br>
                 <span class="spanvolume" style="font-size : 1em;"><i class="fa fa-volume-off" title="Volume média"></i>&nbsp;#infovolume#</span>
-
             </center>
         </div>
 
@@ -52,12 +51,6 @@
             jeedom.cmd.execute({id: '#cmd_setvolumemedia_id#', value: {slider: ui.value}});
 
         });
-
-        if ('#infosentsms#' == '0') {
-            $('.eqLogic[data-eqLogic_uid=#uid#] .spansms').css('color', '#ff9999');
-            $('.eqLogic[data-eqLogic_uid=#uid#] .spansms').attr("title", "Sms non envoyé");
-        }
-
 
 
         $('.eqLogic[data-eqLogic_uid=#uid#] .mute').on('click', function () {

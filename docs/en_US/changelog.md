@@ -3,7 +3,10 @@
 - Ajout du support HTTPS
 - Ajout API dédiée au plugin
 - Ajout d'une alerte (centre de message Jeedom) sur défaut de communication d'un équipement JPI
+- Désactivation/activation automatique du widget en cas de problème de communication avec l'équipement JPI
 - Correction d'un bug sur l'assistant de création de commandes
+- Ajout d'un gestionnaire de sauvegarde
+- Ajout du support pièce jointe pour les MMS/Mails
 
 ### Version 2.01 (2018-02-26 04:50:58)
 - Mise à jour de la documentation
