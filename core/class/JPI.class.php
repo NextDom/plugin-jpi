@@ -249,7 +249,7 @@ class JPI extends eqLogic
                 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
                 $value = curl_exec($ch);
                 curl_close($ch);
-                if ($value !== "OK"){
+                if ($value !== "OK" && !empty($value) ){
                     log::add('JPI', 'error', 'Une mise à jour est disponible pour l\'équipement '. $JPI->getName() .' (' . $value .')');
                 }
             }
@@ -278,12 +278,9 @@ class JPI extends eqLogic
                         curl_close($ch);
                         if (preg_match("/\bPAW Server\b/i", $value) || preg_match("/\initialising\b/i", $value)){
                             log::add('JPI', 'error', 'L\'équipement JPI '. $JPI->getName() .' n\'est pas fonctionnel !! Merci de contrôler votre périphérique JPI');
-                            //$JPI->setIsVisible(0);
-                            //$JPI->checkAndUpdateCmd($cmd, $value);
-                           // $JPI->save();
-$value ='N/A';
-$JPI->checkANdUpdateCmd($cmd, $value);
-$JPI->save();
+                            $value ='N/A';
+                            $JPI->checkANdUpdateCmd($cmd, $value);
+                            $JPI->save();
 
                         }else{
                             if ($JPI->getIsVisible() == 0){

@@ -1,6 +1,6 @@
 # Description
 
-Ce plugin permettant d'utiliser facilement l'application android **JPI** sans passer par le plugin script.
+Ce plugin permet d'utiliser facilement l'application android **JPI** sans passer par le plugin script.
 
 
 # Market

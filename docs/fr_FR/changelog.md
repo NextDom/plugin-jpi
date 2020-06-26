@@ -1,4 +1,7 @@
-### Version 2.02 (Version en cours sur le market)
+### Version 2.03 (Version en cours sur le market)
+- Correction de la vérification des mises à jour de l'APK JPI
+
+### Version 2.02 (2018-05-09 03:34:36)
 - Mise à jour de l'icone
 - Ajout du support HTTPS
 - Ajout API dédiée au plugin

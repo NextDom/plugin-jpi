@@ -5,6 +5,6 @@
 	"author" : "Jerome MARTINEZ",
 	"require" : "3.0",
 	"category" : "devicecommunication",
-	"changelog" : "https://jeedom-plugins-extra.github.io/plugin-jpi/#language#/changelog",
-	"documentation" : "https://jeedom-plugins-extra.github.io/plugin-jpi/#language#/"
+	"changelog" : "https://NextDom.github.io/plugin-jpi/#language#/changelog",
+	"documentation" : "https://NextDom.github.io/plugin-jpi/#language#/"
 }
